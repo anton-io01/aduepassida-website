@@ -488,3 +488,112 @@ p {
     align-items: center;
     gap: var(--spacing-sm);
 }
+
+/* ================================
+   STRUTTURA SECTION
+   ================================ */
+.struttura-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.struttura-info p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.struttura-highlights {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.struttura-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    font-size: 1rem;
+}
+
+.struttura-highlights .fa-check {
+    color: #28A745;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.accessibility-notice {
+    background: #FFF3CD;
+    border-left: 4px solid #FFC107;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.accessibility-notice i {
+    color: #856404;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.accessibility-notice span {
+    font-size: 0.95rem;
+    color: #856404;
+}
+
+.struttura-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* ================================
+   CAMERE SECTION
+   ================================ */
+.camere-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.camera-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.camera-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.camera-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.camera-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.camera-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.camera-features i {
+    color: var(--color-primary);
+    width: 16px;
+}

@@ -54,4 +54,14 @@
         flex-direction: column;
         align-items: center;
     }
+
+    /* Struttura section */
+    .struttura-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Camere section */
+    .camere-grid {
+        grid-template-columns: 1fr;
+    }
 }
