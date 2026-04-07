@@ -801,3 +801,119 @@ p {
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-md);
 }
+
+/* ================================
+   CONTATTI SECTION
+   ================================ */
+.contatti-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.contact-card {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.contact-card-wa .contact-icon {
+    color: #25D366;
+}
+
+.contact-card h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-note {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    margin: var(--spacing-xs) 0 0;
+}
+
+.booking-link-box {
+    text-align: center;
+    padding: var(--spacing-lg);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-xl);
+}
+
+.booking-link-box p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* ================================
+   FAQ ACCORDION
+   ================================ */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.accordion-trigger {
+    width: 100%;
+    text-align: left;
+    padding: var(--spacing-lg) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.accordion-trigger:hover {
+    color: var(--color-primary);
+}
+
+.accordion-trigger .fa-chevron-down {
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.accordion-trigger.open .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.accordion-panel {
+    padding: 0 0 var(--spacing-lg) 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.accordion-panel[hidden] {
+    display: none;
+}
+
+.accordion-panel p {
+    margin: 0;
+}

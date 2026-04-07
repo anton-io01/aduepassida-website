@@ -74,4 +74,9 @@
     .form-row {
         grid-template-columns: 1fr;
     }
+
+    /* Contatti */
+    .contatti-grid {
+        grid-template-columns: 1fr;
+    }
 }

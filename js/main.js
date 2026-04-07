@@ -88,6 +88,30 @@ function renderServices() {
     `).join('');
 }
 
+// FAQ Accordion
+function initAccordion() {
+    const triggers = document.querySelectorAll('.accordion-trigger');
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+            
+            // Close all panels
+            triggers.forEach(t => {
+                t.setAttribute('aria-expanded', 'false');
+                t.classList.remove('open');
+                document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+            });
+            
+            // Open clicked panel (if it was closed)
+            if (!isOpen) {
+                trigger.setAttribute('aria-expanded', 'true');
+                trigger.classList.add('open');
+                document.getElementById(trigger.getAttribute('aria-controls')).hidden = false;
+            }
+        });
+    });
+}
+
 // Import form module (ES6 module - if issues, inline the code)
 async function loadFormModule() {
     try {
@@ -103,5 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initStickyHeader();
     initMobileMenu();
     renderServices();
+    initAccordion();
     loadFormModule();
 });
