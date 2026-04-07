@@ -408,3 +408,83 @@ p {
     font-size: 0.85rem;
     margin: var(--spacing-lg) 0 0;
 }
+
+/* ================================
+   HERO SECTION
+   ================================ */
+#hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #C8724A 0%, #4A7C6B 100%);
+    /* Temporary gradient - will be replaced with image in STEP 09 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 700px;
+    padding: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-pre-title {
+    font-family: var(--font-body);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--spacing-md);
+    color: #FFFFFF;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-badges {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-badges span {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.hero-cta {
+    font-size: 1.1rem;
+    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
