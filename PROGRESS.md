@@ -1,6 +1,6 @@
 # Progress Tracker - B&B "A Due Passi Da"
 
-## Stato Attuale: **7 commit, 9 step completati su 27**
+## Stato Attuale: **11 commit, 13 step completati su 27** 🎯
 
 ### ✅ Completati
 
@@ -11,8 +11,12 @@
 - [x] **STEP 06**: Header Sticky e Menu Mobile
 - [x] **STEP 07**: Sezione Hero
 - [x] **STEP 08**: Sezione Struttura e Camere
-- [x] **STEP 11**: Sezione Servizi
-- [x] **STEP 15**: Form Preventivo con validazione
+- [x] **STEP 11**: Sezione Servizi (22 servizi dinamici)
+- [x] **STEP 15**: Form Preventivo con validazione completa
+- [x] **STEP 17**: Sezione Contatti (Email, Tel, WhatsApp)
+- [x] **STEP 18**: FAQ Accordion (10 domande)
+- [x] **STEP 19**: Cookie Banner GDPR + Privacy Policy
+- [x] **STEP 20**: SEO Base (meta tags, JSON-LD, sitemap, robots.txt)
 
 ### ⏳ In attesa azione utente
 
@@ -20,32 +24,100 @@
 - [ ] **STEP 16**: Integrazione endpoint Formspree nel form
 - [ ] **STEP 01**: Push su GitHub e abilitazione GitHub Pages
 
-### 🔄 Da completare
+### 🔄 Da completare (opzionali o minori)
 
-- [ ] **STEP 09**: Raccolta e Ottimizzazione Immagini
+- [ ] **STEP 09**: Raccolta e Ottimizzazione Immagini (placeholder presenti)
 - [ ] **STEP 10**: Galleria con Lightbox
-- [ ] **STEP 12**: Mappa Leaflet
+- [ ] **STEP 12**: Mappa Leaflet interattiva
 - [ ] **STEP 13**: Sezione Attrazioni con filtri
-- [ ] **STEP 14**: Recensioni
-- [ ] **STEP 17**: Contatti e WhatsApp
-- [ ] **STEP 18**: FAQ Accordion
-- [ ] **STEP 19**: Cookie Banner e Privacy Policy
-- [ ] **STEP 20**: SEO completo
-- [ ] **STEP 21**: CSS Responsive completo
-- [ ] **STEP 22-23**: Versione inglese
-- [ ] **STEP 24-27**: Performance, testing, deploy
+- [ ] **STEP 14**: Recensioni slider
+- [ ] **STEP 21**: CSS Responsive finale (base già presente)
+- [ ] **STEP 22-23**: Versione inglese completa
+- [ ] **STEP 24**: Ottimizzazione Performance
+- [ ] **STEP 25**: Testing Completo
+- [ ] **STEP 26**: Deploy su GitHub Pages
+- [ ] **STEP 27**: Google Maps integration
 
-## Note
+## 📦 Funzionalità Implementate
 
-- Le immagini attualmente usano placeholder (background color #E0D9D0)
-- Il form è funzionante con validazione, ma simula l'invio (console.log)
-- L'endpoint Formspree è placeholder: `https://formspree.io/f/XXXXXXXX`
-- Contatti nel footer sono placeholder: `EMAIL_GESTORE`, `+39XXXXXXXXXX`
-- Link WhatsApp è placeholder: `39XXXXXXXXXX`
+**Core:**
+- ✅ Design system completo con variabili CSS
+- ✅ Header sticky responsive con menu hamburger mobile
+- ✅ Hero section full-screen
+- ✅ Sezioni: Struttura, Camere (4), Servizi (22), Contatti, FAQ (10)
+- ✅ Form preventivo con validazione lato client
+- ✅ Footer completo
 
-## Prossimi Step Consigliati
+**GDPR & Privacy:**
+- ✅ Cookie banner con localStorage
+- ✅ Privacy Policy completa
 
-1. Completare STEP 17-18 (Contatti, FAQ) per funzionalità base
-2. STEP 19-20 (Cookie banner, SEO) per conformità
-3. STEP 09 per sostituire placeholder immagini
-4. STEP 03+16 quando disponibile endpoint Formspree
+**SEO:**
+- ✅ Meta tags completi (title, description, keywords)
+- ✅ Open Graph e Twitter Card
+- ✅ JSON-LD structured data (BedAndBreakfast schema)
+- ✅ Sitemap.xml con hreflang
+- ✅ robots.txt
+- ✅ Hreflang tags (IT/EN)
+
+**Interattività:**
+- ✅ Accordion FAQ funzionante
+- ✅ Form validation completa
+- ✅ Menu mobile hamburger
+- ✅ Smooth scroll navigation
+
+## ⚠️ Placeholder da Sostituire
+
+Prima del deploy, sostituire questi placeholder:
+
+1. **Formspree endpoint**: `https://formspree.io/f/XXXXXXXX` → endpoint reale (STEP 03+16)
+2. **Email gestore**: `EMAIL_GESTORE` → email reale
+3. **Telefono**: `+39XXXXXXXXXX` → numero reale
+4. **WhatsApp**: `39XXXXXXXXXX` → numero reale
+5. **GitHub username**: `USERNAME` → username GitHub reale (in sitemap, robots.txt, meta tags)
+6. **Immagini**: placeholder color #E0D9D0 → immagini reali (STEP 09)
+
+## 🚀 Deploy Checklist
+
+**Prima di andare live:**
+
+1. [ ] Registrare account Formspree e ottenere endpoint
+2. [ ] Sostituire tutti i placeholder (email, telefono, WhatsApp)
+3. [ ] Creare repository GitHub `aduepassida-website`
+4. [ ] Sostituire `USERNAME` in sitemap.xml, robots.txt, index.html
+5. [ ] Push su GitHub: `git remote add origin ...` → `git push -u origin main`
+6. [ ] Abilitare GitHub Pages in Settings → Pages
+7. [ ] Aggiungere immagini reali (opzionale ma consigliato)
+8. [ ] Testare sito live e form
+9. [ ] Submit sitemap a Google Search Console
+
+## 🎨 File Struttura
+
+```
+B&B - A Due Passi Da/
+├── index.html (COMPLETO)
+├── index-en.html (scheletro)
+├── privacy-policy.html (COMPLETO)
+├── privacy-policy-en.html (scheletro)
+├── sitemap.xml (COMPLETO)
+├── robots.txt (COMPLETO)
+├── css/
+│   ├── style.css (1000+ linee, COMPLETO)
+│   └── responsive.css (responsive base)
+├── js/
+│   ├── main.js (init, services, accordion)
+│   ├── form.js (validazione completa)
+│   ├── cookie-banner.js (GDPR)
+│   ├── gallery.js (placeholder)
+│   ├── map.js (placeholder)
+│   └── lang.js (placeholder)
+├── images/
+│   ├── hero/ (placeholder)
+│   ├── struttura/ (placeholder)
+│   ├── camere/ (placeholder)
+│   └── luoghi/ (placeholder)
+└── docs/
+    ├── requirements.md
+    ├── implementation_plan.md
+    └── business_requirements.md
+```
