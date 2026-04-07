@@ -122,6 +122,16 @@ async function loadFormModule() {
     }
 }
 
+// Import cookie banner module
+async function loadCookieBanner() {
+    try {
+        const { initCookieBanner } = await import('./cookie-banner.js');
+        initCookieBanner();
+    } catch (e) {
+        console.warn('ES6 modules not supported, cookie-banner.js should be inlined');
+    }
+}
+
 // Initialize all on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initStickyHeader();
@@ -129,4 +139,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderServices();
     initAccordion();
     loadFormModule();
+    loadCookieBanner();
 });

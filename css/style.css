@@ -917,3 +917,83 @@ p {
 .accordion-panel p {
     margin: 0;
 }
+
+/* ================================
+   COOKIE BANNER
+   ================================ */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: var(--color-text);
+    color: #FFFFFF;
+    padding: var(--spacing-lg);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.cookie-content p {
+    flex: 1;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.cookie-content .fa-cookie-bite {
+    color: var(--color-accent);
+    margin-right: var(--spacing-xs);
+}
+
+#cookie-accept {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Privacy page specific styles */
+.privacy-page h1 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+}
+
+.privacy-page h2 {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.privacy-page ul {
+    list-style: disc;
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.privacy-page li {
+    margin-bottom: var(--spacing-xs);
+}
