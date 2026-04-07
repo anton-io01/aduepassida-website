@@ -38,8 +38,59 @@ function initMobileMenu() {
     });
 }
 
+// Services data and rendering
+const SERVICES = [
+    // Connettività
+    { icon: 'fa-wifi', label: 'Wi-Fi 135 Mbps', category: 'Connettività', included: true },
+    // Comfort
+    { icon: 'fa-snowflake', label: 'Aria condizionata', category: 'Comfort', included: true },
+    { icon: 'fa-temperature-half', label: 'Riscaldamento', category: 'Comfort', included: true },
+    { icon: 'fa-volume-xmark', label: 'Insonorizzazione', category: 'Comfort', included: true },
+    // Cucina
+    { icon: 'fa-mug-hot', label: 'Colazione italiana', category: 'Cucina', included: true },
+    { icon: 'fa-kitchen-set', label: 'Cucina attrezzata', category: 'Cucina', included: true },
+    { icon: 'fa-shirt', label: 'Lavatrice', category: 'Cucina', included: true },
+    // Bagno
+    { icon: 'fa-shower', label: 'Bagno privato', category: 'Bagno', included: true },
+    { icon: 'fa-pump-soap', label: 'Prodotti da bagno', category: 'Bagno', included: true },
+    { icon: 'fa-wind', label: 'Asciugacapelli', category: 'Bagno', included: true },
+    // Spazi esterni
+    { icon: 'fa-sun', label: 'Terrazza solarium', category: 'Spazi', included: true },
+    { icon: 'fa-chair', label: 'Patio esterno', category: 'Spazi', included: true },
+    // Famiglia
+    { icon: 'fa-baby', label: 'Seggiolone', category: 'Famiglia', included: true },
+    { icon: 'fa-baby-carriage', label: 'Passeggino disponibile', category: 'Famiglia', included: true },
+    // Mobilità
+    { icon: 'fa-car', label: 'Parcheggio (€20/gg)', category: 'Mobilità', included: false },
+    { icon: 'fa-plane', label: 'Navetta aeroporto', category: 'Mobilità', included: false },
+    { icon: 'fa-bicycle', label: 'Noleggio biciclette', category: 'Mobilità', included: false },
+    // Flessibilità
+    { icon: 'fa-clock', label: 'Check-in flessibile', category: 'Flessibilità', included: true },
+    { icon: 'fa-file-invoice', label: 'Fattura su richiesta', category: 'Flessibilità', included: true },
+    // Sicurezza
+    { icon: 'fa-fire-extinguisher', label: 'Estintori', category: 'Sicurezza', included: true },
+    { icon: 'fa-shield-halved', label: 'Rilevatore CO', category: 'Sicurezza', included: true },
+    { icon: 'fa-key', label: 'Accesso con chiavi', category: 'Sicurezza', included: true }
+];
+
+function renderServices() {
+    const grid = document.getElementById('services-grid');
+    if (!grid) return;
+    
+    grid.innerHTML = SERVICES.map(s => `
+        <div class="service-item">
+            <i class="fa-solid ${s.icon} service-icon"></i>
+            <span class="service-label">${s.label}</span>
+            <span class="badge ${s.included ? 'badge-included' : 'badge-paid'}">
+                ${s.included ? 'Incluso' : 'A pagamento'}
+            </span>
+        </div>
+    `).join('');
+}
+
 // Initialize all on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initStickyHeader();
     initMobileMenu();
+    renderServices();
 });
