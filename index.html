@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Due Passi Da - B&B Corato, Puglia</title>
+    <title>A Due Passi Da – B&B Corato, Puglia</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,20 +18,66 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- TODO: Content will be added in following steps -->
-    
-    <!-- Test Design System -->
-    <div class="container" style="padding: 40px 0;">
-        <h1>A Due Passi Da</h1>
-        <h2 class="section-title">Benvenuti</h2>
-        <p class="section-subtitle">Il tuo appartamento privato nel cuore della Puglia</p>
-        <button class="btn btn-primary">Richiedi Preventivo</button>
-        <button class="btn btn-outline" style="margin-left: 10px;">Scopri di più</button>
-        <div style="margin-top: 20px;">
-            <i class="fa-solid fa-house"></i> 
-            <i class="fa-solid fa-wifi"></i>
-            <i class="fa-solid fa-star"></i>
+    <header id="site-header">
+        <div class="container header-inner">
+            <a href="#hero" class="logo">A Due Passi Da</a>
+            <nav id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#struttura">La Struttura</a></li>
+                    <li><a href="#camere">Camere</a></li>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#posizione">Dove Siamo</a></li>
+                    <li><a href="#attrazioni">Dintorni</a></li>
+                    <li><a href="#recensioni">Recensioni</a></li>
+                    <li><a href="#preventivo" class="btn btn-primary">Preventivo</a></li>
+                </ul>
+                <div class="lang-toggle">
+                    <a href="index.html" class="active" aria-label="Versione italiana">IT</a>
+                    <span>|</span>
+                    <a href="index-en.html" aria-label="English version">EN</a>
+                </div>
+                <button class="hamburger" id="hamburger-btn" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <main>
+        <section id="hero"><!-- STEP 07 --></section>
+        <section id="struttura"><!-- STEP 08 --></section>
+        <section id="camere"><!-- STEP 08 --></section>
+        <section id="galleria"><!-- STEP 10 --></section>
+        <section id="servizi"><!-- STEP 11 --></section>
+        <section id="posizione"><!-- STEP 12 --></section>
+        <section id="attrazioni"><!-- STEP 13 --></section>
+        <section id="recensioni"><!-- STEP 14 --></section>
+        <section id="preventivo"><!-- STEP 15 --></section>
+        <section id="contatti"><!-- STEP 17 --></section>
+        <section id="faq"><!-- STEP 18 --></section>
+    </main>
+
+    <footer id="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="footer-name">A Due Passi Da</span>
+                <p>Via Duomo, 81 – 70033 Corato (BA)</p>
+            </div>
+            <div class="footer-contacts">
+                <a href="mailto:EMAIL_GESTORE"><i class="fa-solid fa-envelope"></i> EMAIL_GESTORE</a>
+                <a href="tel:+39XXXXXXXXXX"><i class="fa-solid fa-phone"></i> +39 XXX XXX XXXX</a>
+            </div>
+            <nav class="footer-nav">
+                <a href="#struttura">Struttura</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#preventivo">Preventivo</a>
+                <a href="#contatti">Contatti</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+            <p class="footer-copy">© 2026 A Due Passi Da. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
 </body>
 </html>
