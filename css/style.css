@@ -658,3 +658,146 @@ p {
     color: var(--color-primary);
     margin-right: var(--spacing-xs);
 }
+
+/* ================================
+   FORM PREVENTIVO
+   ================================ */
+.form-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+    background: var(--color-surface);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(200, 114, 74, 0.15);
+}
+
+.form-group input.input-error,
+.form-group select.input-error,
+.form-group textarea.input-error {
+    border-color: #DC3545;
+}
+
+.form-error {
+    color: #DC3545;
+    font-size: 0.82rem;
+    min-height: 1.2em;
+}
+
+.optional {
+    font-weight: 400;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+}
+
+.form-counter {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-align: right;
+}
+
+.form-group-checkbox {
+    margin: var(--spacing-lg) 0;
+}
+
+.checkbox-label {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.checkbox-label a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.form-submit {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 14px;
+    margin-top: var(--spacing-md);
+}
+
+.btn-spinner {
+    display: inline-block;
+}
+
+.form-success {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background: #D4EDDA;
+    border-radius: var(--border-radius-lg);
+}
+
+.form-success .fa-circle-check {
+    font-size: 3rem;
+    color: #28A745;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-success h3 {
+    color: #155724;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-success p {
+    color: #155724;
+}
+
+.form-success-wa {
+    margin-top: var(--spacing-md);
+}
+
+.form-success-wa a {
+    color: #25D366;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.form-error-general {
+    background: #F8D7DA;
+    border: 1px solid #F5C6CB;
+    color: #721C24;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+}

@@ -157,7 +157,95 @@
         <section id="posizione"><!-- STEP 12 --></section>
         <section id="attrazioni"><!-- STEP 13 --></section>
         <section id="recensioni"><!-- STEP 14 --></section>
-        <section id="preventivo"><!-- STEP 15 --></section>
+        <section id="preventivo" class="section">
+            <div class="container">
+                <h2 class="section-title">Richiedi un Preventivo</h2>
+                <p class="section-subtitle">Prenota direttamente, senza commissioni</p>
+                <div class="form-wrapper">
+                    <form id="quote-form" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
+                        <input type="hidden" name="_subject" value="Nuova richiesta preventivo – A Due Passi Da">
+                        <input type="hidden" name="_language" value="it">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome_cognome">Nome e Cognome <span aria-hidden="true">*</span></label>
+                                <input type="text" id="nome_cognome" name="nome_cognome" placeholder="Mario Rossi" autocomplete="name" required>
+                                <span class="form-error" id="err-nome" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="mario@esempio.it" autocomplete="email" required>
+                                <span class="form-error" id="err-email" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Telefono <span class="optional">(opzionale)</span></label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+39 333 123 4567" autocomplete="tel">
+                                <span class="form-error" id="err-telefono" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="num_ospiti">Numero di ospiti <span aria-hidden="true">*</span></label>
+                                <input type="number" id="num_ospiti" name="num_ospiti" min="1" max="10" placeholder="2" required>
+                                <span class="form-error" id="err-ospiti" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data_arrivo">Data di arrivo <span aria-hidden="true">*</span></label>
+                                <input type="date" id="data_arrivo" name="data_arrivo" required>
+                                <span class="form-error" id="err-arrivo" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="data_partenza">Data di partenza <span aria-hidden="true">*</span></label>
+                                <input type="date" id="data_partenza" name="data_partenza" required>
+                                <span class="form-error" id="err-partenza" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipo_camera">Tipologia di sistemazione <span aria-hidden="true">*</span></label>
+                            <select id="tipo_camera" name="tipo_camera" required>
+                                <option value="">-- Seleziona --</option>
+                                <option value="intero_appartamento">Intero appartamento (fino a 10 persone)</option>
+                                <option value="camera_matrimoniale">Camera matrimoniale</option>
+                                <option value="camera_familiare">Camera familiare</option>
+                                <option value="camere_comunicanti">Camere comunicanti</option>
+                            </select>
+                            <span class="form-error" id="err-camera" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="note">Richieste speciali <span class="optional">(opzionale)</span></label>
+                            <textarea id="note" name="note" rows="4" maxlength="500" placeholder="Arrivo tardivo, allergie alimentari, esigenze particolari..."></textarea>
+                            <span class="form-counter" id="note-counter">0/500</span>
+                        </div>
+
+                        <div class="form-group form-group-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="gdpr_consent" name="gdpr_consent" required>
+                                <span>Acconsento al trattamento dei miei dati personali per ricevere risposta alla mia richiesta, ai sensi del <a href="privacy-policy.html" target="_blank">Regolamento GDPR</a>. <span aria-hidden="true">*</span></span>
+                            </label>
+                            <span class="form-error" id="err-gdpr" aria-live="polite"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
+                            <span class="btn-text">Invia Richiesta</span>
+                            <span class="btn-spinner" hidden><i class="fa-solid fa-spinner fa-spin"></i></span>
+                        </button>
+                    </form>
+
+                    <div id="form-success" class="form-success" hidden>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3>Richiesta inviata!</h3>
+                        <p>Grazie! Ti risponderemo entro 24 ore all'indirizzo email fornito.</p>
+                        <p class="form-success-wa">Preferisci WhatsApp? <a id="wa-link" href="#" target="_blank">Contattaci direttamente <i class="fa-brands fa-whatsapp"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="contatti"><!-- STEP 17 --></section>
         <section id="faq"><!-- STEP 18 --></section>
     </main>

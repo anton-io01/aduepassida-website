@@ -88,9 +88,20 @@ function renderServices() {
     `).join('');
 }
 
+// Import form module (ES6 module - if issues, inline the code)
+async function loadFormModule() {
+    try {
+        const { initForm } = await import('./form.js');
+        initForm();
+    } catch (e) {
+        console.warn('ES6 modules not supported, form.js should be inlined');
+    }
+}
+
 // Initialize all on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initStickyHeader();
     initMobileMenu();
     renderServices();
+    loadFormModule();
 });
