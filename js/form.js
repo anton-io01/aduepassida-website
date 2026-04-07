@@ -17,8 +17,8 @@ export function initForm() {
         document.getElementById('note-counter').textContent = `${noteEl.value.length}/500`;
     });
 
-    // WhatsApp link (replace with real number)
-    const WA_NUMBER = '39XXXXXXXXXX';
+    // WhatsApp link with real number
+    const WA_NUMBER = '393921393823';
     const WA_TEXT = encodeURIComponent('Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da.');
     if (waLink) waLink.href = `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`;
 
@@ -75,17 +75,51 @@ export function initForm() {
 
         const formData = Object.fromEntries(new FormData(form).entries());
         
-        // STEP 16: Real Formspree integration will replace this
-        console.log('Form valido, pronto per invio:', formData);
-        
-        // Simulate success for now
-        setTimeout(() => {
-            form.hidden = true;
-            success.hidden = false;
-            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // STEP 16: Real Formspree integration
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(formData)
+            });
+            
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Form inviato con successo:', result);
+                
+                // Show success message
+                form.hidden = true;
+                success.hidden = false;
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset form
+                form.reset();
+                
+                // Reset character counter
+                document.getElementById('note-counter').textContent = '0/500';
+                
+            } else {
+                throw new Error('Errore nell\'invio del form');
+            }
+        } catch (error) {
+            console.error('Errore:', error);
+            
+            // Show error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'form-error-general';
+            errorDiv.innerHTML = `<i class="fa-solid fa-exclamation-triangle"></i> Errore nell'invio. Riprova o contattaci direttamente via WhatsApp.`;
+            form.insertBefore(errorDiv, form.firstChild);
+            
+            // Remove error after 5 seconds
+            setTimeout(() => errorDiv.remove(), 5000);
+        } finally {
+            // Reset button state
             submitBtn.querySelector('.btn-text').hidden = false;
             submitBtn.querySelector('.btn-spinner').hidden = true;
             submitBtn.disabled = false;
-        }, 1000);
+        }
     });
 }
