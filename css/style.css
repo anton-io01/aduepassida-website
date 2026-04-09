@@ -414,10 +414,8 @@ p {
    ================================ */
 #hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #C8724A 0%, #4A7C6B 100%);
-    /* Temporary gradient - will be replaced with image in STEP 09 */
-    background-size: cover;
-    background-position: center;
+    background: url('../images/hero/hero-bg.jpg') center/cover no-repeat;
+    /* Real background image - STEP 09 completed */
     background-attachment: fixed;
     position: relative;
     display: flex;
