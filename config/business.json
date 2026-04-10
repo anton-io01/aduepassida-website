@@ -1,0 +1,27 @@
+{
+  "name": "A Due Passi Da",
+  "tagline": "Il tuo appartamento privato nel cuore della Puglia",
+  "category": "B&B",
+  "description": "A Due Passi Da è un appartamento privato di 50 m² situato in Via Duomo, 81, nel centro storico di Corato (BA). Con 4 camere e una capacità di fino a 10 ospiti, è la scelta ideale per famiglie e gruppi che vogliono vivere la Puglia autentica con il comfort di una casa privata.",
+  "contacts": {
+    "email": "antoniomodugno01@gmail.com",
+    "phone": "+39 392 139 3823",
+    "whatsapp": "+393921393823"
+  },
+  "address": {
+    "street": "Via Duomo, 81",
+    "zip": "70033",
+    "city": "Corato",
+    "province": "BA",
+    "region": "Puglia",
+    "country": "IT",
+    "coordinates": {
+      "lat": 41.1536,
+      "lng": 16.4082
+    }
+  },
+  "distances": {
+    "station": "700 m",
+    "airport": "42 km"
+  }
+}

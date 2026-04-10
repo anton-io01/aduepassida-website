@@ -1,0 +1,13 @@
+{
+  "totalArea": 50,
+  "totalRooms": 4,
+  "maxGuests": 10,
+  "features": {
+    "independentEntrance": true,
+    "privateParking": true,
+    "garden": false,
+    "terrace": true,
+    "pool": false,
+    "accessibility": false
+  }
+}

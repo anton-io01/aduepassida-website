@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "background": "images/hero/hero-bg.jpg",
+    "overlay": true
+  },
+  "structure": {
+    "exterior": [
+      "images/struttura/esterno-1.jpg",
+      "images/struttura/esterno-2.jpg"
+    ],
+    "interior": [
+      "images/struttura/ingresso.png"
+    ],
+    "common": []
+  },
+  "rooms": {
+    "pattern": "images/camere/",
+    "fallback": "images/camere/camera-1.jpg"
+  },
+  "gallery": {
+    "path": "images/",
+    "autoScan": false
+  }
+}

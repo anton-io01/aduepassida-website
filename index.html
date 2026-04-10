@@ -157,55 +157,8 @@
             <div class="container">
                 <h2 class="section-title">Le Camere</h2>
                 <p class="section-subtitle">4 camere per un totale di 10 ospiti</p>
-                <div class="camere-grid">
-                    <div class="card camera-card">
-                        <img src="images/camere/camera-1.jpg" alt="Camera Matrimoniale" width="400" height="280" loading="lazy" style="background: #E0D9D0; min-height: 200px;">
-                        <div class="card-body">
-                            <h3>Camera Matrimoniale</h3>
-                            <p>Letto matrimoniale, armadio, TV, vista sulla città. Aria condizionata.</p>
-                            <ul class="camera-features">
-                                <li><i class="fa-solid fa-bed"></i> Letto matrimoniale</li>
-                                <li><i class="fa-solid fa-snowflake"></i> Aria condizionata</li>
-                                <li><i class="fa-solid fa-tv"></i> TV schermo piatto</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card camera-card">
-                        <img src="images/camere/camera-2.jpg" alt="Camera Singola" width="400" height="280" loading="lazy" style="background: #E0D9D0; min-height: 200px;">
-                        <div class="card-body">
-                            <h3>Camera Singola</h3>
-                            <p>Letto singolo, armadio, scrivania. Perfetta per viaggiatori singoli.</p>
-                            <ul class="camera-features">
-                                <li><i class="fa-solid fa-bed"></i> Letto singolo</li>
-                                <li><i class="fa-solid fa-snowflake"></i> Aria condizionata</li>
-                                <li><i class="fa-solid fa-wifi"></i> Wi-Fi veloce</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card camera-card">
-                        <img src="images/camere/camera-3.jpg" alt="Camera Familiare" width="400" height="280" loading="lazy" style="background: #E0D9D0; min-height: 200px;">
-                        <div class="card-body">
-                            <h3>Camera Familiare</h3>
-                            <p>Letto matrimoniale + letti singoli, spazio per 4 persone. Ideale per famiglie.</p>
-                            <ul class="camera-features">
-                                <li><i class="fa-solid fa-bed"></i> Matrimoniale + singoli</li>
-                                <li><i class="fa-solid fa-users"></i> Fino a 4 persone</li>
-                                <li><i class="fa-solid fa-baby"></i> Seggiolone disponibile</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card camera-card">
-                        <img src="images/camere/camera-4.jpg" alt="Camere Comunicanti" width="400" height="280" loading="lazy" style="background: #E0D9D0; min-height: 200px;">
-                        <div class="card-body">
-                            <h3>Camere Comunicanti</h3>
-                            <p>Due camere collegate, perfette per gruppi o famiglie numerose.</p>
-                            <ul class="camera-features">
-                                <li><i class="fa-solid fa-door-open"></i> 2 camere collegate</li>
-                                <li><i class="fa-solid fa-users"></i> Fino a 4 persone</li>
-                                <li><i class="fa-solid fa-bath"></i> Bagno privato</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="camere-grid" id="rooms-container">
+                    <!-- Camere renderizzate dinamicamente da config/rooms.json -->
                 </div>
             </div>
         </section>
@@ -346,98 +299,10 @@
         </section>
         
         <section id="faq" class="section">
+            <div class="container">
                 <h2 class="section-title">Domande Frequenti</h2>
                 <div class="accordion" id="faq-accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-1">
-                            A che ora è il check-in e il check-out?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-1" hidden>
-                            <p>Il check-in è flessibile: contattaci per concordare l'orario più comodo. Il check-out è indicativamente entro le ore 11:00.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-2">
-                            La colazione è inclusa?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-2" hidden>
-                            <p>Sì! La colazione italiana è inclusa nel prezzo e viene servita ogni mattina.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-3">
-                            Il parcheggio è disponibile?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-3" hidden>
-                            <p>Sì, il parcheggio privato è disponibile su prenotazione al costo di €20 al giorno.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-4">
-                            C'è l'ascensore?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-4" hidden>
-                            <p>No, i piani superiori sono raggiungibili esclusivamente tramite scale. La struttura non dispone di ascensore.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-5">
-                            Il Wi-Fi è gratuito?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-5" hidden>
-                            <p>Sì, il Wi-Fi ad alta velocità (135 Mbps) è gratuito e disponibile in tutta la struttura.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-6">
-                            Sono ammessi animali?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-6" hidden>
-                            <p>Ti preghiamo di contattarci per discutere la possibilità di ospitare animali domestici.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-7">
-                            Come raggiungo la struttura dalla stazione/aeroporto?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-7" hidden>
-                            <p>La stazione FS di Corato è a 700 metri (10 minuti a piedi). Dall'aeroporto di Bari (42 km) offriamo servizio navetta su richiesta.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-8">
-                            Come funziona la richiesta preventivo?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-8" hidden>
-                            <p>Compila il form nella sezione Preventivo o contattaci via email/WhatsApp. Ti risponderemo entro 24 ore con disponibilità e prezzi.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-9">
-                            Posso ricevere fattura?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-9" hidden>
-                            <p>Sì, emettiamo regolare fattura su richiesta. Comunicaci i tuoi dati fiscali al momento della prenotazione.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-10">
-                            La struttura è adatta alle famiglie?
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-panel" id="faq-10" hidden>
-                            <p>Assolutamente sì! Abbiamo seggioloni, passeggini disponibili e camere familiari. L'appartamento privato è perfetto per le famiglie.</p>
-                        </div>
-                    </div>
+                    <!-- FAQ renderizzate dinamicamente da config/faq.json -->
                 </div>
             </div>
         </section>
@@ -465,6 +330,15 @@
         </div>
     </footer>
 
+    <!-- Config System -->
+    <script src="js/config-loader.js"></script>
+    <script src="js/config-manager.js"></script>
+    <script src="js/rooms-renderer.js"></script>
+    <script src="js/services-renderer.js"></script>
+    <script src="js/faq-renderer.js"></script>
+    <script src="js/schema-renderer.js"></script>
+    <script src="js/config-init.js"></script>
+    
     <script src="js/main.js" defer></script>
 
     <!-- Cookie Banner GDPR -->

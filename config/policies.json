@@ -1,0 +1,27 @@
+{
+  "checkIn": {
+    "time": "Flessibile",
+    "notes": "Contattaci per concordare l'orario più comodo"
+  },
+  "checkOut": {
+    "time": "11:00",
+    "notes": "Check-out entro le ore 11:00"
+  },
+  "cancellation": {
+    "policy": "Politica di cancellazione flessibile. Contattaci per maggiori dettagli.",
+    "deadline": "48 ore"
+  },
+  "pets": {
+    "allowed": false,
+    "policy": "Animali ammessi solo previa richiesta e approvazione",
+    "fee": null
+  },
+  "smoking": {
+    "allowed": false,
+    "areas": "Struttura non fumatori. Fumare è consentito solo all'esterno"
+  },
+  "payments": {
+    "methods": ["cash", "card", "transfer"],
+    "notes": "Accettiamo contanti, carte di credito/debito e bonifici bancari"
+  }
+}

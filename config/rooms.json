@@ -1,0 +1,76 @@
+{
+  "rooms": [
+    {
+      "id": "camera_matrimoniale",
+      "name": "Camera Matrimoniale",
+      "type": "double",
+      "capacity": 2,
+      "beds": [
+        {
+          "type": "double",
+          "count": 1
+        }
+      ],
+      "amenities": ["ac", "tv", "wifi"],
+      "description": "Letto matrimoniale, armadio, TV, vista sulla città. Aria condizionata.",
+      "images": ["images/camere/camera-1.jpg"],
+      "featured": true
+    },
+    {
+      "id": "camera_singola",
+      "name": "Camera Singola",
+      "type": "single",
+      "capacity": 1,
+      "beds": [
+        {
+          "type": "single",
+          "count": 1
+        }
+      ],
+      "amenities": ["ac", "wifi"],
+      "description": "Letto singolo, armadio, scrivania. Perfetta per viaggiatori singoli.",
+      "images": ["images/camere/camera-2.jpg"],
+      "featured": false
+    },
+    {
+      "id": "camera_familiare",
+      "name": "Camera Familiare",
+      "type": "family",
+      "capacity": 4,
+      "beds": [
+        {
+          "type": "double",
+          "count": 1
+        },
+        {
+          "type": "single",
+          "count": 2
+        }
+      ],
+      "amenities": ["ac", "wifi", "baby"],
+      "description": "Letto matrimoniale + letti singoli, spazio per 4 persone. Ideale per famiglie.",
+      "images": ["images/camere/camera-3.jpg"],
+      "featured": true
+    },
+    {
+      "id": "camere_comunicanti",
+      "name": "Camere Comunicanti",
+      "type": "communicating",
+      "capacity": 4,
+      "beds": [
+        {
+          "type": "double",
+          "count": 1
+        },
+        {
+          "type": "single",
+          "count": 2
+        }
+      ],
+      "amenities": ["ac", "wifi", "bathroom"],
+      "description": "Due camere collegate, perfette per gruppi o famiglie numerose.",
+      "images": ["images/camere/camera-4.jpg"],
+      "featured": false
+    }
+  ]
+}

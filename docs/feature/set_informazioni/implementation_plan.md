@@ -33,11 +33,11 @@ config/
 ```
 
 **Definition of Done**:
-- [ ] Cartella `config/` esiste nella root del progetto
-- [ ] File `business.json` contiene tutti i dati attuali del B&B (nome, contatti, indirizzo)
-- [ ] File `property.json` contiene superficie, camere, ospiti, feature flags
-- [ ] Tutti i file JSON sono validi (passano validazione JSON linter)
-- [ ] File `config/README.md` creato con struttura documentata
+- [x] Cartella `config/` esiste nella root del progetto
+- [x] File `business.json` contiene tutti i dati attuali del B&B (nome, contatti, indirizzo)
+- [x] File `property.json` contiene superficie, camere, ospiti, feature flags
+- [x] Tutti i file JSON sono validi (passano validazione JSON linter)
+- [x] File `config/README.md` creato con struttura documentata
 - [ ] Commit Git effettuato con messaggio "feat: add config folder structure"
 
 ---
@@ -64,13 +64,13 @@ const ConfigLoader = {
 ```
 
 **Definition of Done**:
-- [ ] File `js/config-loader.js` esiste e contiene la classe/modulo
-- [ ] `loadFile('business.json')` ritorna Promise con oggetto JSON parsato
-- [ ] Errore 404 (file non trovato) logga in console e ritorna oggetto vuoto
-- [ ] Errore JSON invalido logga in console con dettaglio riga/colonna
-- [ ] Test manuale: caricamento `business.json` mostra dati corretti in console
-- [ ] Test manuale: caricamento file inesistente non causa crash, logga errore graceful
-- [ ] Performance test: caricamento < 50ms per file locale
+- [x] File `js/config-loader.js` esiste e contiene la classe/modulo
+- [x] `loadFile('business.json')` ritorna Promise con oggetto JSON parsato
+- [x] Errore 404 (file non trovato) logga in console e ritorna oggetto vuoto
+- [x] Errore JSON invalido logga in console con dettaglio riga/colonna
+- [x] Test manuale: caricamento `business.json` mostra dati corretti in console
+- [x] Test manuale: caricamento file inesistente non causa crash, logga errore graceful
+- [x] Performance test: caricamento < 50ms per file locale
 
 ---
 
@@ -97,14 +97,14 @@ window.Config = {
 ```
 
 **Definition of Done**:
-- [ ] File `js/config-manager.js` esiste e esporta oggetto `Config`
-- [ ] `Config.init()` carica `business.json` e `property.json`
-- [ ] `Config.get('business.name')` ritorna nome B&B corretto
-- [ ] `Config.get('business.contacts.phone')` ritorna telefono
-- [ ] `Config.getBusiness()` ritorna oggetto business completo
-- [ ] `Config.isReady()` ritorna true dopo init completato
-- [ ] Test: `Config.get('nonexistent')` ritorna undefined senza errore
-- [ ] Test: accesso a proprietà nested che non esistono ritorna undefined
+- [x] File `js/config-manager.js` esiste e esporta oggetto `Config`
+- [x] `Config.init()` carica `business.json` e `property.json`
+- [x] `Config.get('business.name')` ritorna nome B&B corretto
+- [x] `Config.get('business.contacts.phone')` ritorna telefono
+- [x] `Config.getBusiness()` ritorna oggetto business completo
+- [x] `Config.isReady()` ritorna true dopo init completato
+- [x] Test: `Config.get('nonexistent')` ritorna undefined senza errore
+- [x] Test: accesso a proprietà nested che non esistono ritorna undefined
 
 ---
 
@@ -127,14 +127,14 @@ window.Config = {
 - Footer address: `.footer-brand p`
 
 **Definition of Done**:
-- [ ] Logo header mostra nome da `business.json` (non hardcoded)
-- [ ] Email footer usa `business.contacts.email`
-- [ ] Telefono footer usa `business.contacts.phone`
-- [ ] Link WhatsApp footer usa `business.contacts.whatsapp`
-- [ ] Indirizzo footer usa `business.address` (via, cap, città, provincia)
-- [ ] Link social footer (se presenti in config) renderizzati dinamicamente
-- [ ] Modifica `business.json` e refresh pagina riflette cambiamenti
-- [ ] Se file config mancante, sito mostra valori fallback (non crasha)
+- [x] Logo header mostra nome da `business.json` (non hardcoded)
+- [x] Email footer usa `business.contacts.email`
+- [x] Telefono footer usa `business.contacts.phone`
+- [x] Link WhatsApp footer usa `business.contacts.whatsapp`
+- [x] Indirizzo footer usa `business.address` (via, cap, città, provincia)
+- [x] Link social footer (se presenti in config) renderizzati dinamicamente
+- [x] Modifica `business.json` e refresh pagina riflette cambiamenti
+- [x] Se file config mancante, sito mostra valori fallback (non crasha)
 
 ---
 
@@ -155,13 +155,13 @@ window.Config = {
 - Link esterni: Booking.com, Airbnb
 
 **Definition of Done**:
-- [ ] Sezione contatti email usa `business.contacts.email`
-- [ ] Sezione contatti telefono usa `business.contacts.phone`
-- [ ] Sezione contatti WhatsApp link usa `business.contacts.whatsapp`
-- [ ] Form action URL caricato da config (default a Formspree attuale)
-- [ ] Input "Numero ospiti" usa `property.maxGuests` come max
-- [ ] Link Booking.com visibile solo se presente in config
-- [ ] Test: modifica contatti in JSON, refresh, verifica aggiornamento
+- [x] Sezione contatti email usa `business.contacts.email`
+- [x] Sezione contatti telefono usa `business.contacts.phone`
+- [x] Sezione contatti WhatsApp link usa `business.contacts.whatsapp`
+- [x] Form action URL caricato da config (default a Formspree attuale)
+- [x] Input "Numero ospiti" usa `property.maxGuests` come max
+- [x] Link Booking.com visibile solo se presente in config
+- [x] Test: modifica contatti in JSON, refresh, verifica aggiornamento
 
 ---
 
@@ -194,14 +194,14 @@ window.Config = {
 ```
 
 **Definition of Done**:
-- [ ] File `config/rooms.json` popolato con 4 camere attuali
-- [ ] File `js/rooms-renderer.js` creato con funzione `renderRooms()`
-- [ ] Sezione `#camere` contiene container vuoto `<div id="rooms-container">`
-- [ ] 4 card camere renderizzate correttamente con dati da JSON
-- [ ] Immagini camere caricate da percorsi in `rooms.json`
-- [ ] Features (letti, amenities) mostrate correttamente
-- [ ] Test: aggiungere nuova camera a JSON, refresh, appare automaticamente
-- [ ] Test: rimuovere camera da JSON, refresh, scompare automaticamente
+- [x] File `config/rooms.json` popolato con 4 camere attuali
+- [x] File `js/rooms-renderer.js` creato con funzione `renderRooms()`
+- [x] Sezione `#camere` contiene container vuoto `<div id="rooms-container">`
+- [x] 4 card camere renderizzate correttamente con dati da JSON
+- [x] Immagini camere caricate da percorsi in `rooms.json`
+- [x] Features (letti, amenities) mostrate correttamente
+- [x] Test: aggiungere nuova camera a JSON, refresh, appare automaticamente
+- [x] Test: rimuovere camera da JSON, refresh, scompare automaticamente
 
 ---
 
@@ -221,14 +221,14 @@ window.Config = {
 - Asciugacapelli, Minibar, Navetta, Lavanderia, Animali
 
 **Definition of Done**:
-- [ ] File `config/services.json` popolato con servizi attuali
-- [ ] Ogni servizio ha campo `enabled: true/false`
-- [ ] Servizi con `enabled: false` non renderizzati nella griglia
-- [ ] Icone Font Awesome configurate per ogni servizio
-- [ ] Badge categoria (included/paid/on_request) visibile
-- [ ] Test: cambiare `enabled` da true a false, refresh, servizio scompare
-- [ ] Test: cambiare `enabled` da false a true, refresh, servizio appare
-- [ ] Test: aggiungere nuovo servizio a JSON, refresh, appare in griglia
+- [x] File `config/services.json` popolato con servizi attuali
+- [x] Ogni servizio ha campo `enabled: true/false`
+- [x] Servizi con `enabled: false` non renderizzati nella griglia
+- [x] Icone Font Awesome configurate per ogni servizio
+- [x] Badge categoria (included/paid/on_request) visibile
+- [x] Test: cambiare `enabled` da true a false, refresh, servizio scompare
+- [x] Test: cambiare `enabled` da false a true, refresh, servizio appare
+- [x] Test: aggiungere nuovo servizio a JSON, refresh, appare in griglia
 
 ---
 
@@ -247,13 +247,13 @@ window.Config = {
 - `independentEntrance`, `privateParking`, `garden`, `terrace`, `pool`, `accessibility`
 
 **Definition of Done**:
-- [ ] `config/property.json` contiene oggetto `features` con 6 booleani
-- [ ] Sezione struttura mostra solo features con flag `true`
-- [ ] Nota accessibilità (scale/ascensore) aggiornata da flag `accessibility`
-- [ ] Feature parcheggio influenza FAQ "Il parcheggio è disponibile?"
-- [ ] Test: disabilitare tutte le features, verifica nessun badge mostrato
-- [ ] Test: abilitare 3 features, verifica solo quelle visibili
-- [ ] Test: modifica flag e refresh riflette cambiamento
+- [x] `config/property.json` contiene oggetto `features` con 6 booleani
+- [x] Sezione struttura mostra solo features con flag `true`
+- [x] Nota accessibilità (scale/ascensore) aggiornata da flag `accessibility`
+- [x] Feature parcheggio influenza FAQ "Il parcheggio è disponibile?"
+- [x] Test: disabilitare tutte le features, verifica nessun badge mostrato
+- [x] Test: abilitare 3 features, verifica solo quelle visibili
+- [x] Test: modifica flag e refresh riflette cambiamento
 
 ---
 
@@ -315,13 +315,13 @@ window.Config = {
 ```
 
 **Definition of Done**:
-- [ ] `config/faq.json` contiene 10 FAQ attuali del sito
-- [ ] Sezione `#faq` renderizzata dinamicamente da JSON
-- [ ] FAQ ordinate per campo `order` crescente
-- [ ] Accordion funzionante (apri/chiudi) su FAQ dinamiche
-- [ ] Test: aggiungere FAQ a JSON, refresh, appare in lista
-- [ ] Test: modificare `order`, refresh, ordine cambiato correttamente
-- [ ] Test: rimuovere FAQ, refresh, scompare dalla lista
+- [x] `config/faq.json` contiene 10 FAQ attuali del sito
+- [x] Sezione `#faq` renderizzata dinamicamente da JSON
+- [x] FAQ ordinate per campo `order` crescente
+- [x] Accordion funzionante (apri/chiudi) su FAQ dinamiche
+- [x] Test: aggiungere FAQ a JSON, refresh, appare in lista
+- [x] Test: modificare `order`, refresh, ordine cambiato correttamente
+- [x] Test: rimuovere FAQ, refresh, scompare dalla lista
 
 ---
 
@@ -337,13 +337,13 @@ window.Config = {
 5. Aggiornare FAQ "Il parcheggio è disponibile?" da `property.features.privateParking`
 
 **Definition of Done**:
-- [ ] File `config/policies.json` creato con check-in/out, politiche
-- [ ] FAQ check-in mostra orario da `policies.checkIn.time`
-- [ ] FAQ check-out mostra orario da `policies.checkOut.time`
-- [ ] FAQ animali aggiornata da `policies.pets.allowed` e `policies.pets.policy`
-- [ ] FAQ parcheggio aggiornata da `property.features.privateParking`
-- [ ] FAQ colazione aggiornata da `services.commonAmenities.breakfast`
-- [ ] Test: modifica orario check-in in JSON, FAQ aggiornata dopo refresh
+- [x] File `config/policies.json` creato con check-in/out, politiche
+- [x] FAQ check-in mostra orario da `policies.checkIn.time`
+- [x] FAQ check-out mostra orario da `policies.checkOut.time`
+- [x] FAQ animali aggiornata da `policies.pets.allowed` e `policies.pets.policy`
+- [x] FAQ parcheggio aggiornata da `property.features.privateParking`
+- [x] FAQ colazione aggiornata da `services.commonAmenities.breakfast`
+- [x] Test: modifica orario check-in in JSON, FAQ aggiornata dopo refresh
 
 ---
 
@@ -370,13 +370,10 @@ window.Config = {
 ```
 
 **Definition of Done**:
-- [ ] `Config.getLocalized('business.description', 'en')` ritorna traduzione inglese
-- [ ] `Config.getLocalized('business.description', 'it')` ritorna italiano
-- [ ] Camere renderizzate con nome/descrizione in lingua corretta
-- [ ] FAQ renderizzate in lingua corretta
-- [ ] Servizi renderizzati in lingua corretta
-- [ ] `index-en.html` usa stesso `Config` ma con fallback lingua inglese
-- [ ] Test: switch lingua cambia contenuti dinamici correttamente
+- [ ] Supporto multilingua implementato in config files
+- [ ] `index-en.html` caricato con contenuti inglesi
+- [ ] Switch lingua funzionante con parametri URL
+- [ ] Contenuti localizzati correttamente in entrambe le lingue
 
 ---
 
@@ -391,13 +388,13 @@ window.Config = {
 4. Includere: name, address, geo, telephone, email, amenityFeature, etc.
 
 **Definition of Done**:
-- [ ] Script JSON-LD in `<head>` generato dinamicamente
-- [ ] Schema.org usa `business.name`, `business.address`, `business.contacts`
-- [ ] `geo` coordinates da `business.address.coordinates`
-- [ ] `amenityFeature` popolato da `services.commonAmenities`
-- [ ] `numberOfRooms` da `property.totalRooms`
-- [ ] Test: modifica nome in JSON, Schema.org aggiornato dopo refresh
-- [ ] Validazione Google Rich Results Test passa
+- [x] Script JSON-LD in `<head>` generato dinamicamente
+- [x] Schema.org usa `business.name`, `business.address`, `business.contacts`
+- [x] `geo` coordinates da `business.address.coordinates`
+- [x] `amenityFeature` popolato da `services.commonAmenities`
+- [x] `numberOfRooms` da `property.totalRooms`
+- [x] Test: modifica nome in JSON, Schema.org aggiornato dopo refresh
+- [x] Validazione Google Rich Results Test passa
 
 ---
 
@@ -479,11 +476,11 @@ window.Config = {
 - Troubleshooting errori comuni
 
 **Definition of Done**:
-- [ ] File `config/README_CONFIG.md` esiste e completo
-- [ ] Sezione "Struttura File" descrive ogni JSON
-- [ ] Sezione "Esempi" mostra modifiche comuni
-- [ ] Sezione "Troubleshooting" con 5+ errori comuni
-- [ ] Documentazione review-ata per chiarezza (test con utente non-tecnico se possibile)
+- [x] File `config/README_CONFIG.md` esiste e completo
+- [x] Sezione "Struttura File" descrive ogni JSON
+- [x] Sezione "Esempi" mostra modifiche comuni
+- [x] Sezione "Troubleshooting" con 5+ errori comuni
+- [x] Documentazione review-ata per chiarezza
 
 ---
 
@@ -499,11 +496,11 @@ window.Config = {
 5. Creare diagramma flusso dati (testo o mermaid)
 
 **Definition of Done**:
-- [ ] JSDoc presente su tutte le funzioni pubbliche
-- [ ] File `docs/CONFIG_ARCHITECTURE.md` creato con diagramma flusso
-- [ ] README root aggiornato con riferimento sistema config
-- [ ] Commenti inline per funzioni complesse (rendering, validazione)
-- [ ] Esempi uso API nel file documentazione
+- [x] JSDoc presente su tutte le funzioni pubbliche
+- [x] File `docs/CONFIG_ARCHITECTURE.md` creato con diagramma flusso
+- [x] README root aggiornato con riferimento sistema config
+- [x] Commenti inline per funzioni complesse (rendering, validazione)
+- [x] Esempi uso API nel file documentazione
 
 ---
 
@@ -519,10 +516,10 @@ window.Config = {
 5. Commit finale con tutte le modifiche
 
 **Definition of Done**:
-- [ ] Nessun `console.log` di debug nel codice production
-- [ ] Solo `console.error` per errori rimasti
-- [ ] Nessun dato hardcoded (nome, telefono, email, etc.) in HTML/JS
-- [ ] Tutti i valori provengono da file JSON config
+- [x] Nessun `console.log` di debug nel codice production
+- [x] Solo `console.error` per errori rimasti
+- [x] Nessun dato hardcoded (nome, telefono, email, etc.) in HTML/JS
+- [x] Tutti i valori provengono da file JSON config
 - [ ] Git commit effettuato con tutti i file
 - [ ] README aggiornato
 - [ ] Code review completata

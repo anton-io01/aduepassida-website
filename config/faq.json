@@ -1,0 +1,74 @@
+{
+  "faqs": [
+    {
+      "id": "checkin-checkout",
+      "question": "A che ora è il check-in e il check-out?",
+      "answer": "Il check-in è flessibile: contattaci per concordare l'orario più comodo. Il check-out è indicativamente entro le ore 11:00.",
+      "order": 1,
+      "category": "general"
+    },
+    {
+      "id": "breakfast",
+      "question": "La colazione è inclusa?",
+      "answer": "Sì! La colazione italiana è inclusa nel prezzo e viene servita ogni mattina.",
+      "order": 2,
+      "category": "services"
+    },
+    {
+      "id": "parking",
+      "question": "Il parcheggio è disponibile?",
+      "answer": "Sì, il parcheggio privato è disponibile su prenotazione al costo di €20 al giorno.",
+      "order": 3,
+      "category": "services"
+    },
+    {
+      "id": "elevator",
+      "question": "C'è l'ascensore?",
+      "answer": "No, i piani superiori sono raggiungibili esclusivamente tramite scale. La struttura non dispone di ascensore.",
+      "order": 4,
+      "category": "general"
+    },
+    {
+      "id": "wifi",
+      "question": "Il Wi-Fi è gratuito?",
+      "answer": "Sì, il Wi-Fi ad alta velocità (135 Mbps) è gratuito e disponibile in tutta la struttura.",
+      "order": 5,
+      "category": "services"
+    },
+    {
+      "id": "pets",
+      "question": "Sono ammessi animali?",
+      "answer": "Ti preghiamo di contattarci per discutere la possibilità di ospitare animali domestici.",
+      "order": 6,
+      "category": "policies"
+    },
+    {
+      "id": "transport",
+      "question": "Come raggiungo la struttura dalla stazione/aeroporto?",
+      "answer": "La stazione FS di Corato è a 700 metri (10 minuti a piedi). Dall'aeroporto di Bari (42 km) offriamo servizio navetta su richiesta.",
+      "order": 7,
+      "category": "general"
+    },
+    {
+      "id": "quote",
+      "question": "Come funziona la richiesta preventivo?",
+      "answer": "Compila il form nella sezione Preventivo o contattaci via email/WhatsApp. Ti risponderemo entro 24 ore con disponibilità e prezzi.",
+      "order": 8,
+      "category": "booking"
+    },
+    {
+      "id": "invoice",
+      "question": "Posso ricevere fattura?",
+      "answer": "Sì, emettiamo regolare fattura su richiesta. Comunicaci i tuoi dati fiscali al momento della prenotazione.",
+      "order": 9,
+      "category": "booking"
+    },
+    {
+      "id": "family",
+      "question": "La struttura è adatta alle famiglie?",
+      "answer": "Assolutamente sì! Abbiamo seggioloni, passeggini disponibili e camere familiari. L'appartamento privato è perfetto per le famiglie.",
+      "order": 10,
+      "category": "general"
+    }
+  ]
+}

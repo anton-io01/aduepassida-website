@@ -1,0 +1,79 @@
+{
+  "services": [
+    {
+      "id": "wifi",
+      "name": "Wi-Fi gratuito",
+      "category": "included",
+      "enabled": true,
+      "icon": "fa-solid fa-wifi",
+      "description": "Connessione Wi-Fi ad alta velocità disponibile in tutta la struttura"
+    },
+    {
+      "id": "breakfast",
+      "name": "Colazione inclusa",
+      "category": "included",
+      "enabled": true,
+      "icon": "fa-solid fa-mug-hot",
+      "description": "Colazione italiana inclusa nel prezzo servita ogni mattina"
+    },
+    {
+      "id": "ac",
+      "name": "Aria condizionata",
+      "category": "included",
+      "enabled": true,
+      "icon": "fa-solid fa-snowflake",
+      "description": "Aria condizionata in tutte le camere"
+    },
+    {
+      "id": "tv",
+      "name": "TV schermo piatto",
+      "category": "included",
+      "enabled": true,
+      "icon": "fa-solid fa-tv",
+      "description": "TV schermo piatto in tutte le camere"
+    },
+    {
+      "id": "kitchen",
+      "name": "Cucina attrezzata",
+      "category": "included",
+      "enabled": true,
+      "icon": "fa-solid fa-kitchen-set",
+      "description": "Cucina completamente attrezzata a disposizione degli ospiti"
+    },
+    {
+      "id": "parking",
+      "name": "Parcheggio privato",
+      "category": "paid",
+      "enabled": true,
+      "icon": "fa-solid fa-square-parking",
+      "description": "Parcheggio privato disponibile su prenotazione al costo di €20 al giorno"
+    },
+    {
+      "id": "shuttle",
+      "name": "Servizio navetta",
+      "category": "on_request",
+      "enabled": true,
+      "icon": "fa-solid fa-van-shuttle",
+      "description": "Servizio navetta da/per aeroporto disponibile su richiesta"
+    },
+    {
+      "id": "laundry",
+      "name": "Lavanderia",
+      "category": "on_request",
+      "enabled": false,
+      "icon": "fa-solid fa-soap",
+      "description": "Servizio lavanderia disponibile su richiesta"
+    }
+  ],
+  "commonAmenities": {
+    "wifi": true,
+    "breakfast": true,
+    "ac": true,
+    "tv": true,
+    "hairdryer": true,
+    "minibar": false,
+    "shuttle": true,
+    "laundry": false,
+    "pets": false
+  }
+}
