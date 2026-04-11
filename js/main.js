@@ -132,12 +132,49 @@ async function loadCookieBanner() {
     }
 }
 
+// Struttura carousel
+function initStrutturaCarousel() {
+    const carousel = document.querySelector('.struttura-carousel');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots   = carousel.querySelectorAll('.carousel-dot');
+    const prev   = carousel.querySelector('.carousel-prev');
+    const next   = carousel.querySelector('.carousel-next');
+    let current  = 0;
+    let timer;
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+
+    function startAuto() {
+        timer = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function resetAuto() {
+        clearInterval(timer);
+        startAuto();
+    }
+
+    prev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    next.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
+
+    startAuto();
+}
+
 // Initialize all on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initStickyHeader();
     initMobileMenu();
     renderServices();
     initAccordion();
+    initStrutturaCarousel();
     loadFormModule();
     loadCookieBanner();
 });
