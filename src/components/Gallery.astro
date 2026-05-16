@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import { t } from '../i18n/utils';
+import fs from 'node:fs';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/appartamento/*.{jpg,png}', { eager: true });
+
+const galleryImages = t(lang, 'gallery.images') as Array<{src: string; alt: string}>;
+
+// Map gallery images to their modules, checking for valid files (not 12-byte placeholders)
+const imageEntries = galleryImages.map((img) => {
+  const key = `/src/assets/images/${img.src}`;
+  const mod = imageModules[key];
+  // Check if image is a placeholder (very small file)
+  const isPlaceholder = !mod || (mod.default && mod.default.width < 10);
+  return { ...img, mod: mod?.default, isPlaceholder };
+});
+---
+
+<section id="galleria" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'gallery.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'gallery.subtitle')}</p>
+        <div class="gallery-grid">
+            {imageEntries.map((entry) => (
+                <div class="gallery-item">
+                    {entry.isPlaceholder ? (
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);min-height:200px;background:var(--color-bg-alt, #f5f5f5);border-radius:12px;">
+                            {lang === 'it' ? 'Foto in arrivo' : 'Photos coming soon'}
+                        </div>
+                    ) : (
+                        <Image
+                            src={entry.mod!}
+                            alt={entry.alt}
+                            loading="lazy"
+                            width={600}
+                            height={400}
+                            format="webp"
+                        />
+                    )}
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

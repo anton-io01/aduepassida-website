@@ -1,0 +1,35 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const items = t(lang, 'faq.items') as FAQItem[];
+---
+
+<section id="faq" class="section">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'faq.title')}</h2>
+        <div class="accordion" id="faq-accordion">
+            {items.map((item, i) => (
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls={`faq-${i + 1}`}>
+                        {item.question}
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel" id={`faq-${i + 1}`} hidden>
+                        <p>{item.answer}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

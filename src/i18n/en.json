@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "title": "A Due Passi Da – Private Apartment Corato, Puglia | Private accommodation in historic center",
+    "description": "Private apartment in Corato (BA): 50 m² private apartment, 2 bedrooms, up to 4-5 guests. Wi-Fi, breakfast included, solarium terrace. 700 m from FS station, 42 km from Bari."
+  },
+  "nav": {
+    "struttura": "Structure",
+    "galleria": "Gallery",
+    "servizi": "Services",
+    "posizione": "Location",
+    "attrazioni": "Surroundings",
+    "recensioni": "Reviews",
+    "preventivo": "Quote",
+    "hamburgerLabel": "Toggle menu",
+    "langItLabel": "Italian version",
+    "langEnLabel": "English version"
+  },
+  "hero": {
+    "preTitle": "Welcome to Corato, Puglia",
+    "title": "A Due Passi Da",
+    "tagline": "Your private apartment in the heart of Puglia",
+    "cta": "Request Quote",
+    "ctaSecondary": "Discover More",
+    "badges": [
+      { "icon": "fa-users", "text": "Up to 4-5 guests" },
+      { "icon": "fa-bed", "text": "2 bedrooms" },
+      { "icon": "fa-wifi", "text": "Free Wi-Fi" },
+      { "icon": "fa-utensils", "text": "Breakfast included" }
+    ]
+  },
+  "struttura": {
+    "title": "The Structure",
+    "subtitle": "A private apartment of 50 m² in the heart of the historic center",
+    "description": "A Due Passi Da is not a traditional B&B, but a private apartment located on the first floor of a historic building in the center of Corato. Perfect for families and couples who want an authentic experience in Puglia. The apartment consists of 2 bedrooms and can accommodate up to 4-5 guests, making it ideal for families with children or groups of friends.",
+    "highlights": [
+      "50 m² · 2 bedrooms · up to 4-5 guests",
+      "Private access with independent entrance",
+      "Soundproofing · City view",
+      "Location score 9.5/10",
+      "700 m from Corato FS Station"
+    ],
+    "accessibilityNotice": "Upper floors are accessible only by stairs. The property does not have an elevator.",
+    "carouselLabel": "Structure gallery",
+    "prevLabel": "Previous image",
+    "nextLabel": "Next image",
+    "images": [
+      { "src": "struttura/esterno-1.jpg", "alt": "External facade of A Due Passi Da apartment – view 1" },
+      { "src": "struttura/esterno-2.jpg", "alt": "External facade of A Due Passi Da apartment – view 2" },
+      { "src": "struttura/ingresso.png", "alt": "Entrance of A Due Passi Da apartment" }
+    ]
+  },
+  "gallery": {
+    "title": "Apartment Gallery",
+    "subtitle": "Discover the spaces of your apartment in Corato",
+    "note": "Apartment photos will be added shortly.",
+    "images": [
+      { "src": "appartamento/1.jpg", "alt": "Apartment interior" },
+      { "src": "appartamento/2.jpg", "alt": "Living room" },
+      { "src": "appartamento/3.jpg", "alt": "Double bedroom" },
+      { "src": "appartamento/4.jpg", "alt": "Single bedroom" },
+      { "src": "appartamento/5.jpg", "alt": "Kitchen" },
+      { "src": "appartamento/6.jpg", "alt": "Bathroom" }
+    ]
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Everything you need for a perfect stay",
+    "note": "Services marked as \"Paid\" are available upon request at additional costs.",
+    "labels": {
+      "wifi": "Wi-Fi 135 Mbps",
+      "aircon": "Air conditioning",
+      "heating": "Heating",
+      "soundproofing": "Soundproofing",
+      "breakfast": "Italian breakfast",
+      "kitchen": "Equipped kitchen",
+      "washer": "Washing machine",
+      "bathroom": "Private bathroom",
+      "toiletries": "Toiletries",
+      "hairdryer": "Hair dryer",
+      "terrace": "Solarium terrace",
+      "patio": "Outdoor patio",
+      "highchair": "High chair",
+      "stroller": "Stroller available",
+      "parking": "Parking (€20/day)",
+      "shuttle": "Airport shuttle",
+      "bicycle": "Bicycle rental",
+      "flexcheckin": "Flexible check-in",
+      "invoice": "Invoice on request",
+      "extinguisher": "Fire extinguishers",
+      "codetector": "CO detector",
+      "keys": "Key access"
+    },
+    "badges": {
+      "included": "Included",
+      "paid": "Paid"
+    }
+  },
+  "location": {
+    "title": "Location",
+    "subtitle": "In the heart of the historic center of Corato",
+    "addressName": "A Due Passi Da",
+    "addressStreet": "Via Duomo, 81",
+    "addressCity": "70033 Corato (BA) - Italy",
+    "directions": {
+      "trainTitle": "From FS Station",
+      "trainDesc": "Corato station 700 meters away (10 minutes on foot)",
+      "airportTitle": "From the Airport",
+      "airportDesc": "Bari Karol Wojtyla Airport 42 km away (45 minutes by car)"
+    },
+    "mapTitle": "Map A Due Passi Da",
+    "mapFallback": "Open in Google Maps"
+  },
+  "attractions": {
+    "title": "Surroundings",
+    "subtitle": "Discover the wonders of Puglia from Corato",
+    "items": [
+      {
+        "name": "Bari",
+        "description": "The old city with the seafront and the Basilica of San Nicola. Perfect for a day between history and cuisine.",
+        "distance": "42 km",
+        "image": "luoghi/bari.jpg"
+      },
+      {
+        "name": "Trani",
+        "description": "The white cathedral on the sea, the port and the Swabian castle. A gem of the Adriatic coast.",
+        "distance": "55 km",
+        "image": "luoghi/trani.jpg"
+      },
+      {
+        "name": "Castel del Monte",
+        "description": "UNESCO heritage, the enigmatic octagonal castle of Frederick II. A medieval masterpiece.",
+        "distance": "38 km",
+        "image": "luoghi/castel-del-monte.jpg"
+      },
+      {
+        "name": "Alberobello",
+        "description": "The famous trulli, conical houses UNESCO heritage. A unique village in the world.",
+        "distance": "65 km",
+        "image": "luoghi/alberobello.jpg"
+      },
+      {
+        "name": "Polignano a Mare",
+        "description": "Breathtaking beaches, cliffs overlooking the sea and the famous Lama Monachile.",
+        "distance": "70 km",
+        "image": "luoghi/polignano.jpg"
+      }
+    ]
+  },
+  "reviews": {
+    "title": "Reviews",
+    "subtitle": "What our guests say",
+    "items": [
+      {
+        "text": "Delightful apartment in the heart of the historic center. Clean, welcoming and perfect for our family. Antonio was very kind!",
+        "author": "Marco and Laura",
+        "from": "From Milan",
+        "date": "January 2026",
+        "rating": 5
+      },
+      {
+        "text": "Perfect location to explore Puglia. The apartment has everything you need and the included breakfast was a pleasant surprise.",
+        "author": "Rossi Family",
+        "from": "From Turin",
+        "date": "December 2025",
+        "rating": 5
+      },
+      {
+        "text": "Great value for money. The apartment is spacious and well furnished. Highly recommended for those who want to experience the real historic center.",
+        "author": "Giulia B.",
+        "from": "From Rome",
+        "date": "November 2025",
+        "rating": 4.5
+      }
+    ]
+  },
+  "form": {
+    "title": "Request Quote",
+    "subtitle": "Contact us for a personalized quote",
+    "hiddenSubject": "New quote request – A Due Passi Da",
+    "fields": {
+      "name": { "label": "Full Name", "placeholder": "John Smith", "required": true },
+      "email": { "label": "Email", "placeholder": "john@example.com", "required": true },
+      "phone": { "label": "Phone", "placeholder": "+1 555 123 4567", "optional": "(optional)" },
+      "type": {
+        "label": "Request type",
+        "required": true,
+        "placeholder": "-- Select --",
+        "options": [
+          { "value": "disponibilita", "text": "Check availability" },
+          { "value": "preventivo", "text": "Request quote" },
+          { "value": "informazioni", "text": "General information" }
+        ]
+      },
+      "arrival": { "label": "Check-in date", "required": true },
+      "departure": { "label": "Check-out date", "required": true },
+      "guests": { "label": "Number of guests", "placeholder": "2", "required": true },
+      "notes": { "label": "Special requests", "optional": "(optional)", "placeholder": "Late arrival, food allergies, special needs...", "maxlength": 500 },
+      "gdpr": { "text": "I consent to the processing of my personal data to receive a response to my request, in accordance with the", "linkText": "GDPR Regulation", "required": true }
+    },
+    "noteCounter": "{count}/500",
+    "submitBtn": "Send Request",
+    "errors": {
+      "name": "Please enter your full name",
+      "email": "Please enter a valid email address",
+      "phone": "Invalid phone format",
+      "type": "Please select the request type",
+      "arrival": "Please select the check-in date",
+      "departure": "Please select the check-out date",
+      "guests": "Please select the number of guests (1-5)",
+      "gdpr": "You must accept the privacy policy"
+    },
+    "successTitle": "Request sent!",
+    "successMsg": "Thank you! We will respond within 24 hours to the email address provided.",
+    "successWa": "Prefer WhatsApp?",
+    "successWaLink": "Contact us directly"
+  },
+  "contacts": {
+    "title": "Contact",
+    "subtitle": "We are available for any information",
+    "email": {
+      "title": "Email",
+      "value": "antoniomodugno01@gmail.com",
+      "note": "Response within 24 hours"
+    },
+    "phone": {
+      "title": "Phone",
+      "value": "+39 392 139 3823",
+      "note": "Mon–Sun · 9:00–20:00"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "cta": "Write to us on WhatsApp",
+      "note": "No login required",
+      "message": "Hello! I would like to request a quote for the B&B A Due Passi Da."
+    },
+    "booking": {
+      "text": "Prefer to book through an external platform?",
+      "cta": "View on Booking.com"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What time is check-in and check-out?",
+        "answer": "Check-in is flexible upon agreement. Check-out is by 11:00 AM. We recommend communicating your arrival time in advance."
+      },
+      {
+        "question": "Is breakfast included?",
+        "answer": "Yes, breakfast is included in the rate. You will find basic items for a continental breakfast in the equipped kitchen."
+      },
+      {
+        "question": "Is parking available?",
+        "answer": "Yes, private parking is available upon reservation at a cost of €20 per day."
+      },
+      {
+        "question": "Is there an elevator?",
+        "answer": "No, upper floors are accessible only by stairs. The property does not have an elevator."
+      },
+      {
+        "question": "Is Wi-Fi free?",
+        "answer": "Yes, high-speed Wi-Fi (135 Mbps) is free and available throughout the property."
+      },
+      {
+        "question": "Are pets allowed?",
+        "answer": "Please contact us to discuss the possibility of hosting pets."
+      },
+      {
+        "question": "How do I reach the property from the station/airport?",
+        "answer": "Corato FS station is 700 meters away (10 minutes on foot). From Bari airport (42 km) we offer a shuttle service on request."
+      },
+      {
+        "question": "How does the quote request work?",
+        "answer": "Fill in the form in the Quote section or contact us via email/WhatsApp. We will respond within 24 hours with availability and prices."
+      },
+      {
+        "question": "Can I receive an invoice?",
+        "answer": "Yes, we issue a regular invoice on request. Please provide your tax details at the time of booking."
+      },
+      {
+        "question": "Is the property suitable for families?",
+        "answer": "Absolutely! We have high chairs, strollers available and family rooms. The private apartment is perfect for families."
+      }
+    ]
+  },
+  "footer": {
+    "brand": "A Due Passi Da",
+    "brandDesc": "Private apartment in the historic center of Corato, Puglia. Your authentic experience in the heart of Southern Italy.",
+    "address": "Via Duomo, 81 – 70033 Corato (BA)",
+    "quickLinksTitle": "Quick Links",
+    "contactTitle": "Contact",
+    "nav": {
+      "struttura": "The Structure",
+      "servizi": "Services",
+      "posizione": "Location",
+      "preventivo": "Request Quote",
+      "contatti": "Contact",
+      "privacy": "Privacy Policy"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/aduepassida_corato",
+      "facebook": "https://www.facebook.com/aduepassida",
+      "whatsapp": "https://wa.me/393921393823"
+    },
+    "copyright": "© 2026 A Due Passi Da. All rights reserved.",
+    "credits": "Designed with ❤️ in Puglia"
+  },
+  "cookie": {
+    "title": "This site uses technical cookies",
+    "description": "to ensure the proper functioning of the site. We do not use profiling cookies. By continuing to browse, you consent to the use of cookies.",
+    "categories": {
+      "necessary": { "title": "Necessary", "description": "Essential cookies for the site to function." },
+      "functional": { "title": "Functional", "description": "Cookies to improve site functionality." },
+      "analytics": { "title": "Analytics", "description": "Cookies to analyze site traffic." }
+    },
+    "acceptAll": "Accept all",
+    "acceptSelected": "Got it",
+    "privacyLink": "Read the Privacy Policy"
+  }
+}

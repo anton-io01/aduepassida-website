@@ -1,0 +1,56 @@
+---
+import { t } from '../i18n/utils';
+import yaml from '/src/data/services.yaml?raw';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+// Parse YAML manually since Astro doesn't have built-in YAML import
+const lines = yaml.split('\n');
+interface Service {
+  key: string;
+  icon: string;
+  category: string;
+  included: boolean;
+}
+
+const services: Service[] = [];
+let current: Partial<Service> = {};
+
+for (const line of lines) {
+  const trimmed = line.trim();
+  if (trimmed.startsWith('- key:')) {
+    if (current.key) services.push(current as Service);
+    current = { key: trimmed.replace('- key:', '').trim() };
+  } else if (trimmed.startsWith('icon:')) {
+    current.icon = trimmed.replace('icon:', '').trim();
+  } else if (trimmed.startsWith('category:')) {
+    current.category = trimmed.replace('category:', '').trim();
+  } else if (trimmed.startsWith('included:')) {
+    current.included = trimmed.replace('included:', '').trim() === 'true';
+  }
+}
+if (current.key) services.push(current as Service);
+---
+
+<section id="servizi" class="section">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'services.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'services.subtitle')}</p>
+        <div class="services-grid" id="services-grid">
+            {services.map((s) => (
+                <div class="service-item">
+                    <i class={`fa-solid ${s.icon} service-icon`}></i>
+                    <span class="service-label">{t(lang, `services.labels.${s.key}`)}</span>
+                    <span class={`badge ${s.included ? 'badge-included' : 'badge-paid'}`}>
+                        {s.included ? t(lang, 'services.badges.included') : t(lang, 'services.badges.paid')}
+                    </span>
+                </div>
+            ))}
+        </div>
+        <p class="services-note"><i class="fa-solid fa-circle-info"></i> {t(lang, 'services.note')}</p>
+    </div>
+</section>

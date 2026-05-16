@@ -1,0 +1,60 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+const homeUrl = lang === 'it' ? '/' : '/en/';
+const privacyUrl = lang === 'it' ? '/privacy-policy/' : '/en/privacy-policy/';
+const social = t(lang, 'footer.social') as Record<string, string>;
+---
+
+<footer id="site-footer">
+    <div class="container footer-content">
+        <div class="footer-section">
+            <h3>{t(lang, 'footer.brand')}</h3>
+            <p>{t(lang, 'footer.brandDesc')}</p>
+            <div class="footer-social">
+                <a href={social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href={social.facebook} target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href={social.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>{t(lang, 'footer.quickLinksTitle')}</h3>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href={`${homeUrl}#struttura`}>{t(lang, 'footer.nav.struttura')}</a></li>
+                    <li><a href={`${homeUrl}#servizi`}>{t(lang, 'footer.nav.servizi')}</a></li>
+                    <li><a href={`${homeUrl}#posizione`}>{t(lang, 'footer.nav.posizione')}</a></li>
+                    <li><a href={`${homeUrl}#preventivo`}>{t(lang, 'footer.nav.preventivo')}</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer-section">
+            <h3>{t(lang, 'footer.contactTitle')}</h3>
+            <div class="footer-contact">
+                <p><i class="fa-solid fa-location-dot"></i> {t(lang, 'footer.address')}</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+393921393823">+39 392 139 3823</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:antoniomodugno01@gmail.com">antoniomodugno01@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>{t(lang, 'footer.copyright')} | <a href={privacyUrl}>{t(lang, 'footer.nav.privacy')}</a></p>
+            <p class="footer-credits">{t(lang, 'footer.credits')}</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,141 @@
+/**
+ * responsive.css
+ * Media queries for responsive design (mobile, tablet, desktop)
+ * STEP 21: CSS Responsive
+ */
+
+/* ================================
+   TABLET (768px - 1024px)
+   ================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .gallery-grid,
+    .attractions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ================================
+   MOBILE (< 768px) - STEP 06
+   ================================ */
+@media (max-width: 767px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #main-nav {
+        position: relative;
+    }
+
+    #main-nav .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-surface);
+        padding: var(--spacing-md);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-md);
+        margin-top: var(--spacing-md);
+    }
+
+    #main-nav.nav-open .nav-links {
+        display: flex;
+    }
+
+    .lang-toggle {
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--color-border);
+    }
+
+    /* Hero mobile adjustments */
+    #hero {
+        min-height: 70vh;
+        background-attachment: scroll; /* Fix iOS parallax issue */
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Struttura section */
+    .struttura-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Galleria section */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Location section */
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
+
+    /* Attractions section */
+    .attractions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reviews section */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Servizi section */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Form */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contatti - fix centratura */
+    .contatti-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+    }
+
+    .contact-card {
+        padding: var(--spacing-lg);
+    }
+
+    /* FAQ - fix padding mobile */
+    #faq .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .accordion {
+        max-width: 100%;
+    }
+
+    .accordion-trigger {
+        padding: var(--spacing-md) 0;
+        font-size: 0.95rem;
+    }
+
+    /* Cookie banner */
+    .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #cookie-accept {
+        width: 100%;
+    }
+}

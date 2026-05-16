@@ -1,0 +1,53 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+interface ReviewItem {
+  text: string;
+  author: string;
+  from: string;
+  date: string;
+  rating: number;
+}
+
+const items = t(lang, 'reviews.items') as ReviewItem[];
+---
+
+<section id="recensioni" class="section">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'reviews.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'reviews.subtitle')}</p>
+
+        <div class="reviews-grid">
+            {items.map((review) => {
+                const fullStars = Math.floor(review.rating);
+                const hasHalf = review.rating % 1 !== 0;
+                return (
+                    <article class="review-card">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                {Array.from({ length: fullStars }).map(() => (
+                                    <i class="fa-solid fa-star"></i>
+                                ))}
+                                {hasHalf && <i class="fa-solid fa-star-half-stroke"></i>}
+                            </div>
+                            <span class="review-date">{review.date}</span>
+                        </div>
+                        <blockquote class="review-text">
+                            "{review.text}"
+                        </blockquote>
+                        <div class="review-author">
+                            <strong>{review.author}</strong>
+                            <span>{review.from}</span>
+                        </div>
+                    </article>
+                );
+            })}
+        </div>
+    </div>
+</section>
