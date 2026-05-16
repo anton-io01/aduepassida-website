@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/luoghi/*.{jpg,png}', { eager: true });
+
+interface AttractionItem {
+  name: string;
+  description: string;
+  distance: string;
+  image: string;
+}
+
+const items = t(lang, 'attractions.items') as AttractionItem[];
+---
+
+<section id="attrazioni" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'attractions.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'attractions.subtitle')}</p>
+
+        <div class="attractions-grid">
+            {items.map((item) => {
+                const imgKey = `/src/assets/images/${item.image}`;
+                const imgMod = imageModules[imgKey]?.default;
+                return (
+                    <article class="attraction-card">
+                        <div class="attraction-image">
+                            {imgMod ? (
+                                <Image
+                                    src={imgMod}
+                                    alt={item.name}
+                                    loading="lazy"
+                                    width={400}
+                                    height={300}
+                                    format="webp"
+                                />
+                            ) : (
+                                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);">
+                                    {lang === 'it' ? 'Foto in arrivo' : 'Photos coming soon'}
+                                </div>
+                            )}
+                        </div>
+                        <div class="attraction-content">
+                            <span class="attraction-distance"><i class="fa-solid fa-route"></i> {item.distance}</span>
+                            <h3>{item.name}</h3>
+                            <p>{item.description}</p>
+                        </div>
+                    </article>
+                );
+            })}
+        </div>
+    </div>
+</section>

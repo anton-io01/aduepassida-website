@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "title": "A Due Passi Da – B&B Corato, Puglia | Appartamento privato nel centro storico",
+    "description": "B&B a Corato (BA): appartamento privato di 50 m², 2 camere, fino a 4-5 ospiti. Wi-Fi, colazione inclusa, terrazza solarium. A 700 m dalla stazione FS, 42 km da Bari."
+  },
+  "nav": {
+    "struttura": "La Struttura",
+    "galleria": "Galleria",
+    "servizi": "Servizi",
+    "posizione": "Dove Siamo",
+    "attrazioni": "Dintorni",
+    "recensioni": "Recensioni",
+    "preventivo": "Preventivo",
+    "hamburgerLabel": "Apri menu",
+    "langItLabel": "Versione italiana",
+    "langEnLabel": "English version"
+  },
+  "hero": {
+    "preTitle": "Benvenuti a Corato, Puglia",
+    "title": "A Due Passi Da",
+    "tagline": "Il tuo appartamento privato nel cuore della Puglia",
+    "cta": "Richiedi Preventivo",
+    "ctaSecondary": "Scopri di più",
+    "badges": [
+      { "icon": "fa-users", "text": "Fino a 4-5 ospiti" },
+      { "icon": "fa-bed", "text": "2 camere" },
+      { "icon": "fa-wifi", "text": "Wi-Fi gratuito" },
+      { "icon": "fa-utensils", "text": "Colazione inclusa" }
+    ]
+  },
+  "struttura": {
+    "title": "La Struttura",
+    "subtitle": "Appartamento privato nel cuore di Corato",
+    "description": "A Due Passi Da è un appartamento privato di 50 m² situato in Via Duomo, 81, nel centro storico di Corato (BA). Con 2 camere (una matrimoniale e una singola) più un divano letto in soggiorno, può ospitare fino a 4-5 persone. È la scelta ideale per famiglie e piccoli gruppi che vogliono vivere la Puglia autentica con il comfort di una casa privata.",
+    "highlights": [
+      "50 m² · 2 camere · fino a 4-5 ospiti",
+      "Ingresso indipendente e appartamento privato",
+      "Insonorizzazione · Vista sulla città",
+      "Punteggio posizione 9.5/10",
+      "A 700 m dalla Stazione FS di Corato"
+    ],
+    "accessibilityNotice": "I piani superiori sono raggiungibili esclusivamente tramite scale. La struttura non dispone di ascensore.",
+    "carouselLabel": "Galleria della struttura",
+    "prevLabel": "Immagine precedente",
+    "nextLabel": "Immagine successiva",
+    "images": [
+      { "src": "struttura/esterno-1.jpg", "alt": "Esterno del B&B A Due Passi Da – vista 1" },
+      { "src": "struttura/esterno-2.jpg", "alt": "Esterno del B&B A Due Passi Da – vista 2" },
+      { "src": "struttura/ingresso.png", "alt": "Ingresso del B&B A Due Passi Da" }
+    ]
+  },
+  "gallery": {
+    "title": "Galleria Appartamento",
+    "subtitle": "Scopri gli spazi del tuo appartamento a Corato",
+    "images": [
+      { "src": "appartamento/1.jpg", "alt": "Interno appartamento" },
+      { "src": "appartamento/2.jpg", "alt": "Soggiorno" },
+      { "src": "appartamento/3.jpg", "alt": "Camera matrimoniale" },
+      { "src": "appartamento/4.jpg", "alt": "Camera singola" },
+      { "src": "appartamento/5.jpg", "alt": "Cucina" },
+      { "src": "appartamento/6.jpg", "alt": "Bagno" }
+    ]
+  },
+  "services": {
+    "title": "I Nostri Servizi",
+    "subtitle": "Tutto quello che ti serve per un soggiorno perfetto",
+    "note": "I servizi contrassegnati come \"A pagamento\" sono disponibili su richiesta a costi aggiuntivi.",
+    "labels": {
+      "wifi": "Wi-Fi 135 Mbps",
+      "aircon": "Aria condizionata",
+      "heating": "Riscaldamento",
+      "soundproofing": "Insonorizzazione",
+      "breakfast": "Colazione italiana",
+      "kitchen": "Cucina attrezzata",
+      "washer": "Lavatrice",
+      "bathroom": "Bagno privato",
+      "toiletries": "Prodotti da bagno",
+      "hairdryer": "Asciugacapelli",
+      "terrace": "Terrazza solarium",
+      "patio": "Patio esterno",
+      "highchair": "Seggiolone",
+      "stroller": "Passeggino disponibile",
+      "parking": "Parcheggio (€20/gg)",
+      "shuttle": "Navetta aeroporto",
+      "bicycle": "Noleggio biciclette",
+      "flexcheckin": "Check-in flessibile",
+      "invoice": "Fattura su richiesta",
+      "extinguisher": "Estintori",
+      "codetector": "Rilevatore CO",
+      "keys": "Accesso con chiavi"
+    },
+    "badges": {
+      "included": "Incluso",
+      "paid": "A pagamento"
+    }
+  },
+  "location": {
+    "title": "Dove Siamo",
+    "subtitle": "Nel cuore del centro storico di Corato",
+    "addressName": "A Due Passi Da",
+    "addressStreet": "Via Duomo, 81",
+    "addressCity": "70033 Corato (BA) - Italia",
+    "directions": {
+      "trainTitle": "Dalla Stazione FS",
+      "trainDesc": "Stazione di Corato a 700 metri (10 minuti a piedi)",
+      "airportTitle": "Dall'Aeroporto",
+      "airportDesc": "Aeroporto di Bari Karol Wojtyla a 42 km (45 minuti in auto)"
+    },
+    "mapTitle": "Mappa A Due Passi Da",
+    "mapFallback": "Apri in Google Maps"
+  },
+  "attractions": {
+    "title": "Dintorni",
+    "subtitle": "Scopri le meraviglie della Puglia da Corato",
+    "items": [
+      {
+        "name": "Bari",
+        "description": "La città vecchia con il lungomare e la Basilica di San Nicola. Perfetta per una giornata tra storia e cucina.",
+        "distance": "42 km",
+        "image": "luoghi/bari.jpg"
+      },
+      {
+        "name": "Trani",
+        "description": "La cattedrale bianca sul mare, il porto e il castello svevo. Una gemma della costa adriatica.",
+        "distance": "55 km",
+        "image": "luoghi/trani.jpg"
+      },
+      {
+        "name": "Castel del Monte",
+        "description": "Patrimonio UNESCO, l'enigmatico castello ottagonale di Federico II. Un capolavorio medioevale.",
+        "distance": "38 km",
+        "image": "luoghi/castel-del-monte.jpg"
+      },
+      {
+        "name": "Alberobello",
+        "description": "I famosi trulli, abitazioni coniche patrimonio UNESCO. Un villaggio unico al mondo.",
+        "distance": "65 km",
+        "image": "luoghi/alberobello.jpg"
+      },
+      {
+        "name": "Polignano a Mare",
+        "description": "Spiagge mozzafiato, scogliere a strapiombo sul mare e la famosa Lama Monachile.",
+        "distance": "70 km",
+        "image": "luoghi/polignano.jpg"
+      }
+    ]
+  },
+  "reviews": {
+    "title": "Recensioni",
+    "subtitle": "Cosa dicono i nostri ospiti",
+    "items": [
+      {
+        "text": "Appartamento delizioso nel cuore del centro storico. Pulito, accogliente e perfetto per la nostra famiglia. Antonio è stato gentilissimo!",
+        "author": "Marco e Laura",
+        "from": "Da Milano",
+        "date": "Gennaio 2026",
+        "rating": 5
+      },
+      {
+        "text": "Posizione perfetta per esplorare la Puglia. L'appartamento ha tutto il necessario e la colazione inclusa è stata una piacevole sorpresa.",
+        "author": "Famiglia Rossi",
+        "from": "Da Torino",
+        "date": "Dicembre 2025",
+        "rating": 5
+      },
+      {
+        "text": "Ottimo rapporto qualità-prezzo. L'appartamento è spazioso e ben arredato. Consigliatissimo per chi vuole vivere il vero centro storico.",
+        "author": "Giulia B.",
+        "from": "Da Roma",
+        "date": "Novembre 2025",
+        "rating": 4.5
+      }
+    ]
+  },
+  "form": {
+    "title": "Richiedi un Preventivo",
+    "subtitle": "Prenota direttamente, senza commissioni",
+    "hiddenSubject": "Nuova richiesta preventivo – A Due Passi Da",
+    "fields": {
+      "name": { "label": "Nome e Cognome", "placeholder": "Mario Rossi", "required": true },
+      "email": { "label": "Email", "placeholder": "mario@esempio.it", "required": true },
+      "phone": { "label": "Telefono", "placeholder": "+39 333 123 4567", "optional": "(opzionale)" },
+      "type": {
+        "label": "Tipo di richiesta",
+        "required": true,
+        "placeholder": "-- Seleziona --",
+        "options": [
+          { "value": "disponibilita", "text": "Verifica disponibilità" },
+          { "value": "preventivo", "text": "Richiesta preventivo" },
+          { "value": "informazioni", "text": "Informazioni generali" }
+        ]
+      },
+      "arrival": { "label": "Data di arrivo", "required": true },
+      "departure": { "label": "Data di partenza", "required": true },
+      "guests": { "label": "Numero di ospiti", "placeholder": "2", "required": true },
+      "notes": { "label": "Richieste speciali", "optional": "(opzionale)", "placeholder": "Arrivo tardivo, allergie alimentari, esigenze particolari...", "maxlength": 500 },
+      "gdpr": { "text": "Acconsento al trattamento dei miei dati personali per ricevere risposta alla mia richiesta, ai sensi del", "linkText": "Regolamento GDPR", "required": true }
+    },
+    "noteCounter": "{count}/500",
+    "submitBtn": "Invia Richiesta",
+    "errors": {
+      "name": "Inserisci nome e cognome",
+      "email": "Inserisci un indirizzo email valido",
+      "phone": "Formato telefono non valido",
+      "type": "Seleziona il tipo di richiesta",
+      "arrival": "Seleziona la data di arrivo",
+      "departure": "Seleziona la data di partenza",
+      "guests": "Seleziona il numero di ospiti (1-5)",
+      "gdpr": "Devi accettare la privacy policy"
+    },
+    "successTitle": "Richiesta inviata!",
+    "successMsg": "Grazie! Ti risponderemo entro 24 ore all'indirizzo email fornito.",
+    "successWa": "Preferisci WhatsApp?",
+    "successWaLink": "Contattaci direttamente"
+  },
+  "contacts": {
+    "title": "Contatti",
+    "subtitle": "Siamo disponibili per qualsiasi informazione",
+    "email": {
+      "title": "Email",
+      "value": "antoniomodugno01@gmail.com",
+      "note": "Risposta entro 24 ore"
+    },
+    "phone": {
+      "title": "Telefono",
+      "value": "+39 392 139 3823",
+      "note": "Lun–Dom · 9:00–20:00"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "cta": "Scrivici su WhatsApp",
+      "note": "Nessun login richiesto",
+      "message": "Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da."
+    },
+    "booking": {
+      "text": "Preferisci prenotare tramite una piattaforma esterna?",
+      "cta": "Vedi su Booking.com"
+    }
+  },
+  "faq": {
+    "title": "Domande Frequenti",
+    "items": [
+      {
+        "question": "A che ora è il check-in e il check-out?",
+        "answer": "Il check-in è flessibile: contattaci per concordare l'orario più comodo. Il check-out è indicativamente entro le ore 11:00."
+      },
+      {
+        "question": "La colazione è inclusa?",
+        "answer": "Sì! La colazione italiana è inclusa nel prezzo e viene servita ogni mattina."
+      },
+      {
+        "question": "Il parcheggio è disponibile?",
+        "answer": "Sì, il parcheggio privato è disponibile su prenotazione al costo di €20 al giorno."
+      },
+      {
+        "question": "C'è l'ascensore?",
+        "answer": "No, i piani superiori sono raggiungibili esclusivamente tramite scale. La struttura non dispone di ascensore."
+      },
+      {
+        "question": "Il Wi-Fi è gratuito?",
+        "answer": "Sì, il Wi-Fi ad alta velocità (135 Mbps) è gratuito e disponibile in tutta la struttura."
+      },
+      {
+        "question": "Sono ammessi animali?",
+        "answer": "Ti preghiamo di contattarci per discutere la possibilità di ospitare animali domestici."
+      },
+      {
+        "question": "Come raggiungo la struttura dalla stazione/aeroporto?",
+        "answer": "La stazione FS di Corato è a 700 metri (10 minuti a piedi). Dall'aeroporto di Bari (42 km) offriamo servizio navetta su richiesta."
+      },
+      {
+        "question": "Come funziona la richiesta preventivo?",
+        "answer": "Compila il form nella sezione Preventivo o contattaci via email/WhatsApp. Ti risponderemo entro 24 ore con disponibilità e prezzi."
+      },
+      {
+        "question": "Posso ricevere fattura?",
+        "answer": "Sì, emettiamo regolare fattura su richiesta. Comunicaci i tuoi dati fiscali al momento della prenotazione."
+      },
+      {
+        "question": "La struttura è adatta alle famiglie?",
+        "answer": "Assolutamente sì! Abbiamo seggioloni, passeggini disponibili e camere familiari. L'appartamento privato è perfetto per le famiglie."
+      }
+    ]
+  },
+  "footer": {
+    "brand": "A Due Passi Da",
+    "brandDesc": "Appartamento privato nel centro storico di Corato, Puglia. La tua esperienza autentica nel cuore del Sud Italia.",
+    "address": "Via Duomo, 81 – 70033 Corato (BA)",
+    "quickLinksTitle": "Link Rapidi",
+    "contactTitle": "Contatti",
+    "nav": {
+      "struttura": "Struttura",
+      "servizi": "Servizi",
+      "posizione": "Posizione",
+      "preventivo": "Preventivo",
+      "contatti": "Contatti",
+      "privacy": "Privacy Policy"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/aduepassida_corato",
+      "facebook": "https://www.facebook.com/aduepassida",
+      "whatsapp": "https://wa.me/393921393823"
+    },
+    "copyright": "© 2026 A Due Passi Da. Tutti i diritti riservati.",
+    "credits": "Designed with ❤️ in Puglia"
+  },
+  "cookie": {
+    "title": "Questo sito utilizza cookie tecnici",
+    "description": "per garantire il corretto funzionamento del sito. Non utilizziamo cookie di profilazione. Continuando la navigazione acconsenti all'uso dei cookie.",
+    "categories": {
+      "necessary": { "title": "Necessari", "description": "Cookie essenziali per il funzionamento del sito." },
+      "functional": { "title": "Funzionali", "description": "Cookie per migliorare la funzionalità del sito." },
+      "analytics": { "title": "Analitici", "description": "Cookie per analizzare il traffico del sito." }
+    },
+    "acceptAll": "Accetta tutti",
+    "acceptSelected": "Ho capito",
+    "privacyLink": "Leggi la Privacy Policy"
+  }
+}

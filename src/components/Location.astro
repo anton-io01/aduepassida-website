@@ -1,0 +1,54 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+---
+
+<section id="posizione" class="section">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'location.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'location.subtitle')}</p>
+
+        <div class="location-grid">
+            <div class="location-info">
+                <div class="location-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>{t(lang, 'location.addressName')}</strong>
+                        <p>{t(lang, 'location.addressStreet')}<br>{t(lang, 'location.addressCity')}</p>
+                    </div>
+                </div>
+
+                <div class="location-directions">
+                    <h3><i class="fa-solid fa-train"></i> {t(lang, 'location.directions.trainTitle')}</h3>
+                    <p>{t(lang, 'location.directions.trainDesc')}</p>
+
+                    <h3><i class="fa-solid fa-plane"></i> {t(lang, 'location.directions.airportTitle')}</h3>
+                    <p>{t(lang, 'location.directions.airportDesc')}</p>
+                </div>
+            </div>
+
+            <div class="location-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.393111971697!2d16.4060013154145!3d41.1536119792871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA5JzEzLjAiTiAxNsKwMjQnMjkuNSJF!5e0!3m2!1sit!2sit!4v1234567890"
+                    width="100%"
+                    height="400"
+                    style="border:0; border-radius: 16px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title={t(lang, 'location.mapTitle')}>
+                </iframe>
+                <p class="map-fallback">
+                    <a href="https://maps.google.com/?q=Via+Duomo+81,+Corato,+BA" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-external-link"></i> {t(lang, 'location.mapFallback')}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

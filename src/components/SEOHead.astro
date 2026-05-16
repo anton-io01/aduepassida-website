@@ -1,0 +1,84 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  siteUrl: string;
+}
+
+const { lang, title, description, canonical, ogImage, siteUrl } = Astro.props;
+
+const baseUrl = siteUrl.replace(/\/$/, '');
+const currentCanonical = canonical || (lang === 'it' ? `${baseUrl}/` : `${baseUrl}/en/`);
+const alternateIt = `${baseUrl}/`;
+const alternateEn = `${baseUrl}/en/`;
+const ogLocale = lang === 'it' ? 'it_IT' : 'en_US';
+const ogImg = ogImage || `${baseUrl}/images/hero/hero-bg.jpg`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BedAndBreakfast",
+  "name": "A Due Passi Da",
+  "description": description,
+  "image": ogImg,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Duomo, 81",
+    "addressLocality": "Corato",
+    "addressRegion": "BA",
+    "postalCode": "70033",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "41.1536",
+    "longitude": "16.4082"
+  },
+  "telephone": "+393921393823",
+  "email": "antoniomodugno01@gmail.com",
+  "url": currentCanonical,
+  "priceRange": "€€",
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Wi-Fi gratuito" : "Free Wi-Fi", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Colazione inclusa" : "Breakfast included", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Aria condizionata" : "Air conditioning", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Terrazza" : "Terrace", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Cucina attrezzata" : "Equipped kitchen", "value": true}
+  ],
+  "checkinTime": lang === 'it' ? "Flessibile" : "Flexible",
+  "checkoutTime": "11:00",
+  "numberOfRooms": 2,
+  "petsAllowed": lang === 'it' ? "Contattare la struttura" : "Contact the property"
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="author" content="A Due Passi Da">
+<link rel="canonical" href={currentCanonical}>
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="it" href={alternateIt}>
+<link rel="alternate" hreflang="en" href={alternateEn}>
+<link rel="alternate" hreflang="x-default" href={alternateIt}>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content={currentCanonical}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={ogImg}>
+<meta property="og:locale" content={ogLocale}>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={ogImg}>
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

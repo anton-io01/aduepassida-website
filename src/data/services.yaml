@@ -1,0 +1,98 @@
+services:
+  # Connettività
+  - key: wifi
+    icon: fa-wifi
+    category: connectivity
+    included: true
+  # Comfort
+  - key: aircon
+    icon: fa-snowflake
+    category: comfort
+    included: true
+  - key: heating
+    icon: fa-temperature-half
+    category: comfort
+    included: true
+  - key: soundproofing
+    icon: fa-volume-xmark
+    category: comfort
+    included: true
+  # Cucina
+  - key: breakfast
+    icon: fa-mug-hot
+    category: kitchen
+    included: true
+  - key: kitchen
+    icon: fa-kitchen-set
+    category: kitchen
+    included: true
+  - key: washer
+    icon: fa-shirt
+    category: kitchen
+    included: true
+  # Bagno
+  - key: bathroom
+    icon: fa-shower
+    category: bathroom
+    included: true
+  - key: toiletries
+    icon: fa-pump-soap
+    category: bathroom
+    included: true
+  - key: hairdryer
+    icon: fa-wind
+    category: bathroom
+    included: true
+  # Spazi esterni
+  - key: terrace
+    icon: fa-sun
+    category: outdoor
+    included: true
+  - key: patio
+    icon: fa-chair
+    category: outdoor
+    included: true
+  # Famiglia
+  - key: highchair
+    icon: fa-baby
+    category: family
+    included: true
+  - key: stroller
+    icon: fa-baby-carriage
+    category: family
+    included: true
+  # Mobilità
+  - key: parking
+    icon: fa-car
+    category: mobility
+    included: false
+  - key: shuttle
+    icon: fa-plane
+    category: mobility
+    included: false
+  - key: bicycle
+    icon: fa-bicycle
+    category: mobility
+    included: false
+  # Flessibilità
+  - key: flexcheckin
+    icon: fa-clock
+    category: flexibility
+    included: true
+  - key: invoice
+    icon: fa-file-invoice
+    category: flexibility
+    included: true
+  # Sicurezza
+  - key: extinguisher
+    icon: fa-fire-extinguisher
+    category: safety
+    included: true
+  - key: codetector
+    icon: fa-shield-halved
+    category: safety
+    included: true
+  - key: keys
+    icon: fa-key
+    category: safety
+    included: true

@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+// Import images statically for Astro optimization
+const imageModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/struttura/*.{jpg,png}', { eager: true });
+
+const imageKeys = [
+  '/src/assets/images/struttura/esterno-1.jpg',
+  '/src/assets/images/struttura/esterno-2.jpg',
+  '/src/assets/images/struttura/ingresso.png',
+];
+
+const images = imageKeys
+  .map((key) => imageModules[key]?.default)
+  .filter(Boolean);
+
+const strutturaImages = t(lang, 'struttura.images') as Array<{src: string; alt: string}>;
+const highlights = t(lang, 'struttura.highlights') as string[];
+---
+
+<section id="struttura" class="section">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'struttura.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'struttura.subtitle')}</p>
+        <div class="struttura-grid">
+            <div class="struttura-info">
+                <p>{t(lang, 'struttura.description')}</p>
+                <ul class="struttura-highlights">
+                    {highlights.map((item) => (
+                        <li><i class="fa-solid fa-check"></i> {item}</li>
+                    ))}
+                </ul>
+                <div class="accessibility-notice">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>{t(lang, 'struttura.accessibilityNotice')}</span>
+                </div>
+            </div>
+            <div class="struttura-image">
+                <div class="struttura-carousel" aria-label={t(lang, 'struttura.carouselLabel')}>
+                    <div class="carousel-track">
+                        {images.map((img, i) => (
+                            <Image
+                                src={img}
+                                alt={strutturaImages[i]?.alt || ''}
+                                class={`carousel-slide${i === 0 ? ' active' : ''}`}
+                                loading={i === 0 ? 'eager' : 'lazy'}
+                                width={800}
+                                height={600}
+                                format="webp"
+                            />
+                        ))}
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label={t(lang, 'struttura.prevLabel')}>
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn carousel-next" aria-label={t(lang, 'struttura.nextLabel')}>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots" aria-hidden="true">
+                        {images.map((_, i) => (
+                            <span class={`carousel-dot${i === 0 ? ' active' : ''}`}></span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,103 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+const privacyUrl = lang === 'it' ? '/privacy-policy/' : '/en/privacy-policy/';
+const waMessage = encodeURIComponent(t(lang, 'contacts.whatsapp.message'));
+
+interface Option { value: string; text: string; }
+const typeOptions = t(lang, 'form.fields.type.options') as Option[];
+---
+
+<section id="preventivo" class="section">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'form.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'form.subtitle')}</p>
+        <div class="form-wrapper">
+            <form id="quote-form" name="quote-form" method="POST" data-netlify="true" novalidate>
+                <input type="hidden" name="form-name" value="quote-form">
+                <input type="hidden" name="_subject" value={t(lang, 'form.hiddenSubject')}>
+                <input type="hidden" name="_language" value={lang}>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome_cognome">{t(lang, 'form.fields.name.label')} <span aria-hidden="true">*</span></label>
+                        <input type="text" id="nome_cognome" name="nome_cognome" placeholder={t(lang, 'form.fields.name.placeholder')} autocomplete="name" required>
+                        <span class="form-error" id="err-nome" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{t(lang, 'form.fields.email.label')} <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" placeholder={t(lang, 'form.fields.email.placeholder')} autocomplete="email" required>
+                        <span class="form-error" id="err-email" aria-live="polite"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">{t(lang, 'form.fields.phone.label')} <span class="optional">{t(lang, 'form.fields.phone.optional')}</span></label>
+                        <input type="tel" id="telefono" name="telefono" placeholder={t(lang, 'form.fields.phone.placeholder')} autocomplete="tel">
+                        <span class="form-error" id="err-telefono" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="richiesta_tipo">{t(lang, 'form.fields.type.label')} <span aria-hidden="true">*</span></label>
+                        <select id="richiesta_tipo" name="richiesta_tipo" required>
+                            <option value="">{t(lang, 'form.fields.type.placeholder')}</option>
+                            {typeOptions.map((opt) => (
+                                <option value={opt.value}>{opt.text}</option>
+                            ))}
+                        </select>
+                        <span class="form-error" id="err-tipo" aria-live="polite"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data_arrivo">{t(lang, 'form.fields.arrival.label')} <span aria-hidden="true">*</span></label>
+                        <input type="date" id="data_arrivo" name="data_arrivo" required>
+                        <span class="form-error" id="err-arrivo" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="data_partenza">{t(lang, 'form.fields.departure.label')} <span aria-hidden="true">*</span></label>
+                        <input type="date" id="data_partenza" name="data_partenza" required>
+                        <span class="form-error" id="err-partenza" aria-live="polite"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="num_ospiti">{t(lang, 'form.fields.guests.label')} <span aria-hidden="true">*</span></label>
+                    <input type="number" id="num_ospiti" name="num_ospiti" min="1" max="5" placeholder={t(lang, 'form.fields.guests.placeholder')} required>
+                    <span class="form-error" id="err-ospiti" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="note">{t(lang, 'form.fields.notes.label')} <span class="optional">{t(lang, 'form.fields.notes.optional')}</span></label>
+                    <textarea id="note" name="note" rows="4" maxlength="500" placeholder={t(lang, 'form.fields.notes.placeholder')}></textarea>
+                    <span class="form-counter" id="note-counter">0/500</span>
+                </div>
+
+                <div class="form-group form-group-checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="gdpr_consent" name="gdpr_consent" required>
+                        <span>{t(lang, 'form.fields.gdpr.text')} <a href={privacyUrl} target="_blank">{t(lang, 'form.fields.gdpr.linkText')}</a>. <span aria-hidden="true">*</span></span>
+                    </label>
+                    <span class="form-error" id="err-gdpr" aria-live="polite"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
+                    {t(lang, 'form.submitBtn')}
+                </button>
+            </form>
+
+            <div id="form-success" class="form-success" hidden>
+                <i class="fa-solid fa-circle-check"></i>
+                <h3>{t(lang, 'form.successTitle')}</h3>
+                <p>{t(lang, 'form.successMsg')}</p>
+                <p class="form-success-wa">{t(lang, 'form.successWa')} <a id="wa-link" href={`https://wa.me/393921393823?text=${waMessage}`} target="_blank">{t(lang, 'form.successWaLink')} <i class="fa-brands fa-whatsapp"></i></a></p>
+            </div>
+        </div>
+    </div>
+</section>

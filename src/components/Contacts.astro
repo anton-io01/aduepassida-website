@@ -1,0 +1,46 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const waMessage = encodeURIComponent(t(lang, 'contacts.whatsapp.message'));
+---
+
+<section id="contatti" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">{t(lang, 'contacts.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'contacts.subtitle')}</p>
+        <div class="contatti-grid">
+            <div class="contact-card">
+                <i class="fa-solid fa-envelope contact-icon"></i>
+                <h3>{t(lang, 'contacts.email.title')}</h3>
+                <a href="mailto:antoniomodugno01@gmail.com" class="contact-link">{t(lang, 'contacts.email.value')}</a>
+                <p class="contact-note">{t(lang, 'contacts.email.note')}</p>
+            </div>
+            <div class="contact-card">
+                <i class="fa-solid fa-phone contact-icon"></i>
+                <h3>{t(lang, 'contacts.phone.title')}</h3>
+                <a href="tel:+393921393823" class="contact-link">{t(lang, 'contacts.phone.value')}</a>
+                <p class="contact-note">{t(lang, 'contacts.phone.note')}</p>
+            </div>
+            <div class="contact-card contact-card-wa">
+                <i class="fa-brands fa-whatsapp contact-icon"></i>
+                <h3>{t(lang, 'contacts.whatsapp.title')}</h3>
+                <a href={`https://wa.me/393921393823?text=${waMessage}`} class="contact-link btn btn-outline" target="_blank" rel="noopener noreferrer">
+                    {t(lang, 'contacts.whatsapp.cta')}
+                </a>
+                <p class="contact-note">{t(lang, 'contacts.whatsapp.note')}</p>
+            </div>
+            <div class="booking-link-box">
+                <p>{t(lang, 'contacts.booking.text')}</p>
+                <a href="https://www.booking.com/hotel/it/a-due-passi-da-corato.it.html" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="fa-solid fa-external-link"></i> {t(lang, 'contacts.booking.cta')}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
