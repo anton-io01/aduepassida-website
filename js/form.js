@@ -19,7 +19,7 @@ export function initForm() {
     });
 
     // WhatsApp link with real number
-    const WA_NUMBER = '393921393823';
+    const WA_NUMBER = '393387066312';
     const WA_TEXT = encodeURIComponent('Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da.');
     if (waLink) waLink.href = `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`;
 
