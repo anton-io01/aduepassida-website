@@ -1,7 +1,6 @@
 /**
  * form.js
- * Form validation and Formspree integration
- * STEP 15-16: Quote request form
+ * Quote request validation and Web3Forms submission
  */
 
 export function initForm() {
@@ -9,12 +8,14 @@ export function initForm() {
     const submitBtn = document.getElementById('form-submit-btn');
     const success = document.getElementById('form-success');
     const noteEl = document.getElementById('note');
+    const counter = document.getElementById('note-counter');
+    const errorMessage = document.getElementById('form-error');
     const waLink = document.getElementById('wa-link');
     if (!form) return;
 
     // Character counter for textarea
-    noteEl.addEventListener('input', () => {
-        document.getElementById('note-counter').textContent = `${noteEl.value.length}/500`;
+    noteEl?.addEventListener('input', () => {
+        counter.textContent = `${noteEl.value.length}/500`;
     });
 
     // WhatsApp link with real number
@@ -27,7 +28,7 @@ export function initForm() {
         nome_cognome: v => v.trim().length >= 2 ? null : 'Inserisci il tuo nome e cognome (min. 2 caratteri)',
         email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : 'Inserisci un indirizzo email valido',
         telefono: v => !v || /^[\d\s+\-()]{9,}$/.test(v) ? null : 'Numero di telefono non valido',
-        num_ospiti: v => (parseInt(v) >= 1 && parseInt(v) <= 10) ? null : 'Inserisci un numero tra 1 e 10',
+        num_ospiti: v => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 5 ? null : 'Inserisci un numero tra 1 e 5',
         data_arrivo: (v, form) => {
             if (!v) return 'Seleziona la data di arrivo';
             const today = new Date().toISOString().split('T')[0];
@@ -38,7 +39,7 @@ export function initForm() {
             if (!v) return 'Seleziona la data di partenza';
             return v > arrivo ? null : 'La partenza deve essere dopo l\'arrivo';
         },
-        tipo_camera: v => v ? null : 'Seleziona una tipologia di sistemazione',
+        richiesta_tipo: v => v ? null : 'Seleziona il tipo di richiesta',
         gdpr_consent: (v, form) => form.querySelector('#gdpr_consent').checked ? null : 'Il consenso è obbligatorio'
     };
 
@@ -49,7 +50,8 @@ export function initForm() {
             'num_ospiti': 'err-ospiti',
             'data_arrivo': 'err-arrivo',
             'data_partenza': 'err-partenza',
-            'tipo_camera': 'err-camera'
+            'richiesta_tipo': 'err-tipo',
+            'gdpr_consent': 'err-gdpr'
         };
         const errId = errIdMap[name] || `err-${name}`;
         const err = document.getElementById(errId);
@@ -62,63 +64,42 @@ export function initForm() {
         return !msg;
     }
 
+    if (form.elements.richiesta_tipo) form.noValidate = true;
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if (submitBtn.disabled) return;
+        errorMessage.hidden = true;
+
         const fields = Object.keys(validators);
         const valid = fields.map(f => validateField(f)).every(Boolean);
         if (!valid) return;
 
-        // Loading state
-        submitBtn.querySelector('.btn-text').hidden = true;
-        submitBtn.querySelector('.btn-spinner').hidden = false;
         submitBtn.disabled = true;
 
-        const formData = Object.fromEntries(new FormData(form).entries());
-        
-        // STEP 16: Real Formspree integration
         try {
+            const payload = Object.fromEntries(new FormData(form));
             const response = await fetch(form.action, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json'
                 },
-                body: new URLSearchParams(formData)
+                body: JSON.stringify(payload)
             });
-            
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Form inviato con successo:', result);
-                
-                // Show success message
-                form.hidden = true;
-                success.hidden = false;
-                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Reset form
-                form.reset();
-                
-                // Reset character counter
-                document.getElementById('note-counter').textContent = '0/500';
-                
-            } else {
-                throw new Error('Errore nell\'invio del form');
+            const result = await response.json();
+            if (!response.ok || result.success !== true) {
+                throw new Error('Web3Forms rejected the submission');
             }
-        } catch (error) {
-            console.error('Errore:', error);
-            
-            // Show error message
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'form-error-general';
-            errorDiv.innerHTML = `<i class="fa-solid fa-exclamation-triangle"></i> Errore nell'invio. Riprova o contattaci direttamente via WhatsApp.`;
-            form.insertBefore(errorDiv, form.firstChild);
-            
-            // Remove error after 5 seconds
-            setTimeout(() => errorDiv.remove(), 5000);
+
+            form.reset();
+            if (counter) counter.textContent = '0/500';
+            form.hidden = true;
+            success.hidden = false;
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch {
+            errorMessage.hidden = false;
         } finally {
-            // Reset button state
-            submitBtn.querySelector('.btn-text').hidden = false;
-            submitBtn.querySelector('.btn-spinner').hidden = true;
             submitBtn.disabled = false;
         }
     });
