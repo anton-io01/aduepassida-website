@@ -13,6 +13,9 @@ export function initForm() {
     const waLink = document.getElementById('wa-link');
     if (!form) return;
 
+    const isEnglish = document.documentElement.lang === 'en';
+    const message = (italian, english) => isEnglish ? english : italian;
+
     // Character counter for textarea
     noteEl?.addEventListener('input', () => {
         counter.textContent = `${noteEl.value.length}/500`;
@@ -20,27 +23,27 @@ export function initForm() {
 
     // WhatsApp link with real number
     const WA_NUMBER = '393387066312';
-    const WA_TEXT = encodeURIComponent('Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da.');
+    const WA_TEXT = encodeURIComponent(message('Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da.', 'Hello! I would like to request a quote for A Due Passi Da.'));
     if (waLink) waLink.href = `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`;
 
     // Validators
     const validators = {
-        nome_cognome: v => v.trim().length >= 2 ? null : 'Inserisci il tuo nome e cognome (min. 2 caratteri)',
-        email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : 'Inserisci un indirizzo email valido',
-        telefono: v => !v || /^[\d\s+\-()]{9,}$/.test(v) ? null : 'Numero di telefono non valido',
-        num_ospiti: v => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 5 ? null : 'Inserisci un numero tra 1 e 5',
+        nome_cognome: v => v.trim().length >= 2 ? null : message('Inserisci il tuo nome e cognome (min. 2 caratteri)', 'Enter your full name (at least 2 characters)'),
+        email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : message('Inserisci un indirizzo email valido', 'Enter a valid email address'),
+        telefono: v => !v || /^[\d\s+\-()]{9,}$/.test(v) ? null : message('Numero di telefono non valido', 'Enter a valid phone number'),
+        num_ospiti: v => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 5 ? null : message('Inserisci un numero tra 1 e 5', 'Enter a number from 1 to 5'),
         data_arrivo: (v, form) => {
-            if (!v) return 'Seleziona la data di arrivo';
+            if (!v) return message('Seleziona la data di arrivo', 'Select your check-in date');
             const today = new Date().toISOString().split('T')[0];
-            return v >= today ? null : 'La data di arrivo deve essere oggi o futura';
+            return v >= today ? null : message('La data di arrivo deve essere oggi o futura', 'Check-in must be today or later');
         },
         data_partenza: (v, form) => {
             const arrivo = form.querySelector('#data_arrivo').value;
-            if (!v) return 'Seleziona la data di partenza';
-            return v > arrivo ? null : 'La partenza deve essere dopo l\'arrivo';
+            if (!v) return message('Seleziona la data di partenza', 'Select your check-out date');
+            return v > arrivo ? null : message('La partenza deve essere dopo l\'arrivo', 'Check-out must be after check-in');
         },
-        richiesta_tipo: v => v ? null : 'Seleziona il tipo di richiesta',
-        gdpr_consent: (v, form) => form.querySelector('#gdpr_consent').checked ? null : 'Il consenso è obbligatorio'
+        richiesta_tipo: v => v ? null : message('Seleziona il tipo di richiesta', 'Select a request type'),
+        gdpr_consent: (v, form) => form.querySelector('#gdpr_consent').checked ? null : message('Il consenso è obbligatorio', 'Consent is required')
     };
 
     function validateField(name) {

@@ -14,14 +14,14 @@
     <meta property="og:url" content="https://anton-io01.github.io/aduepassida-website/index-en.html">
     <meta property="og:title" content="A Due Passi Da - Private Apartment Corato, Puglia">
     <meta property="og:description" content="Private apartment in the historic center of Corato. 2 bedrooms, up to 4-5 guests, breakfast included.">
-    <meta property="og:image" content="https://anton-io01.github.io/aduepassida-website/images/hero/hero-og.jpg">
+    <meta property="og:image" content="https://anton-io01.github.io/aduepassida-website/images/hero/hero-bg.jpg">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="A Due Passi Da - Private Apartment Corato, Puglia">
     <meta name="twitter:description" content="Private apartment in the historic center of Corato. 2 bedrooms, up to 4-5 guests, breakfast included.">
-    <meta name="twitter:image" content="https://anton-io01.github.io/aduepassida-website/images/hero/hero-og.jpg">
+    <meta name="twitter:image" content="https://anton-io01.github.io/aduepassida-website/images/hero/hero-bg.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <!-- Stylesheets -->
+    <link rel="preload" as="image" href="images/hero/hero-bg.jpg" fetchpriority="high">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     
@@ -50,7 +51,7 @@
       "@type": "BedAndBreakfast",
       "name": "A Due Passi Da",
       "description": "Private apartment in the historic center of Corato, Puglia. 2 bedrooms, up to 4-5 guests.",
-      "image": "https://USERNAME.github.io/aduepassida-website/images/hero/hero-og.jpg",
+      "image": "https://anton-io01.github.io/aduepassida-website/images/hero/hero-bg.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via Duomo, 81",
@@ -88,109 +89,83 @@
             <a href="#hero" class="logo">A Due Passi Da</a>
             <nav id="main-nav">
                 <ul class="nav-links">
-                    <li><a href="#struttura">Structure</a></li>
+                    <li><a href="#struttura">The Apartment</a></li>
                     <li><a href="#galleria">Gallery</a></li>
                     <li><a href="#servizi">Services</a></li>
                     <li><a href="#posizione">Location</a></li>
-                    <li><a href="#attrazioni">Surroundings</a></li>
+                    <li><a href="#attrazioni">Nearby Attractions</a></li>
                     <li><a href="#recensioni">Reviews</a></li>
-                    <li><a href="#preventivo" class="btn btn-primary">Quote</a></li>
+                    <li><a href="#preventivo" class="btn btn-primary">Request a Quote</a></li>
                 </ul>
                 <div class="lang-toggle">
                     <a href="index.html" aria-label="Italian version">IT</a>
-                    <span class="separator">|</span>
+                    <span>|</span>
                     <a href="index-en.html" class="active" aria-label="English version">EN</a>
                 </div>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </nav>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-bg" style="background-image: url('images/hero/hero-bg.jpg');"></div>
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <p class="hero-pretitle">Welcome to Corato, Puglia</p>
+        <section id="hero">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <p class="hero-pre-title">Welcome to Corato, Puglia</p>
                     <h1 class="hero-title">A Due Passi Da</h1>
                     <p class="hero-tagline">Your private apartment in the heart of Puglia</p>
-                    <div class="hero-cta">
-                        <a href="#preventivo" class="btn btn-primary btn-large">Request Quote</a>
-                        <a href="#struttura" class="btn btn-secondary btn-large">Discover More</a>
+                    <div class="hero-badges">
+                        <span><i class="fa-solid fa-star"></i> 9.5 Location Rating</span>
+                        <span><i class="fa-solid fa-users"></i> Up to 4–5 guests</span>
+                        <span><i class="fa-solid fa-mug-hot"></i> Breakfast included</span>
                     </div>
-                </div>
-                <div class="hero-badges">
-                    <div class="badge">
-                        <i class="fa-solid fa-users"></i>
-                        <span>Up to 4-5 guests</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fa-solid fa-bed"></i>
-                        <span>2 bedrooms</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fa-solid fa-wifi"></i>
-                        <span>Free Wi-Fi</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fa-solid fa-utensils"></i>
-                        <span>Breakfast included</span>
-                    </div>
+                    <a href="#preventivo" class="btn btn-primary hero-cta">
+                        Request a Quote
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
-
-        <section id="struttura" class="section section-alt">
+        <section id="struttura" class="section">
             <div class="container">
-                <h2 class="section-title">The Structure</h2>
-                <p class="section-subtitle">A private apartment of 50 m² in the heart of the historic center</p>
-                
-                <div class="structure-grid">
-                    <div class="structure-content">
-                        <div class="structure-description">
-                            <p><strong>A Due Passi Da</strong> is not a traditional B&B, but a private apartment located on the first floor of a historic building in the center of Corato. Perfect for families and couples who want an authentic experience in Puglia.</p>
-                            <p>The apartment consists of <strong>2 bedrooms</strong> and can accommodate <strong>up to 4-5 guests</strong>, making it ideal for families with children or groups of friends.</p>
-                        </div>
-                        
-                        <div class="structure-features">
-                            <div class="feature">
-                                <i class="fa-solid fa-ruler-combined"></i>
-                                <div>
-                                    <strong>50 m²</strong>
-                                    <span>Spacious and bright</span>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <i class="fa-solid fa-door-open"></i>
-                                <div>
-                                    <strong>Private access</strong>
-                                    <span>Independent entrance</span>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <i class="fa-solid fa-sun"></i>
-                                <div>
-                                    <strong>Solarium terrace</strong>
-                                    <span>Relaxation area</span>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <i class="fa-solid fa-kitchen-set"></i>
-                                <div>
-                                    <strong>Equipped kitchen</strong>
-                                    <span>Complete with appliances</span>
-                                </div>
-                            </div>
+                <h2 class="section-title">The Apartment</h2>
+                <p class="section-subtitle">A private apartment in the heart of Corato</p>
+                <div class="struttura-grid">
+                    <div class="struttura-info">
+                        <p>A Due Passi Da is a 50 m² private apartment at Via Duomo 81 in the historic center of Corato (BA). With a double bedroom, a single bedroom and a sofa bed in the living room, it accommodates up to 4–5 guests. It is ideal for families and small groups who want to experience Puglia with the comfort of a private home.</p>
+                        <ul class="struttura-highlights">
+                            <li><i class="fa-solid fa-check"></i> 50 m² · 2 bedrooms · up to 4–5 guests</li>
+                            <li><i class="fa-solid fa-check"></i> Private apartment with its own entrance</li>
+                            <li><i class="fa-solid fa-check"></i> Soundproofing · City view</li>
+                            <li><i class="fa-solid fa-check"></i> Location rating 9.5/10</li>
+                            <li><i class="fa-solid fa-check"></i> 700 m from Corato train station</li>
+                        </ul>
+                        <div class="accessibility-notice">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Upper floors are accessible only by stairs. There is no elevator.</span>
                         </div>
                     </div>
-                    
-                    <div class="structure-image">
-                        <img src="images/struttura/esterno-1.jpg" alt="External facade of A Due Passi Da apartment" loading="lazy">
+                    <div class="struttura-image">
+                        <div class="struttura-carousel" aria-label="Property photo carousel">
+                            <div class="carousel-track">
+                                <img src="images/struttura/esterno-1.jpg" alt="Exterior of A Due Passi Da – view 1" class="carousel-slide active" loading="lazy" decoding="async">
+                                <img src="images/struttura/esterno-2.jpg" alt="Exterior of A Due Passi Da – view 2" class="carousel-slide" loading="lazy" decoding="async">
+                                <img src="images/struttura/ingresso.jpg" alt="Entrance to A Due Passi Da" class="carousel-slide" loading="lazy" decoding="async">
+                            </div>
+                            <button class="carousel-btn carousel-prev" aria-label="Previous photo">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next" aria-label="Next photo">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots" aria-hidden="true">
+                                <span class="carousel-dot active"></span>
+                                <span class="carousel-dot"></span>
+                                <span class="carousel-dot"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,34 +174,27 @@
         <section id="galleria" class="section section-alt">
             <div class="container">
                 <h2 class="section-title">Apartment Gallery</h2>
-                <p class="section-subtitle">Discover the spaces of your apartment in Corato</p>
+                <p class="section-subtitle">Explore your apartment in Corato</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="images/appartamento/placeholder.jpg" alt="Living room - Photos coming soon" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.gallery-overlay').style.display='flex';">
-                        <div class="gallery-overlay" style="display: none;">Photos coming soon</div>
+                        <img src="images/appartamento/1.jpg" alt="Apartment interior" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="images/appartamento/placeholder.jpg" alt="Living room - Photos coming soon" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.gallery-overlay').style.display='flex';">
-                        <div class="gallery-overlay" style="display: none;">Photos coming soon</div>
+                        <img src="images/appartamento/2.jpg" alt="Living room" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="images/appartamento/placeholder.jpg" alt="Double bedroom - Photos coming soon" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.gallery-overlay').style.display='flex';">
-                        <div class="gallery-overlay" style="display: none;">Photos coming soon</div>
+                        <img src="images/appartamento/3.jpg" alt="Double bedroom" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="images/appartamento/placeholder.jpg" alt="Single bedroom - Photos coming soon" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.gallery-overlay').style.display='flex';">
-                        <div class="gallery-overlay" style="display: none;">Photos coming soon</div>
+                        <img src="images/appartamento/4.jpg" alt="Single bedroom" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="images/appartamento/placeholder.jpg" alt="Kitchen - Photos coming soon" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.gallery-overlay').style.display='flex';">
-                        <div class="gallery-overlay" style="display: none;">Photos coming soon</div>
+                        <img src="images/appartamento/5.jpg" alt="Kitchen" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="images/appartamento/placeholder.jpg" alt="Bathroom - Photos coming soon" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.gallery-overlay').style.display='flex';">
-                        <div class="gallery-overlay" style="display: none;">Photos coming soon</div>
+                        <img src="images/appartamento/6.jpg" alt="Bathroom" loading="lazy" decoding="async">
                     </div>
                 </div>
-                <p class="gallery-note"><i class="fa-solid fa-image"></i> Apartment photos will be added shortly.</p>
             </div>
         </section>
         
@@ -254,7 +222,7 @@
                         </div>
                         
                         <div class="location-directions">
-                            <h3><i class="fa-solid fa-train"></i> From FS Station</h3>
+                            <h3><i class="fa-solid fa-train"></i> From the Train Station</h3>
                             <p>Corato station 700 meters away (10 minutes on foot)</p>
                             
                             <h3><i class="fa-solid fa-plane"></i> From the Airport</h3>
@@ -269,7 +237,7 @@
                             height="400" 
                             style="border:0; border-radius: 16px;" 
                             allowfullscreen="" 
-                            loading="lazy" 
+                            loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
                             title="Map A Due Passi Da">
                         </iframe>
@@ -290,7 +258,7 @@
                 <div class="attractions-grid">
                     <article class="attraction-card">
                         <div class="attraction-image">
-                            <img src="images/luoghi/bari.jpg" alt="Bari" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
+                            <img src="images/luoghi/bari.jpg" alt="Bari" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
                         </div>
                         <div class="attraction-content">
                             <span class="attraction-distance"><i class="fa-solid fa-route"></i> 42 km</span>
@@ -301,7 +269,7 @@
                     
                     <article class="attraction-card">
                         <div class="attraction-image">
-                            <img src="images/luoghi/trani.jpg" alt="Trani" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
+                            <img src="images/luoghi/trani.jpg" alt="Trani" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
                         </div>
                         <div class="attraction-content">
                             <span class="attraction-distance"><i class="fa-solid fa-route"></i> 55 km</span>
@@ -312,7 +280,7 @@
                     
                     <article class="attraction-card">
                         <div class="attraction-image">
-                            <img src="images/luoghi/castel-del-monte.jpg" alt="Castel del Monte" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
+                            <img src="images/luoghi/castel-del-monte.jpg" alt="Castel del Monte" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
                         </div>
                         <div class="attraction-content">
                             <span class="attraction-distance"><i class="fa-solid fa-route"></i> 38 km</span>
@@ -323,7 +291,7 @@
                     
                     <article class="attraction-card">
                         <div class="attraction-image">
-                            <img src="images/luoghi/alberobello.jpg" alt="Alberobello" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
+                            <img src="images/luoghi/alberobello.jpg" alt="Alberobello" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
                         </div>
                         <div class="attraction-content">
                             <span class="attraction-distance"><i class="fa-solid fa-route"></i> 65 km</span>
@@ -334,7 +302,7 @@
                     
                     <article class="attraction-card">
                         <div class="attraction-image">
-                            <img src="images/luoghi/polignano.jpg" alt="Polignano a Mare" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
+                            <img src="images/luoghi/polignano.jpg" alt="Polignano a Mare" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);\'>Photos coming soon</div>'">
                         </div>
                         <div class="attraction-content">
                             <span class="attraction-distance"><i class="fa-solid fa-route"></i> 70 km</span>
@@ -413,112 +381,125 @@
                 </div>
             </div>
         </section>
-
-        <section id="preventivo" class="section section-alt">
+        <section id="preventivo" class="section">
             <div class="container">
-                <h2 class="section-title">Request Quote</h2>
-                <p class="section-subtitle">Contact us for a personalized quote</p>
-                
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>For information about availability, rates, and special requests, contact us using the form or directly at:</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fa-solid fa-phone"></i>
-                                <div>
-                                    <strong>Phone</strong>
-                                    <span><a href="tel:+393387066312">+39 3387066312</a></span>
-                                </div>
+                <h2 class="section-title">Request a Quote</h2>
+                <p class="section-subtitle">Book directly with no commission</p>
+                <div class="form-wrapper">
+                    <form id="quote-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="ac61795c-6f9d-4a0c-bd68-ff56872d378c">
+                        <input type="checkbox" name="botcheck" hidden>
+                        <input type="hidden" name="subject" value="New quote request – A Due Passi Da">
+                        <input type="hidden" name="language" value="en">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome_cognome">Full name <span aria-hidden="true">*</span></label>
+                                <input type="text" id="nome_cognome" name="nome_cognome" placeholder="Jane Smith" autocomplete="name" required>
+                                <span class="form-error" id="err-nome" aria-live="polite"></span>
                             </div>
-                            
-                            <div class="contact-item">
-                                <i class="fa-solid fa-envelope"></i>
-                                <div>
-                                    <strong>Email</strong>
-                                    <span><a href="mailto:aduepassida.beb@gmail.com">aduepassida.beb@gmail.com</a></span>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <div>
-                                    <strong>Address</strong>
-                                    <span>Via Duomo, 81<br>70033 Corato (BA) - Italy</span>
-                                </div>
+                            <div class="form-group">
+                                <label for="email">Email <span aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+                                <span class="form-error" id="err-email" aria-live="polite"></span>
                             </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Phone <span class="optional">(optional)</span></label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+39 333 123 4567" autocomplete="tel">
+                                <span class="form-error" id="err-telefono" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="richiesta_tipo">Request type <span aria-hidden="true">*</span></label>
+                                <select id="richiesta_tipo" name="richiesta_tipo" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="disponibilita">Check availability</option>
+                                    <option value="preventivo">Request a quote</option>
+                                    <option value="informazioni">General information</option>
+                                </select>
+                                <span class="form-error" id="err-tipo" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data_arrivo">Check-in date <span aria-hidden="true">*</span></label>
+                                <input type="date" id="data_arrivo" name="data_arrivo" required>
+                                <span class="form-error" id="err-arrivo" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="data_partenza">Check-out date <span aria-hidden="true">*</span></label>
+                                <input type="date" id="data_partenza" name="data_partenza" required>
+                                <span class="form-error" id="err-partenza" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="num_ospiti">Number of guests <span aria-hidden="true">*</span></label>
+                            <input type="number" id="num_ospiti" name="num_ospiti" min="1" max="5" placeholder="2" required>
+                            <span class="form-error" id="err-ospiti" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="note">Special requests <span class="optional">(optional)</span></label>
+                            <textarea id="note" name="note" rows="4" maxlength="500" placeholder="Late arrival, food allergies, accessibility needs…"></textarea>
+                            <span class="form-counter" id="note-counter">0/500</span>
+                        </div>
+
+                        <div class="form-group form-group-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="gdpr_consent" name="gdpr_consent" required>
+                                <span>I consent to the processing of my personal data to receive a reply to my request under the <a href="privacy-policy-en.html" target="_blank">General Data Protection Regulation</a>. <span aria-hidden="true">*</span></span>
+                            </label>
+                            <span class="form-error" id="err-gdpr" aria-live="polite"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
+                            Send Request
+                        </button>
+                        <p id="form-error" class="form-error-general" role="alert" hidden>We could not send your request. Please try again or contact us on WhatsApp.</p>
+                    </form>
+
+                    <div id="form-success" class="form-success" role="status" hidden>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3>Request sent!</h3>
+                        <p>Thank you! We will reply within 24 hours at the email address you provided.</p>
+                        <p class="form-success-wa">Prefer WhatsApp? <a id="wa-link" href="https://wa.me/393387066312" target="_blank">Contact us directly <i class="fa-brands fa-whatsapp"></i></a></p>
                     </div>
-                    
-                    <div class="contact-form">
-                        <form id="quote-form" action="https://api.web3forms.com/submit" method="POST">
-                            <input type="hidden" name="access_key" value="ac61795c-6f9d-4a0c-bd68-ff56872d378c">
-                            <input type="checkbox" name="botcheck" hidden>
-                            <input type="hidden" name="subject" value="New quote request – A Due Passi Da">
-                            <input type="hidden" name="language" value="en">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="tel" id="phone" name="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="guests">Number of Guests *</label>
-                                    <select id="guests" name="guests" required>
-                                        <option value="">Select guests</option>
-                                        <option value="1">1 guest</option>
-                                        <option value="2">2 guests</option>
-                                        <option value="3">3 guests</option>
-                                        <option value="4">4 guests</option>
-                                        <option value="5">5 guests</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="checkin">Check-in *</label>
-                                    <input type="date" id="checkin" name="checkin" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="checkout">Check-out *</label>
-                                    <input type="date" id="checkout" name="checkout" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your stay needs..."></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="privacy" name="privacy" required>
-                                    <span class="checkmark"></span>
-                                    I have read and accept the <a href="privacy-policy-en.html" target="_blank">privacy policy</a> *
-                                </label>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
-                                Send Request
-                            </button>
-                            <p id="form-error" class="form-error-general" role="alert" hidden>Could not send your request. Please try again or contact us via WhatsApp.</p>
-                        </form>
-                        <div id="form-success" class="form-success" role="status" hidden>
-                            <h3>Request sent!</h3>
-                            <p>Thank you. We’ll reply to the email address you provided.</p>
-                        </div>
+                </div>
+            </div>
+        </section>
+        <section id="contatti" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">We are happy to answer your questions</p>
+                <div class="contatti-grid">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope contact-icon"></i>
+                        <h3>Email</h3>
+                        <a href="mailto:aduepassida.beb@gmail.com" class="contact-link">aduepassida.beb@gmail.com</a>
+                        <p class="contact-note">Replies within 24 hours</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone contact-icon"></i>
+                        <h3>Phone</h3>
+                        <a href="tel:+393387066312" class="contact-link">+39 3387066312</a>
+                        <p class="contact-note">Mon–Sun · 9:00 AM–8:00 PM</p>
+                    </div>
+                    <div class="contact-card contact-card-wa">
+                        <i class="fa-brands fa-whatsapp contact-icon"></i>
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/393387066312?text=Hello%21%20I%20would%20like%20to%20request%20a%20quote%20for%20A%20Due%20Passi%20Da." class="contact-link btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            Message us on WhatsApp
+                        </a>
+                    </div>
+                    <div class="booking-link-box" hidden>
+                        <p>Prefer to book through another platform?</p>
+                        <a href="https://www.booking.com/hotel/it/a-due-passi-da-corato.it.html" target="_blank" rel="noopener" class="btn btn-outline">
+                            <i class="fa-solid fa-external-link"></i> View on Booking.com
+                        </a>
                     </div>
                 </div>
             </div>
@@ -527,129 +508,131 @@
         <section id="faq" class="section">
             <div class="container">
                 <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Everything you need to know about your stay</p>
-                
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>What time is check-in and check-out?</h3>
+                <div class="accordion" id="faq-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-1">
+                            What are the check-in and check-out times?
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Check-in is flexible upon agreement. Check-out is by 11:00 AM. We recommend communicating your arrival time in advance.</p>
+                        </button>
+                        <div class="accordion-panel" id="faq-1" hidden>
+                            <p>Check-in is flexible. Contact us to arrange a convenient time. Check-out is usually by 11:00 AM.</p>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Is breakfast included?</h3>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-2">
+                            Is breakfast included?
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, breakfast is included in the rate. You will find basic items for a continental breakfast in the equipped kitchen.</p>
+                        </button>
+                        <div class="accordion-panel" id="faq-2" hidden>
+                            <p>Yes. Italian breakfast is included in the price and served every morning.</p>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Is parking available?</h3>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-3">
+                            Is parking available?
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>The apartment is in the historic center where traffic is limited. There are paid parking lots about 300-400 meters away.</p>
+                        </button>
+                        <div class="accordion-panel" id="faq-3" hidden>
+                            <p>Yes. Private parking is available by reservation for €20 per day.</p>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Are pets allowed?</h3>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-4">
+                            Is there an elevator?
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Pets are not allowed. Please contact us directly for special needs or exceptions.</p>
+                        </button>
+                        <div class="accordion-panel" id="faq-4" hidden>
+                            <p>Upper floors are accessible only by stairs. There is no elevator.</p>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Is the apartment suitable for families with children?</h3>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-5">
+                            Is Wi-Fi free?
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, the apartment is perfect for families. With 2 bedrooms it can accommodate up to 5 people comfortably.</p>
+                        </button>
+                        <div class="accordion-panel" id="faq-5" hidden>
+                            <p>Yes. Free high-speed Wi-Fi (135 Mbps) is available throughout the property.</p>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Is Wi-Fi available?</h3>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-6">
+                            Are pets allowed?
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, free Wi-Fi is available throughout the apartment.</p>
+                        </button>
+                        <div class="accordion-panel" id="faq-6" hidden>
+                            <p>Please contact us to discuss bringing a pet.</p>
                         </div>
                     </div>
-                </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-7">
+                            How do I get there from the train station or airport?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-panel" id="faq-7" hidden>
+                            <p>Corato train station is 700 m away (a 10-minute walk). We offer a shuttle from Bari Airport (42 km away) on request.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-8">
+                            How do I request a quote?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-panel" id="faq-8" hidden>
+                            <p>Fill out the quote form or contact us by email or WhatsApp. We will reply within 24 hours with availability and prices.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-9">
+                            Can I get an invoice?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-panel" id="faq-9" hidden>
+                            <p>Yes. We issue invoices on request. Please provide your billing details when booking.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-10">
+                            Is the apartment suitable for families?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-panel" id="faq-10" hidden>
+                            <p>Yes. We provide high chairs, strollers and family rooms. The private apartment is ideal for families.</p>
+                        </div>
+                    </div>
             </div>
         </section>
     </main>
 
     <footer id="site-footer">
-        <div class="container footer-content">
-            <div class="footer-section">
-                <h3>A Due Passi Da</h3>
-                <p>Private apartment in the historic center of Corato, Puglia. Your authentic experience in the heart of Southern Italy.</p>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/aduepassida_corato" target="_blank" rel="noopener" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/aduepassida" target="_blank" rel="noopener" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="https://wa.me/393387066312" target="_blank" rel="noopener" aria-label="WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="footer-name">A Due Passi Da</span>
+                <p>Via Duomo, 81 – 70033 Corato (BA)</p>
             </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="#struttura">The Structure</a></li>
-                        <li><a href="#servizi">Services</a></li>
-                        <li><a href="#posizione">Location</a></li>
-                        <li><a href="#preventivo">Request Quote</a></li>
-                    </ul>
-                </nav>
+            <div class="footer-contacts">
+                <a href="mailto:aduepassida.beb@gmail.com"><i class="fa-solid fa-envelope"></i> aduepassida.beb@gmail.com</a>
+                <a href="tel:+393387066312"><i class="fa-solid fa-phone"></i> +39 3387066312</a>
+                <a href="https://wa.me/393387066312?text=Hello%21%20I%20would%20like%20to%20request%20a%20quote%20for%20A%20Due%20Passi%20Da." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> +39 3387066312</a>
             </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <div class="footer-contact">
-                    <p><i class="fa-solid fa-location-dot"></i> Via Duomo, 81<br>70033 Corato (BA) - Italy</p>
-                    <p><i class="fa-solid fa-phone"></i> <a href="tel:+393387066312">+39 3387066312</a></p>
-                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:aduepassida.beb@gmail.com">aduepassida.beb@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 A Due Passi Da. All rights reserved. | <a href="privacy-policy-en.html">Privacy Policy</a> | <a href="sitemap.xml">Sitemap</a></p>
-                <p class="footer-credits">Designed with <i class="fa-solid fa-heart"></i> in Puglia</p>
-            </div>
+            <nav class="footer-nav">
+                <a href="#struttura">Apartment</a>
+                <a href="#servizi">Services</a>
+                <a href="#preventivo">Request a Quote</a>
+                <a href="#contatti">Contact</a>
+                <a href="privacy-policy-en.html">Privacy Policy</a>
+            </nav>
+            <p class="footer-copy"> 2026 A Due Passi Da. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/services.js"></script>
-    <script src="js/gallery.js"></script>
-    <script type="module">
-        import { initForm } from "./js/form.js";
-        initForm();
-    </script>
-    <script src="js/lang.js"></script>
-    <script src="js/cookie-banner.js"></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- Cookie Banner GDPR -->
+    <div id="cookie-banner" class="cookie-banner" hidden>
+        <div class="cookie-content">
+            <p><i class="fa-solid fa-cookie-bite"></i> <strong>This site uses essential cookies</strong> to work correctly. We do not use tracking cookies. By continuing to browse, you agree to the use of cookies. <a href="privacy-policy-en.html">Read the Privacy Policy</a></p>
+            <button id="cookie-accept" class="btn btn-primary">Got it</button>
+        </div>
+    </div>
 </body>
 </html>
