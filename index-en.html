@@ -452,9 +452,11 @@
                     </div>
                     
                     <div class="contact-form">
-                        <form id="quote-form" action="https://formspree.io/f/mbdpwbbo" method="POST" novalidate>
-                            <input type="hidden" name="_subject" value="New quote request – A Due Passi Da">
-                            <input type="hidden" name="_language" value="en">
+                        <form id="quote-form" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="ac61795c-6f9d-4a0c-bd68-ff56872d378c">
+                            <input type="checkbox" name="botcheck" hidden>
+                            <input type="hidden" name="subject" value="New quote request – A Due Passi Da">
+                            <input type="hidden" name="language" value="en">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Full Name *</label>
@@ -511,7 +513,12 @@
                             <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
                                 Send Request
                             </button>
+                            <p id="form-error" class="form-error-general" role="alert" hidden>Could not send your request. Please try again or contact us via WhatsApp.</p>
                         </form>
+                        <div id="form-success" class="form-success" role="status" hidden>
+                            <h3>Request sent!</h3>
+                            <p>Thank you. We’ll reply to the email address you provided.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -638,7 +645,10 @@
     <!-- Scripts -->
     <script src="js/services.js"></script>
     <script src="js/gallery.js"></script>
-    <script src="js/form.js"></script>
+    <script type="module">
+        import { initForm } from "./js/form.js";
+        initForm();
+    </script>
     <script src="js/lang.js"></script>
     <script src="js/cookie-banner.js"></script>
 </body>
