@@ -20,7 +20,8 @@ jobs:
         run: |
           mkdir dist
           git archive HEAD -- CNAME robots.txt sitemap.xml index.html index-en.html \
-            privacy-policy.html privacy-policy-en.html css js images |
+            privacy-policy.html privacy-policy-en.html appartamento-corato.html apartment-corato.html \
+            come-arrivare.html getting-here.html css js images public/favicon.ico |
             tar -xf - -C dist
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
