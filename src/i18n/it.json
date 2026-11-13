@@ -192,7 +192,7 @@
       },
       "arrival": { "label": "Data di arrivo", "required": true },
       "departure": { "label": "Data di partenza", "required": true },
-      "guests": { "label": "Numero di ospiti", "placeholder": "2", "required": true },
+      "guests": { "label": "Numero di ospiti", "adults": "Adulti", "children": "Bambini (0–17 anni)", "choose": "Seleziona" },
       "notes": { "label": "Richieste speciali", "optional": "(opzionale)", "placeholder": "Arrivo tardivo, allergie alimentari, esigenze particolari...", "maxlength": 500 },
       "gdpr": { "text": "Acconsento al trattamento dei miei dati personali per ricevere risposta alla mia richiesta, ai sensi del", "linkText": "Regolamento GDPR", "required": true }
     },
@@ -205,7 +205,9 @@
       "type": "Seleziona il tipo di richiesta",
       "arrival": "Seleziona la data di arrivo",
       "departure": "Seleziona la data di partenza",
-      "guests": "Seleziona il numero di ospiti (1-5)",
+      "guestsAdults": "Seleziona il numero di adulti (da 1 a 5).",
+      "guestsChildren": "Seleziona il numero di bambini (da 0 a 4).",
+      "guestsTotal": "Puoi indicare al massimo 5 ospiti in totale.",
       "gdpr": "Devi accettare la privacy policy"
     },
     "successTitle": "Richiesta inviata!",
