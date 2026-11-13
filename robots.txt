@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aduepassidabnb.it/sitemap.xml
+# Sitemap
+Sitemap: https://anton-io01.github.io/aduepassida-website/sitemap.xml
+
+# Disallow admin/private folders if any
+# Disallow: /admin/
