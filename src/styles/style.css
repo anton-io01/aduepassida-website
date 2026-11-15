@@ -462,21 +462,20 @@ p {
     margin-bottom: var(--spacing-lg);
 }
 
-.hero-badges {
+.hero-actions {
     display: flex;
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: var(--spacing-xl);
 }
 
-.hero-badges span {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(10px);
+.hero-whatsapp {
+    background-color: #146c43;
+    color: #fff;
+}
+
+.hero-whatsapp:hover {
+    background-color: #0f5434;
 }
 
 .hero-cta {

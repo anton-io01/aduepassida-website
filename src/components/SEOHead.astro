@@ -1,5 +1,5 @@
 ---
-import { homePaths, privacyPaths } from '../i18n/utils';
+import { homePaths, privacyPaths, t } from '../i18n/utils';
 
 interface Props {
   lang: 'it' | 'en';
@@ -45,7 +45,7 @@ const jsonLd = {
   "priceRange": "€€",
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Wi-Fi gratuito" : "Free Wi-Fi", "value": true},
-    {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Colazione inclusa" : "Breakfast included", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": t(lang, 'services.labels.breakfast'), "value": true},
     {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Aria condizionata" : "Air conditioning", "value": true},
     {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Terrazza" : "Terrace", "value": true},
     {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Cucina attrezzata" : "Equipped kitchen", "value": true}

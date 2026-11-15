@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "A Due Passi Da – Private Apartment Corato, Puglia | Private accommodation in historic center",
-    "description": "Private apartment in Corato (BA): 50 m² private apartment, 2 bedrooms, up to 4-5 guests. Wi-Fi, breakfast included, solarium terrace. 700 m from FS station, 42 km from Bari."
+    "description": "Private apartment in Corato (BA): 70 m² private apartment, 2 bedrooms, up to 4-5 guests. Wi-Fi, a coffee machine with pods, and a sun terrace. 700 m from FS station, 42 km from Bari."
   },
   "nav": {
     "struttura": "The Apartment",
@@ -19,22 +19,16 @@
     "preTitle": "Welcome to Corato, Puglia",
     "title": "A Due Passi Da",
     "tagline": "Your private apartment in the heart of Puglia",
-    "cta": "Request a Quote",
-    "badges": [
-      { "icon": "fa-star", "text": "9.5 Location Rating" },
-      { "icon": "fa-users", "text": "Up to 4–5 guests" },
-      { "icon": "fa-mug-hot", "text": "Breakfast included" }
-    ]
+    "cta": "Request a Quote"
   },
   "struttura": {
     "title": "The Apartment",
     "subtitle": "A private apartment in the heart of Corato",
-    "description": "A Due Passi Da is a 50 m² private apartment at Via Duomo 81 in the historic center of Corato (BA). With a double bedroom, a single bedroom and a sofa bed in the living room, it accommodates up to 4–5 guests. It is ideal for families and small groups who want to experience Puglia with the comfort of a private home.",
+    "description": "A Due Passi Da is a 70 m² private apartment at Via Duomo 81 in the historic center of Corato (BA). With a double bedroom, a single bedroom and a sofa bed in the living room, it accommodates up to 4–5 guests. It is ideal for families and small groups who want to experience Puglia with the comfort of a private home.",
     "highlights": [
-      "50 m² · 2 bedrooms · up to 4–5 guests",
+      "70 m² · 2 bedrooms · up to 4–5 guests",
       "Private apartment with its own entrance",
-      "Soundproofing · City view",
-      "Location rating 9.5/10",
+      "City view",
       "700 m from Corato train station"
     ],
     "accessibilityNotice": "Upper floors are accessible only by stairs. There is no elevator.",
@@ -68,7 +62,7 @@
       "wifi": "Wi-Fi 135 Mbps",
       "aircon": "Air conditioning",
       "heating": "Heating",
-      "breakfast": "Italian breakfast",
+      "breakfast": "Coffee machine and pods",
       "kitchen": "Equipped kitchen",
       "washer": "Washing machine",
       "bathroom": "Private bathroom",
@@ -242,7 +236,7 @@
       },
       {
         "question": "Is breakfast included?",
-        "answer": "Yes. Italian breakfast is included in the price and served every morning."
+        "answer": "We provide a coffee machine and pods free of charge. For any other breakfast needs, please contact the host."
       },
       {
         "question": "Is parking available?",
@@ -269,12 +263,8 @@
         "answer": "Fill out the quote form or contact us by email or WhatsApp. We will reply within 24 hours with availability and prices."
       },
       {
-        "question": "Can I get an invoice?",
-        "answer": "Yes. We issue invoices on request. Please provide your billing details when booking."
-      },
-      {
         "question": "Is the apartment suitable for families?",
-        "answer": "Yes. We provide high chairs, strollers and family rooms. The private apartment is ideal for families."
+        "answer": "Yes. The apartment is spacious enough for families. A crib for infants is available on request from the host."
       }
     ]
   },
