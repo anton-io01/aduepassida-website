@@ -13,10 +13,6 @@ services:
     icon: fa-temperature-half
     category: comfort
     included: true
-  - key: soundproofing
-    icon: fa-volume-xmark
-    category: comfort
-    included: true
   # Cucina
   - key: breakfast
     icon: fa-mug-hot
@@ -53,12 +49,8 @@ services:
     category: outdoor
     included: true
   # Famiglia
-  - key: highchair
+  - key: crib
     icon: fa-baby
-    category: family
-    included: true
-  - key: stroller
-    icon: fa-baby-carriage
     category: family
     included: true
   # Mobilità
@@ -78,21 +70,4 @@ services:
   - key: flexcheckin
     icon: fa-clock
     category: flexibility
-    included: true
-  - key: invoice
-    icon: fa-file-invoice
-    category: flexibility
-    included: true
-  # Sicurezza
-  - key: extinguisher
-    icon: fa-fire-extinguisher
-    category: safety
-    included: true
-  - key: codetector
-    icon: fa-shield-halved
-    category: safety
-    included: true
-  - key: keys
-    icon: fa-key
-    category: safety
     included: true
