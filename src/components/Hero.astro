@@ -1,12 +1,11 @@
 ---
-import { t } from '../i18n/utils';
+import { t, whatsappUrl } from '../i18n/utils';
 
 interface Props {
   lang: 'it' | 'en';
 }
 
 const { lang } = Astro.props;
-const badges = t(lang, 'hero.badges') as Array<{icon: string; text: string}>;
 ---
 
 <section id="hero">
@@ -15,15 +14,16 @@ const badges = t(lang, 'hero.badges') as Array<{icon: string; text: string}>;
             <p class="hero-pre-title">{t(lang, 'hero.preTitle')}</p>
             <h1 class="hero-title">{t(lang, 'hero.title')}</h1>
             <p class="hero-tagline">{t(lang, 'hero.tagline')}</p>
-            <div class="hero-badges">
-                {badges.map((badge) => (
-                    <span><i class={`fa-solid ${badge.icon}`}></i> {badge.text}</span>
-                ))}
+            <div class="hero-actions">
+                <a href="#preventivo" class="btn btn-primary hero-cta">
+                    {t(lang, 'hero.cta')}
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href={whatsappUrl(lang)} class="btn hero-cta hero-whatsapp" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    {t(lang, 'contacts.whatsapp.cta')}
+                </a>
             </div>
-            <a href="#preventivo" class="btn btn-primary hero-cta">
-                {t(lang, 'hero.cta')}
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
         </div>
     </div>
 </section>

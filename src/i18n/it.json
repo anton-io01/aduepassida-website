@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "A Due Passi Da – B&B Corato, Puglia | Appartamento privato nel centro storico",
-    "description": "B&B a Corato (BA): appartamento privato di 50 m², 2 camere, fino a 4-5 ospiti. Wi-Fi, colazione inclusa, terrazza solarium. A 700 m dalla stazione FS, 42 km da Bari."
+    "description": "B&B a Corato (BA): appartamento privato di 70 m², 2 camere, fino a 4-5 ospiti. Wi-Fi, macchina da caffè con cialde, terrazza solarium. A 700 m dalla stazione FS, 42 km da Bari."
   },
   "nav": {
     "struttura": "La Struttura",
@@ -19,22 +19,16 @@
     "preTitle": "Benvenuti a Corato, Puglia",
     "title": "A Due Passi Da",
     "tagline": "Il tuo appartamento privato nel cuore della Puglia",
-    "cta": "Richiedi Preventivo",
-    "badges": [
-      { "icon": "fa-star", "text": "9.5 Posizione" },
-      { "icon": "fa-users", "text": "Fino a 4-5 ospiti" },
-      { "icon": "fa-mug-hot", "text": "Colazione inclusa" }
-    ]
+    "cta": "Richiedi Preventivo"
   },
   "struttura": {
     "title": "La Struttura",
     "subtitle": "Appartamento privato nel cuore di Corato",
-    "description": "A Due Passi Da è un appartamento privato di 50 m² situato in Via Duomo, 81, nel centro storico di Corato (BA). Con 2 camere (una matrimoniale e una singola) più un divano letto in soggiorno, può ospitare fino a 4-5 persone. È la scelta ideale per famiglie e piccoli gruppi che vogliono vivere la Puglia autentica con il comfort di una casa privata.",
+    "description": "A Due Passi Da è un appartamento privato di 70 m² situato in Via Duomo, 81, nel centro storico di Corato (BA). Con 2 camere (una matrimoniale e una singola) più un divano letto in soggiorno, può ospitare fino a 4-5 persone. È la scelta ideale per famiglie e piccoli gruppi che vogliono vivere la Puglia autentica con il comfort di una casa privata.",
     "highlights": [
-      "50 m² · 2 camere · fino a 4-5 ospiti",
+      "70 m² · 2 camere · fino a 4-5 ospiti",
       "Ingresso indipendente e appartamento privato",
-      "Insonorizzazione · Vista sulla città",
-      "Punteggio posizione 9.5/10",
+      "Vista sulla città",
       "A 700 m dalla Stazione FS di Corato"
     ],
     "accessibilityNotice": "I piani superiori sono raggiungibili esclusivamente tramite scale. La struttura non dispone di ascensore.",
@@ -67,7 +61,7 @@
       "wifi": "Wi-Fi 135 Mbps",
       "aircon": "Aria condizionata",
       "heating": "Riscaldamento",
-      "breakfast": "Colazione italiana",
+      "breakfast": "Macchina da caffè e cialde",
       "kitchen": "Cucina attrezzata",
       "washer": "Lavatrice",
       "bathroom": "Bagno privato",
@@ -241,7 +235,7 @@
       },
       {
         "question": "La colazione è inclusa?",
-        "answer": "Sì! La colazione italiana è inclusa nel prezzo e viene servita ogni mattina."
+        "answer": "Mettiamo gratuitamente a disposizione degli ospiti una macchina da caffè e le cialde. Per altre esigenze legate alla colazione, contatta l’host."
       },
       {
         "question": "Il parcheggio è disponibile?",
@@ -268,12 +262,8 @@
         "answer": "Compila il form nella sezione Preventivo o contattaci via email/WhatsApp. Ti risponderemo entro 24 ore con disponibilità e prezzi."
       },
       {
-        "question": "Posso ricevere fattura?",
-        "answer": "Sì, emettiamo regolare fattura su richiesta. Comunicaci i tuoi dati fiscali al momento della prenotazione."
-      },
-      {
         "question": "La struttura è adatta alle famiglie?",
-        "answer": "Assolutamente sì! Abbiamo seggioloni, passeggini disponibili e camere familiari. L'appartamento privato è perfetto per le famiglie."
+        "answer": "Sì. L’appartamento è spazioso e adatto alle famiglie. Una culla per neonati è disponibile su richiesta all’host."
       }
     ]
   },

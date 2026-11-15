@@ -60,11 +60,6 @@
         font-size: 2.2rem;
     }
 
-    .hero-badges {
-        flex-direction: column;
-        align-items: center;
-    }
-
     /* Struttura section */
     .struttura-grid {
         grid-template-columns: 1fr;

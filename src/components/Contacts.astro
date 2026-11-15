@@ -1,13 +1,11 @@
 ---
-import { t } from '../i18n/utils';
+import { t, whatsappUrl } from '../i18n/utils';
 
 interface Props {
   lang: 'it' | 'en';
 }
 
 const { lang } = Astro.props;
-
-const waMessage = encodeURIComponent(t(lang, 'contacts.whatsapp.message'));
 ---
 
 <section id="contatti" class="section section-alt">
@@ -30,7 +28,7 @@ const waMessage = encodeURIComponent(t(lang, 'contacts.whatsapp.message'));
             <div class="contact-card contact-card-wa">
                 <i class="fa-brands fa-whatsapp contact-icon"></i>
                 <h3>{t(lang, 'contacts.whatsapp.title')}</h3>
-                <a href={`https://wa.me/393387066312?text=${waMessage}`} class="contact-link btn btn-outline" target="_blank" rel="noopener noreferrer">
+                <a href={whatsappUrl(lang)} class="contact-link btn btn-outline" target="_blank" rel="noopener noreferrer">
                     {t(lang, 'contacts.whatsapp.cta')}
                 </a>
             </div>
