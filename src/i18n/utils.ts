@@ -17,23 +17,5 @@ export function t(lang: 'it' | 'en', key: string): any {
   return result ?? key;
 }
 
-/**
- * Get the alternate language URL for the language switcher.
- */
-export function getAlternateUrl(lang: 'it' | 'en', path: string = '/'): string {
-  if (lang === 'it') {
-    // Current is IT, link to EN
-    if (path === '/' || path === '') return '/en/';
-    return `/en${path}`;
-  }
-  // Current is EN, link to IT
-  if (path === '/en/' || path === '/en') return '/';
-  return path.replace(/^\/en/, '');
-}
-
-/**
- * Get the alternate language code.
- */
-export function getAlternateLang(lang: 'it' | 'en'): 'it' | 'en' {
-  return lang === 'it' ? 'en' : 'it';
-}
+export const homePaths = { it: '/', en: '/index-en.html' };
+export const privacyPaths = { it: '/privacy-policy.html', en: '/privacy-policy-en.html' };

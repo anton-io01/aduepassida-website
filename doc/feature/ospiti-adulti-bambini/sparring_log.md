@@ -14,7 +14,7 @@ _Data: 13 novembre 2026_
 
 > Nella sezione «Richiedi un Preventivo», permettere al visitatore di selezionare separatamente il numero di adulti e il numero di bambini da 0 a 17 anni inclusi. Riportare i due conteggi nella richiesta inviata alla struttura.
 
-Il modulo attuale accetta da 1 a 5 ospiti. Il limite di 5 si applicherà alla somma di adulti e bambini, con almeno un adulto. Il modulo è disponibile in italiano e in inglese, sia nella versione statica pubblicata su GitHub Pages sia nel progetto Astro configurato per Netlify.
+Il modulo attuale accetta da 1 a 5 ospiti. Il limite di 5 si applicherà alla somma di adulti e bambini, con almeno un adulto. Il modulo è disponibile in italiano e in inglese, sia nella versione statica pubblicata su GitHub Pages sia nel progetto Astro con la configurazione di invio allora in uso.
 
 ## Domande
 

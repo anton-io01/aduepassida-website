@@ -39,7 +39,7 @@ Il visitatore sceglie i conteggi. Il validatore controlla i due valori prima di 
 |---|---|
 | `index.html`, `index-en.html` | Gruppo ospiti pubblicato tramite GitHub Pages |
 | `src/components/QuoteForm.astro`, `src/i18n/it.json`, `src/i18n/en.json` | Gruppo ospiti e traduzioni della build Astro |
-| `js/form.js`, `public/scripts/form.js` | Validazione e preparazione del corpo per Web3Forms e Netlify Forms |
+| `js/form.js`, `public/scripts/form.js` | Validazione e preparazione del corpo per Web3Forms e il servizio di invio allora configurato in Astro |
 | `css/style.css`, `src/styles/style.css` | Stile del gruppo coerente con il modulo |
 
 ## 7. Configurazione

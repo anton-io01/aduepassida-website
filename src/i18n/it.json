@@ -20,12 +20,10 @@
     "title": "A Due Passi Da",
     "tagline": "Il tuo appartamento privato nel cuore della Puglia",
     "cta": "Richiedi Preventivo",
-    "ctaSecondary": "Scopri di più",
     "badges": [
+      { "icon": "fa-star", "text": "9.5 Posizione" },
       { "icon": "fa-users", "text": "Fino a 4-5 ospiti" },
-      { "icon": "fa-bed", "text": "2 camere" },
-      { "icon": "fa-wifi", "text": "Wi-Fi gratuito" },
-      { "icon": "fa-utensils", "text": "Colazione inclusa" }
+      { "icon": "fa-mug-hot", "text": "Colazione inclusa" }
     ]
   },
   "struttura": {
@@ -46,7 +44,7 @@
     "images": [
       { "src": "struttura/esterno-1.jpg", "alt": "Esterno del B&B A Due Passi Da – vista 1" },
       { "src": "struttura/esterno-2.jpg", "alt": "Esterno del B&B A Due Passi Da – vista 2" },
-      { "src": "struttura/ingresso.png", "alt": "Ingresso del B&B A Due Passi Da" }
+      { "src": "struttura/ingresso.jpg", "alt": "Ingresso del B&B A Due Passi Da" }
     ]
   },
   "gallery": {
@@ -213,7 +211,9 @@
     "successTitle": "Richiesta inviata!",
     "successMsg": "Grazie! Ti risponderemo entro 24 ore all'indirizzo email fornito.",
     "successWa": "Preferisci WhatsApp?",
-    "successWaLink": "Contattaci direttamente"
+    "successWaLink": "Contattaci direttamente",
+    "requiresJavaScript": "Per inviare il modulo, attiva JavaScript oppure contattaci su",
+    "submitError": "Errore nell’invio. Riprova o contattaci via WhatsApp."
   },
   "contacts": {
     "title": "Contatti",
@@ -285,25 +285,15 @@
   },
   "footer": {
     "brand": "A Due Passi Da",
-    "brandDesc": "Appartamento privato nel centro storico di Corato, Puglia. La tua esperienza autentica nel cuore del Sud Italia.",
     "address": "Via Duomo, 81 – 70033 Corato (BA)",
-    "quickLinksTitle": "Link Rapidi",
-    "contactTitle": "Contatti",
     "nav": {
       "struttura": "Struttura",
       "servizi": "Servizi",
-      "posizione": "Posizione",
       "preventivo": "Preventivo",
       "contatti": "Contatti",
       "privacy": "Privacy Policy"
     },
-    "social": {
-      "instagram": "https://www.instagram.com/aduepassida_corato",
-      "facebook": "https://www.facebook.com/aduepassida",
-      "whatsapp": "https://wa.me/393387066312"
-    },
-    "copyright": "© 2026 A Due Passi Da. Tutti i diritti riservati.",
-    "credits": "Designed with ❤️ in Puglia"
+    "copyright": "2026 A Due Passi Da. Tutti i diritti riservati."
   },
   "cookie": {
     "title": "Questo sito utilizza cookie tecnici",
@@ -316,5 +306,8 @@
     "acceptAll": "Accetta tutti",
     "acceptSelected": "Ho capito",
     "privacyLink": "Leggi la Privacy Policy"
+  },
+  "privacy": {
+    "back": "← Torna al sito"
   }
 }

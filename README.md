@@ -1,71 +1,33 @@
-# A Due Passi Da – Sito Web Bilingue
+# A Due Passi Da
 
-Sito web statico bilingue (IT/EN) per il B&B "A Due Passi Da" a Corato (BA).
+Sito bilingue Astro per l’appartamento A Due Passi Da a Corato (BA). Il sito è pubblicato su GitHub Pages all’indirizzo [aduepassidabnb.it](https://aduepassidabnb.it/).
 
-## Struttura del Sito
+## Sviluppo locale
 
-### Sezioni Principali
-- **Hero**: Presentazione con call-to-action
-- **La Struttura / The Structure**: Descrizione appartamento privato (2 camere, 4-5 ospiti)
-- **Galleria / Gallery**: Galleria fotografica con placeholder
-- **Servizi / Services**: Elenco servizi inclusi e a pagamento
-- **Dove Siamo / Location**: Mappa Google embed e indicazioni
-- **Dintorni / Surroundings**: 5 attrazioni turistiche (Bari, Trani, Castel del Monte, Alberobello, Polignano)
-- **Recensioni / Reviews**: Testimoniali degli ospiti
-- **Preventivo / Quote**: Form di contatto con Formspree
-- **FAQ**: Domande frequenti
+Usa Node.js 22 e npm.
 
-### Versioni Linguistiche
-- **Italiano**: `index.html`
-- **Inglese**: `index-en.html`
-- **Privacy Policy**: `privacy-policy.html` (IT), `privacy-policy-en.html` (EN)
+```sh
+npm ci
+npm run dev
+npm run build
+npm run preview
+```
 
-## Tecnologie
+L’anteprima serve la build statica da `dist/`.
 
-- **Frontend**: HTML5, CSS3, JavaScript (vanilla)
-- **Stili**: CSS Grid, Flexbox, design responsive
-- **Font**: Google Fonts (Lato, Playfair Display)
-- **Icone**: Font Awesome 6.5.0
-- **Form**: Formspree (endpoint: https://formspree.io/f/mbdpwbbo)
-- **Mappa**: Google Maps embed
-- **Hosting**: GitHub Pages
-- **SEO**: Meta tag Open Graph, Twitter Cards, JSON-LD Schema.org
+## Pagine e sorgenti
 
-## Istruzioni per Aggiungere Foto Reali
+| Indirizzo pubblico | Sorgente |
+| --- | --- |
+| `/` | `src/pages/index.astro` |
+| `/index-en.html` | `src/pages/index-en.astro` |
+| `/privacy-policy.html` | `src/pages/privacy-policy.astro` |
+| `/privacy-policy-en.html` | `src/pages/privacy-policy-en.astro` |
 
-### Galleria Appartamento
-Sostituire i file in `images/appartamento/`:
-- `placeholder.jpg` → foto reali degli ambienti
-- Aggiornare gli attributi `alt` nelle immagini in `index.html` e `index-en.html`
+Componenti condivisi in `src/components/`, testi in `src/i18n/`, stili in `src/styles/` e foto in `src/assets/images/`. I file serviti direttamente, come lo sfondo della home, stanno in `public/`. Astro genera anche `/sitemap.xml`.
 
-### Attrazioni Turistiche
-Sostituire i file in `images/luoghi/`:
-- `bari.jpg`, `trani.jpg`, `castel-del-monte.jpg`, `alberobello.jpg`, `polignano.jpg`
-- Mantenere i nomi file per non rompere i riferimenti
+Il modulo preventivi usa Web3Forms. Entrambe le lingue inviano `num_adulti`, `num_bambini` e la loro somma in `num_ospiti`.
 
-## File Chiave
+## Pubblicazione
 
-- `index.html` - Versione italiana
-- `index-en.html` - Versione inglese
-- `css/style.css` - Stili principali
-- `css/responsive.css` - Media queries per mobile
-- `js/` - Script JavaScript (servizi, galleria, form, lingua, cookie)
-- `docs/` - Documentazione di sviluppo
-
-## Validazione e Testing
-
-Il sito è stato testato per:
-- ✅ Validazione HTML5
-- ✅ Responsive design (320px - 1920px)
-- ✅ Accessibilità (ARIA labels, contrasti)
-- ✅ SEO (meta tag, JSON-LD, hreflang)
-- ✅ Cross-browser compatibility
-- ✅ Form funzionante in entrambe le lingue
-
-## Deployment
-
-Il sito è pronto per il deployment su GitHub Pages. Assicurarsi che:
-1. Tutti i file siano nella root del repository
-2. Il repository sia pubblico
-3. GitHub Pages sia abilitato dalla branch `main`
-4. Il dominio personalizzato (se presente) sia configurato correttamente
+Il workflow `.github/workflows/pages.yml` verifica la build sulle pull request verso `main` e pubblica `dist/` su GitHub Pages da `main`. In **Settings → Pages** la sorgente è **GitHub Actions** e il dominio è `aduepassidabnb.it`.

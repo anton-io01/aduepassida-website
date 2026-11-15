@@ -1,13 +1,14 @@
 ---
-import { t } from '../i18n/utils';
+import { t, privacyPaths } from '../i18n/utils';
 
 interface Props {
   lang: 'it' | 'en';
 }
 
 const { lang } = Astro.props;
-const privacyUrl = lang === 'it' ? '/privacy-policy/' : '/en/privacy-policy/';
+const privacyUrl = privacyPaths[lang];
 const waMessage = encodeURIComponent(t(lang, 'contacts.whatsapp.message'));
+const waUrl = `https://wa.me/393387066312?text=${waMessage}`;
 
 interface Option { value: string; text: string; }
 const typeOptions = t(lang, 'form.fields.type.options') as Option[];
@@ -18,10 +19,11 @@ const typeOptions = t(lang, 'form.fields.type.options') as Option[];
         <h2 class="section-title">{t(lang, 'form.title')}</h2>
         <p class="section-subtitle">{t(lang, 'form.subtitle')}</p>
         <div class="form-wrapper">
-            <form id="quote-form" name="quote-form" method="POST" data-netlify="true" novalidate>
-                <input type="hidden" name="form-name" value="quote-form">
-                <input type="hidden" name="_subject" value={t(lang, 'form.hiddenSubject')}>
-                <input type="hidden" name="_language" value={lang}>
+            <form id="quote-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="ac61795c-6f9d-4a0c-bd68-ff56872d378c">
+                <input type="checkbox" name="botcheck" hidden>
+                <input type="hidden" name="subject" value={t(lang, 'form.hiddenSubject')}>
+                <input type="hidden" name="language" value={lang}>
 
                 <div class="form-row">
                     <div class="form-group">
@@ -67,10 +69,7 @@ const typeOptions = t(lang, 'form.fields.type.options') as Option[];
                     </div>
                 </div>
 
-                <fieldset class="form-guests"
-                    data-error-adults={t(lang, 'form.errors.guestsAdults')}
-                    data-error-children={t(lang, 'form.errors.guestsChildren')}
-                    data-error-total={t(lang, 'form.errors.guestsTotal')}>
+                <fieldset class="form-guests">
                     <legend>{t(lang, 'form.fields.guests.label')}</legend>
                     <div class="form-row">
                         <div class="form-group">
@@ -88,7 +87,6 @@ const typeOptions = t(lang, 'form.fields.type.options') as Option[];
                         </div>
                     </div>
                     <span class="form-error" id="err-ospiti" aria-live="polite"></span>
-                    <input type="hidden" name="num_ospiti">
                 </fieldset>
 
                 <div class="form-group">
@@ -105,16 +103,20 @@ const typeOptions = t(lang, 'form.fields.type.options') as Option[];
                     <span class="form-error" id="err-gdpr" aria-live="polite"></span>
                 </div>
 
-                <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
+                <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn" disabled>
                     {t(lang, 'form.submitBtn')}
                 </button>
+                <noscript>
+                    <p>{t(lang, 'form.requiresJavaScript')} <a href={waUrl}>WhatsApp</a>.</p>
+                </noscript>
+                <p id="form-error" class="form-error-general" role="alert" hidden>{t(lang, 'form.submitError')}</p>
             </form>
 
-            <div id="form-success" class="form-success" hidden>
+            <div id="form-success" class="form-success" role="status" hidden>
                 <i class="fa-solid fa-circle-check"></i>
                 <h3>{t(lang, 'form.successTitle')}</h3>
                 <p>{t(lang, 'form.successMsg')}</p>
-                <p class="form-success-wa">{t(lang, 'form.successWa')} <a id="wa-link" href={`https://wa.me/393387066312?text=${waMessage}`} target="_blank">{t(lang, 'form.successWaLink')} <i class="fa-brands fa-whatsapp"></i></a></p>
+                <p class="form-success-wa">{t(lang, 'form.successWa')} <a id="wa-link" href={waUrl} target="_blank">{t(lang, 'form.successWaLink')} <i class="fa-brands fa-whatsapp"></i></a></p>
             </div>
         </div>
     </div>

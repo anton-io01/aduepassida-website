@@ -1,21 +1,22 @@
 ---
-import { t } from '../i18n/utils';
+import { homePaths, privacyPaths } from '../i18n/utils';
 
 interface Props {
   lang: 'it' | 'en';
   title: string;
   description: string;
-  canonical?: string;
+  privacy?: boolean;
   ogImage?: string;
   siteUrl: string;
 }
 
-const { lang, title, description, canonical, ogImage, siteUrl } = Astro.props;
+const { lang, title, description, privacy, ogImage, siteUrl } = Astro.props;
 
 const baseUrl = siteUrl.replace(/\/$/, '');
-const currentCanonical = canonical || (lang === 'it' ? `${baseUrl}/` : `${baseUrl}/en/`);
-const alternateIt = `${baseUrl}/`;
-const alternateEn = `${baseUrl}/en/`;
+const paths = privacy ? privacyPaths : homePaths;
+const currentCanonical = new URL(paths[lang], baseUrl);
+const alternateIt = new URL(paths.it, baseUrl);
+const alternateEn = new URL(paths.en, baseUrl);
 const ogLocale = lang === 'it' ? 'it_IT' : 'en_US';
 const ogImg = ogImage || `${baseUrl}/images/hero/hero-bg.jpg`;
 
@@ -40,7 +41,7 @@ const jsonLd = {
   },
   "telephone": "+393387066312",
   "email": "aduepassida.beb@gmail.com",
-  "url": currentCanonical,
+  "url": currentCanonical.href,
   "priceRange": "€€",
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": lang === 'it' ? "Wi-Fi gratuito" : "Free Wi-Fi", "value": true},
@@ -81,4 +82,4 @@ const jsonLd = {
 <meta name="twitter:image" content={ogImg}>
 
 <!-- JSON-LD -->
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{!privacy && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

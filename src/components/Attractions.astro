@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { t } from '../i18n/utils';
 
 interface Props {
@@ -33,13 +32,11 @@ const items = t(lang, 'attractions.items') as AttractionItem[];
                     <article class="attraction-card">
                         <div class="attraction-image">
                             {imgMod ? (
-                                <Image
-                                    src={imgMod}
+                                <img
+                                    src={imgMod.src}
                                     alt={item.name}
                                     loading="lazy"
-                                    width={400}
-                                    height={300}
-                                    format="webp"
+                                    decoding="async"
                                 />
                             ) : (
                                 <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-text-light);">
