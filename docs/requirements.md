@@ -771,7 +771,7 @@ Le seguenti funzionalità sono escluse dalla prima versione e documentate per sv
 | Calendario disponibilità | Cal.com (embed gratuito) o Google Calendar API | Richiede JS aggiuntivo |
 | Sistema prenotazione con pagamento | Stripe Checkout o PayPal | Richiede backend o terze parti |
 | Analytics visitatori | Plausible (privacy-first, gratuito self-hosted) o Matomo | Evitare Google Analytics per GDPR |
-| CMS headless | Netlify CMS (su Netlify), Decap CMS | Permetterebbe aggiornamento senza modificare HTML |
+| CMS headless | Decap CMS | Permetterebbe aggiornamento senza modificare HTML |
 | Blog/news | Stessa architettura statica, pagine HTML aggiuntive | — |
 
 ---

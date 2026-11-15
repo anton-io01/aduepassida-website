@@ -414,7 +414,7 @@ p {
    ================================ */
 #hero {
     min-height: 100vh;
-    background: url('../images/hero/hero-bg.jpg') center/cover no-repeat;
+    background: url('/images/hero/hero-bg.jpg') center/cover no-repeat;
     /* Real background image - STEP 09 completed */
     background-attachment: fixed;
     position: relative;

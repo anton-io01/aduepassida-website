@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { t } from '../i18n/utils';
 
 interface Props {
@@ -11,17 +10,11 @@ const { lang } = Astro.props;
 // Import images statically for Astro optimization
 const imageModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/struttura/*.{jpg,png}', { eager: true });
 
-const imageKeys = [
-  '/src/assets/images/struttura/esterno-1.jpg',
-  '/src/assets/images/struttura/esterno-2.jpg',
-  '/src/assets/images/struttura/ingresso.png',
-];
-
-const images = imageKeys
-  .map((key) => imageModules[key]?.default)
-  .filter(Boolean);
-
 const strutturaImages = t(lang, 'struttura.images') as Array<{src: string; alt: string}>;
+const images = strutturaImages.flatMap(({ src, alt }) => {
+  const image = imageModules[`/src/assets/images/${src}`]?.default;
+  return image ? [{ image, alt }] : [];
+});
 const highlights = t(lang, 'struttura.highlights') as string[];
 ---
 
@@ -45,15 +38,13 @@ const highlights = t(lang, 'struttura.highlights') as string[];
             <div class="struttura-image">
                 <div class="struttura-carousel" aria-label={t(lang, 'struttura.carouselLabel')}>
                     <div class="carousel-track">
-                        {images.map((img, i) => (
-                            <Image
-                                src={img}
-                                alt={strutturaImages[i]?.alt || ''}
+                        {images.map(({ image, alt }, i) => (
+                            <img
+                                src={image.src}
+                                alt={alt}
                                 class={`carousel-slide${i === 0 ? ' active' : ''}`}
-                                loading={i === 0 ? 'eager' : 'lazy'}
-                                width={800}
-                                height={600}
-                                format="webp"
+                                loading="lazy"
+                                decoding="async"
                             />
                         ))}
                     </div>

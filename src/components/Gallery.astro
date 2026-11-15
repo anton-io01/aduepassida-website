@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import { t } from '../i18n/utils';
-import fs from 'node:fs';
 
 interface Props {
   lang: 'it' | 'en';
@@ -35,13 +33,11 @@ const imageEntries = galleryImages.map((img) => {
                             {lang === 'it' ? 'Foto in arrivo' : 'Photos coming soon'}
                         </div>
                     ) : (
-                        <Image
-                            src={entry.mod!}
+                        <img
+                            src={entry.mod!.src}
                             alt={entry.alt}
                             loading="lazy"
-                            width={600}
-                            height={400}
-                            format="webp"
+                            decoding="async"
                         />
                     )}
                 </div>

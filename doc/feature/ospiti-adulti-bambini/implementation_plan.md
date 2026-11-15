@@ -22,7 +22,7 @@ Base fissa `9073ca23a8a9e9efbea0197f6faabe77735530bb`.
 
 ### Implementazione
 
-Usare un gruppo con legenda, selettori nativi e messaggio associato. Riutilizzare la griglia responsiva del modulo. Validare gli intervalli e la somma prima di creare il corpo della richiesta. Aggiungere la somma alla chiave `num_ospiti` mantenendo i due campi nuovi. Dichiarare il campo totale anche nel markup Astro affinché Netlify lo rilevi.
+Usare un gruppo con legenda, selettori nativi e messaggio associato. Riutilizzare la griglia responsiva del modulo. Validare gli intervalli e la somma prima di creare il corpo della richiesta. Aggiungere la somma alla chiave `num_ospiti` mantenendo i due campi nuovi. Dichiarare il campo totale anche nel markup Astro per il rilevamento da parte del servizio di invio allora configurato.
 
 ### Configurazione e database
 

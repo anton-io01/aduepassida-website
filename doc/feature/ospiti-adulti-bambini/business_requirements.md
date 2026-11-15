@@ -40,7 +40,7 @@ Scenario: AC-03 Invio
 
 ## Impatto
 
-Moduli italiano e inglese di GitHub Pages e Astro, validazione nel browser e dati inviati tramite Web3Forms e Netlify Forms.
+Moduli italiano e inglese di GitHub Pages e Astro, validazione nel browser e dati inviati tramite Web3Forms e il servizio di invio configurato allora in Astro.
 
 ## Punti aperti
 

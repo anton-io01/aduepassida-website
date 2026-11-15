@@ -18,7 +18,7 @@ _Generato il 7 novembre 2026_
 
 - Il 7 novembre 2026 il dominio www ha reindirizzato a `https://aduepassidabnb.it/`, servito da GitHub Pages. Il modulo pubblicato punta a `https://formspree.io/f/mbdpwbbo`.
 - Alla base fissata, `index.html` e `index-en.html` puntano allo stesso endpoint Formspree. L’inglese carica `js/form.js` come script classico, ma il file esporta un modulo. Questo può impedire la validazione e i messaggi personalizzati in inglese.
-- La versione Astro configura Netlify Forms. Il dominio pubblico serve la versione HTML con Formspree.
+- All’epoca la versione Astro usava un’integrazione di invio separata. Il dominio pubblico serve la versione HTML con Formspree.
 - La lettura della pagina pubblica non determina se il modulo Formspree sia attivo, a chi inoltri le richieste o se le email arrivino. Nessuna richiesta di prova inviata.
 - [Impostazione del destinatario Formspree](https://help.formspree.io/articles/form-and-project-settings/changing-a-form-email-address)
 
