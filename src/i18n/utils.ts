@@ -1,3 +1,4 @@
+import { property } from '../data/property';
 import it from './it.json';
 import en from './en.json';
 
@@ -20,7 +21,9 @@ export function t(lang: 'it' | 'en', key: string): any {
 export const homePaths = { it: '/', en: '/index-en.html' };
 export const privacyPaths = { it: '/privacy-policy.html', en: '/privacy-policy-en.html' };
 
+export const whatsappBaseUrl = `https://wa.me/${property.phone.slice(1)}`;
+
 export function whatsappUrl(lang: 'it' | 'en'): string {
   const message = encodeURIComponent(t(lang, 'contacts.whatsapp.message'));
-  return `https://wa.me/393387066312?text=${message}`;
+  return `${whatsappBaseUrl}?text=${message}`;
 }

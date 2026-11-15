@@ -18,8 +18,9 @@
   "hero": {
     "preTitle": "Welcome to Corato, Puglia",
     "title": "A Due Passi Da",
+    "location": "B&B in Corato",
     "tagline": "Your private apartment in the heart of Puglia",
-    "cta": "Request a Quote"
+    "cta": "Check availability and price"
   },
   "struttura": {
     "title": "The Apartment",
@@ -85,8 +86,6 @@
     "title": "Location",
     "subtitle": "In the heart of the historic center of Corato",
     "addressName": "A Due Passi Da",
-    "addressStreet": "Via Duomo, 81",
-    "addressCity": "70033 Corato (BA) - Italy",
     "directions": {
       "trainTitle": "From the Train Station",
       "trainDesc": "Corato station 700 meters away (10 minutes on foot)",
@@ -133,6 +132,11 @@
     ]
   },
   "reviews": {
+    "platform": {
+      "count": "reviews",
+      "verified": "Checked on",
+      "link": "Read reviews on"
+    },
     "title": "Reviews",
     "subtitle": "What our guests say",
     "items": [
@@ -163,6 +167,14 @@
     "title": "Request a Quote",
     "subtitle": "Book directly with no commission",
     "hiddenSubject": "New quote request – A Due Passi Da",
+    "optionalHelp": "For general enquiries, dates and guest numbers are optional. Submitting a request does not confirm a booking.",
+    "submitWhatsApp": "Send request and open WhatsApp",
+    "whatsappHelp": "WhatsApp opens a draft with your details. To send it, tap “Send” in WhatsApp.",
+    "whatsappFallback": "Open the draft in WhatsApp",
+    "totalGuests": "Total guests",
+    "whatsappHeading": "Enquiry for A Due Passi Da in Corato",
+    "unspecified": "Not specified",
+    "optional": "(optional)",
     "fields": {
       "name": { "label": "Full name", "placeholder": "John Smith", "required": true },
       "email": { "label": "Email", "placeholder": "john@example.com", "required": true },
@@ -186,6 +198,10 @@
     "noteCounter": "{count}/500",
     "submitBtn": "Send Request",
     "errors": {
+      "arrivalInvalid": "Enter a valid check-in date.",
+      "departureInvalid": "Enter a valid check-out date.",
+      "datePast": "Enter today’s date or a future date.",
+      "dateOrder": "Check-out must be after check-in.",
       "name": "Please enter your full name",
       "email": "Please enter a valid email address",
       "phone": "Invalid phone format",
@@ -202,7 +218,7 @@
     "successWa": "Prefer WhatsApp?",
     "successWaLink": "Contact us directly",
     "requiresJavaScript": "To submit the form, enable JavaScript or contact us on",
-    "submitError": "We could not send your request. Please try again or contact us on WhatsApp."
+    "submitError": "The form could not confirm your submission. Please try again or contact us on WhatsApp."
   },
   "contacts": {
     "title": "Contact",
@@ -218,6 +234,7 @@
       "note": "Mon–Sun · 9:00 AM–8:00 PM"
     },
     "whatsapp": {
+      "floatingMessage": "Hello! I would like information about a stay at A Due Passi Da in Corato.",
       "title": "WhatsApp",
       "cta": "Message us on WhatsApp",
       "message": "Hello! I would like to request a quote for A Due Passi Da."

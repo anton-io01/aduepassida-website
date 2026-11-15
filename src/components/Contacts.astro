@@ -1,4 +1,5 @@
 ---
+import { property } from '../data/property';
 import { t, whatsappUrl } from '../i18n/utils';
 
 interface Props {
@@ -22,7 +23,7 @@ const { lang } = Astro.props;
             <div class="contact-card">
                 <i class="fa-solid fa-phone contact-icon"></i>
                 <h3>{t(lang, 'contacts.phone.title')}</h3>
-                <a href="tel:+393387066312" class="contact-link">{t(lang, 'contacts.phone.value')}</a>
+                <a href={`tel:${property.phone}`} class="contact-link">{t(lang, 'contacts.phone.value')}</a>
                 <p class="contact-note">{t(lang, 'contacts.phone.note')}</p>
             </div>
             <div class="contact-card contact-card-wa">
@@ -34,7 +35,7 @@ const { lang } = Astro.props;
             </div>
             <div class="booking-link-box" hidden>
                 <p>{t(lang, 'contacts.booking.text')}</p>
-                <a href="https://www.booking.com/hotel/it/a-due-passi-da-corato.it.html" target="_blank" rel="noopener" class="btn btn-outline">
+                <a href={property.bookingUrl[lang]} target="_blank" rel="noopener" class="btn btn-outline">
                     <i class="fa-solid fa-external-link"></i> {t(lang, 'contacts.booking.cta')}
                 </a>
             </div>
