@@ -26,12 +26,44 @@ export function initForm() {
     const WA_TEXT = encodeURIComponent(message('Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da.', 'Hello! I would like to request a quote for A Due Passi Da.'));
     if (waLink) waLink.href = `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`;
 
+    const adults = form.elements.num_adulti;
+    const children = form.elements.num_bambini;
+    const guestError = document.getElementById('err-ospiti');
+    const guestMessages = {
+        adults: message('Seleziona il numero di adulti (da 1 a 5).', 'Select the number of adults (1 to 5).'),
+        children: message('Seleziona il numero di bambini (da 0 a 4).', 'Select the number of children (0 to 4).'),
+        total: message('Puoi indicare al massimo 5 ospiti in totale.', 'You can select up to 5 guests in total.')
+    };
+
+    function validateGuests() {
+        const adultCount = Number(adults.value);
+        const childCount = Number(children.value);
+        const invalidAdults = !Number.isInteger(adultCount) || adultCount < 1 || adultCount > 5;
+        const invalidChildren = children.value === '' || !Number.isInteger(childCount) || childCount < 0 || childCount > 4;
+        const overCapacity = !invalidAdults && !invalidChildren && adultCount + childCount > 5;
+
+        let error = '';
+        if (invalidAdults) {
+            error = guestMessages.adults;
+        } else if (invalidChildren) {
+            error = guestMessages.children;
+        } else if (overCapacity) {
+            error = guestMessages.total;
+        }
+
+        guestError.textContent = error;
+        adults.classList.toggle('input-error', invalidAdults || overCapacity);
+        children.classList.toggle('input-error', invalidChildren || overCapacity);
+        adults.setAttribute('aria-invalid', String(invalidAdults || overCapacity));
+        children.setAttribute('aria-invalid', String(invalidChildren || overCapacity));
+        return !invalidAdults && !invalidChildren && !overCapacity;
+    }
+
     // Validators
     const validators = {
         nome_cognome: v => v.trim().length >= 2 ? null : message('Inserisci il tuo nome e cognome (min. 2 caratteri)', 'Enter your full name (at least 2 characters)'),
         email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : message('Inserisci un indirizzo email valido', 'Enter a valid email address'),
         telefono: v => !v || /^[\d\s+\-()]{9,}$/.test(v) ? null : message('Numero di telefono non valido', 'Enter a valid phone number'),
-        num_ospiti: v => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 5 ? null : message('Inserisci un numero tra 1 e 5', 'Enter a number from 1 to 5'),
         data_arrivo: (v, form) => {
             if (!v) return message('Seleziona la data di arrivo', 'Select your check-in date');
             const today = new Date().toISOString().split('T')[0];
@@ -50,7 +82,6 @@ export function initForm() {
         const el = form.querySelector(`[name="${name}"]`);
         const errIdMap = {
             'nome_cognome': 'err-nome',
-            'num_ospiti': 'err-ospiti',
             'data_arrivo': 'err-arrivo',
             'data_partenza': 'err-partenza',
             'richiesta_tipo': 'err-tipo',
@@ -76,12 +107,15 @@ export function initForm() {
 
         const fields = Object.keys(validators);
         const valid = fields.map(f => validateField(f)).every(Boolean);
-        if (!valid) return;
+        const guestsValid = validateGuests();
+        if (!valid || !guestsValid) return;
 
         submitBtn.disabled = true;
 
         try {
-            const payload = Object.fromEntries(new FormData(form));
+            const formData = new FormData(form);
+            formData.set('num_ospiti', String(Number(adults.value) + Number(children.value)));
+            const payload = Object.fromEntries(formData);
             const response = await fetch(form.action, {
                 method: 'POST',
                 headers: {

@@ -20,6 +20,39 @@
         });
     }
 
+    const adults = form.elements.num_adulti;
+    const children = form.elements.num_bambini;
+    const guestError = document.getElementById('err-ospiti');
+    const guestMessages = {
+        adults: guestError.closest('fieldset').dataset.errorAdults,
+        children: guestError.closest('fieldset').dataset.errorChildren,
+        total: guestError.closest('fieldset').dataset.errorTotal
+    };
+
+    function validateGuests() {
+        const adultCount = Number(adults.value);
+        const childCount = Number(children.value);
+        const invalidAdults = !Number.isInteger(adultCount) || adultCount < 1 || adultCount > 5;
+        const invalidChildren = children.value === '' || !Number.isInteger(childCount) || childCount < 0 || childCount > 4;
+        const overCapacity = !invalidAdults && !invalidChildren && adultCount + childCount > 5;
+
+        let error = '';
+        if (invalidAdults) {
+            error = guestMessages.adults;
+        } else if (invalidChildren) {
+            error = guestMessages.children;
+        } else if (overCapacity) {
+            error = guestMessages.total;
+        }
+
+        guestError.textContent = error;
+        adults.classList.toggle('input-error', invalidAdults || overCapacity);
+        children.classList.toggle('input-error', invalidChildren || overCapacity);
+        adults.setAttribute('aria-invalid', String(invalidAdults || overCapacity));
+        children.setAttribute('aria-invalid', String(invalidChildren || overCapacity));
+        return !invalidAdults && !invalidChildren && !overCapacity;
+    }
+
     // Validators
     const validators = {
         nome_cognome: v => v.trim().length >= 2 ? null : 'err',
@@ -36,25 +69,17 @@
             if (!v) return 'err';
             return v > arrivo ? null : 'err';
         },
-        num_ospiti: v => (parseInt(v) >= 1 && parseInt(v) <= 5) ? null : 'err',
         gdpr_consent: (v, form) => form.querySelector('#gdpr_consent').checked ? null : 'err'
     };
 
     // Error ID mapping
     const errIdMap = {
         'nome_cognome': 'err-nome',
-        'num_ospiti': 'err-ospiti',
         'data_arrivo': 'err-arrivo',
         'data_partenza': 'err-partenza',
         'richiesta_tipo': 'err-tipo',
         'gdpr_consent': 'err-gdpr'
     };
-
-    // Get error messages from the DOM (set by i18n in Astro component)
-    function getErrorMsg(name) {
-        const errEl = document.getElementById(errIdMap[name] || `err-${name}`);
-        return errEl ? errEl.dataset.msg || 'Required' : 'Required';
-    }
 
     function validateField(name) {
         const el = form.querySelector(`[name="${name}"]`);
@@ -73,11 +98,13 @@
         e.preventDefault();
         const fields = Object.keys(validators);
         const valid = fields.map(f => validateField(f)).every(Boolean);
-        if (!valid) return;
+        const guestsValid = validateGuests();
+        if (!valid || !guestsValid) return;
 
         submitBtn.disabled = true;
 
         const formData = new FormData(form);
+        formData.set('num_ospiti', String(Number(adults.value) + Number(children.value)));
 
         try {
             const response = await fetch('/', {

@@ -67,11 +67,29 @@ const typeOptions = t(lang, 'form.fields.type.options') as Option[];
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="num_ospiti">{t(lang, 'form.fields.guests.label')} <span aria-hidden="true">*</span></label>
-                    <input type="number" id="num_ospiti" name="num_ospiti" min="1" max="5" placeholder={t(lang, 'form.fields.guests.placeholder')} required>
+                <fieldset class="form-guests"
+                    data-error-adults={t(lang, 'form.errors.guestsAdults')}
+                    data-error-children={t(lang, 'form.errors.guestsChildren')}
+                    data-error-total={t(lang, 'form.errors.guestsTotal')}>
+                    <legend>{t(lang, 'form.fields.guests.label')}</legend>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="num_adulti">{t(lang, 'form.fields.guests.adults')} <span aria-hidden="true">*</span></label>
+                            <select id="num_adulti" name="num_adulti" aria-describedby="err-ospiti" required>
+                                <option value="">{t(lang, 'form.fields.guests.choose')}</option>
+                                {[1, 2, 3, 4, 5].map(count => <option value={count}>{count}</option>)}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="num_bambini">{t(lang, 'form.fields.guests.children')}</label>
+                            <select id="num_bambini" name="num_bambini" aria-describedby="err-ospiti" required>
+                                {[0, 1, 2, 3, 4].map(count => <option value={count}>{count}</option>)}
+                            </select>
+                        </div>
+                    </div>
                     <span class="form-error" id="err-ospiti" aria-live="polite"></span>
-                </div>
+                    <input type="hidden" name="num_ospiti">
+                </fieldset>
 
                 <div class="form-group">
                     <label for="note">{t(lang, 'form.fields.notes.label')} <span class="optional">{t(lang, 'form.fields.notes.optional')}</span></label>
