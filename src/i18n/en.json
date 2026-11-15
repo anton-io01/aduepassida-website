@@ -68,7 +68,6 @@
       "wifi": "Wi-Fi 135 Mbps",
       "aircon": "Air conditioning",
       "heating": "Heating",
-      "soundproofing": "Soundproofing",
       "breakfast": "Italian breakfast",
       "kitchen": "Equipped kitchen",
       "washer": "Washing machine",
@@ -77,16 +76,11 @@
       "hairdryer": "Hair dryer",
       "terrace": "Sun terrace",
       "patio": "Outdoor patio",
-      "highchair": "High chair",
-      "stroller": "Stroller available",
+      "crib": "Crib",
       "parking": "Parking (€20 per day)",
       "shuttle": "Airport shuttle",
       "bicycle": "Bicycle rental",
-      "flexcheckin": "Flexible check-in",
-      "invoice": "Invoice on request",
-      "extinguisher": "Fire extinguishers",
-      "codetector": "Carbon monoxide detector",
-      "keys": "Key access"
+      "flexcheckin": "Flexible check-in"
     },
     "badges": {
       "included": "Included",

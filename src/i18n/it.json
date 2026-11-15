@@ -67,7 +67,6 @@
       "wifi": "Wi-Fi 135 Mbps",
       "aircon": "Aria condizionata",
       "heating": "Riscaldamento",
-      "soundproofing": "Insonorizzazione",
       "breakfast": "Colazione italiana",
       "kitchen": "Cucina attrezzata",
       "washer": "Lavatrice",
@@ -76,16 +75,11 @@
       "hairdryer": "Asciugacapelli",
       "terrace": "Terrazza solarium",
       "patio": "Patio esterno",
-      "highchair": "Seggiolone",
-      "stroller": "Passeggino disponibile",
+      "crib": "Culla per bambini",
       "parking": "Parcheggio (€20/gg)",
       "shuttle": "Navetta aeroporto",
       "bicycle": "Noleggio biciclette",
-      "flexcheckin": "Check-in flessibile",
-      "invoice": "Fattura su richiesta",
-      "extinguisher": "Estintori",
-      "codetector": "Rilevatore CO",
-      "keys": "Accesso con chiavi"
+      "flexcheckin": "Check-in flessibile"
     },
     "badges": {
       "included": "Incluso",
