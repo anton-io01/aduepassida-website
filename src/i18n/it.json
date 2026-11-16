@@ -11,7 +11,7 @@
     "attrazioni": "Dintorni",
     "recensioni": "Recensioni",
     "preventivo": "Preventivo",
-    "hamburgerLabel": "Apri menu",
+    "hamburgerLabel": "Menu di navigazione",
     "langItLabel": "Versione italiana",
     "langEnLabel": "English version"
   },
@@ -192,9 +192,10 @@
       "departure": { "label": "Data di partenza", "required": true },
       "guests": { "label": "Numero di ospiti", "adults": "Adulti", "children": "Bambini (0–17 anni)", "choose": "Seleziona" },
       "notes": { "label": "Richieste speciali", "optional": "(opzionale)", "placeholder": "Arrivo tardivo, allergie alimentari, esigenze particolari...", "maxlength": 500 },
-      "gdpr": { "text": "Acconsento al trattamento dei miei dati personali per ricevere risposta alla mia richiesta, ai sensi del", "linkText": "Regolamento GDPR", "required": true }
+      "gdpr": { "text": "Acconsento al trattamento dei miei dati personali per ricevere risposta alla mia richiesta, come descritto nell’", "linkText": "Informativa sulla privacy", "required": true }
     },
     "noteCounter": "{count}/500",
+    "submitting": "Invio in corso…",
     "submitBtn": "Invia Richiesta",
     "errors": {
       "arrivalInvalid": "Inserisci una data di arrivo valida.",
@@ -217,7 +218,7 @@
     "successWa": "Preferisci WhatsApp?",
     "successWaLink": "Contattaci direttamente",
     "requiresJavaScript": "Per inviare il modulo, attiva JavaScript oppure contattaci su",
-    "submitError": "Il modulo non ha confermato l’invio della richiesta. Riprova o contattaci via WhatsApp."
+    "submitError": "Il modulo non ha confermato l’invio della richiesta. Premi di nuovo «Invia richiesta» per riprovare oppure contattaci via WhatsApp."
   },
   "contacts": {
     "title": "Contatti",

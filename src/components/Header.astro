@@ -12,7 +12,10 @@ const { lang } = Astro.props;
     <div class="container header-inner">
         <a href="#hero" class="logo">A Due Passi Da</a>
         <nav id="main-nav">
-            <ul class="nav-links">
+            <button class="hamburger" type="button" id="hamburger-btn" aria-label={t(lang, 'nav.hamburgerLabel')} aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#struttura">{t(lang, 'nav.struttura')}</a></li>
                 <li><a href="#galleria">{t(lang, 'nav.galleria')}</a></li>
                 <li><a href="#servizi">{t(lang, 'nav.servizi')}</a></li>
@@ -22,13 +25,10 @@ const { lang } = Astro.props;
                 <li><a href="#preventivo" class="btn btn-primary">{t(lang, 'nav.preventivo')}</a></li>
             </ul>
             <div class="lang-toggle">
-                <a href={homePaths.it} class={lang === 'it' ? 'active' : ''} aria-label={t(lang, 'nav.langItLabel')}>IT</a>
+                <a href={homePaths.it} class={lang === 'it' ? 'active' : ''} aria-label={t(lang, 'nav.langItLabel')} aria-current={lang === 'it' ? 'page' : undefined}>IT</a>
                 <span>|</span>
-                <a href={homePaths.en} class={lang === 'en' ? 'active' : ''} aria-label={t(lang, 'nav.langEnLabel')}>EN</a>
+                <a href={homePaths.en} class={lang === 'en' ? 'active' : ''} aria-label={t(lang, 'nav.langEnLabel')} aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
             </div>
-            <button class="hamburger" id="hamburger-btn" aria-label={t(lang, 'nav.hamburgerLabel')} aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
         </nav>
     </div>
 </header>

@@ -43,7 +43,7 @@ if (current.key) services.push(current as Service);
         <div class="services-grid" id="services-grid">
             {services.map((s) => (
                 <div class="service-item">
-                    <i class={`fa-solid ${s.icon} service-icon`}></i>
+                    <i aria-hidden="true" class={`fa-solid ${s.icon} service-icon`}></i>
                     <span class="service-label">{t(lang, `services.labels.${s.key}`)}</span>
                     <span class={`badge ${s.included ? 'badge-included' : 'badge-paid'}`}>
                         {s.included ? t(lang, 'services.badges.included') : t(lang, 'services.badges.paid')}
@@ -51,6 +51,6 @@ if (current.key) services.push(current as Service);
                 </div>
             ))}
         </div>
-        <p class="services-note"><i class="fa-solid fa-circle-info"></i> {t(lang, 'services.note')}</p>
+        <p class="services-note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i> {t(lang, 'services.note')}</p>
     </div>
 </section>

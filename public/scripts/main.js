@@ -28,6 +28,13 @@ function initMobileMenu() {
         btn.classList.toggle('active', isOpen);
     });
 
+    nav.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || btn.getAttribute('aria-expanded') !== 'true' || !btn.offsetWidth) return;
+        event.preventDefault();
+        btn.click();
+        btn.focus();
+    });
+
     // Close menu when clicking a link
     links.forEach(link => {
         link.addEventListener('click', () => {
@@ -72,30 +79,19 @@ function initStrutturaCarousel() {
     const prev   = carousel.querySelector('.carousel-prev');
     const next   = carousel.querySelector('.carousel-next');
     let current  = 0;
-    let timer;
 
     function goTo(index) {
         slides[current].classList.remove('active');
+        slides[current].setAttribute('aria-hidden', 'true');
         dots[current].classList.remove('active');
         current = (index + slides.length) % slides.length;
         slides[current].classList.add('active');
+        slides[current].removeAttribute('aria-hidden');
         dots[current].classList.add('active');
     }
 
-    function startAuto() {
-        timer = setInterval(() => goTo(current + 1), 4000);
-    }
-
-    function resetAuto() {
-        clearInterval(timer);
-        startAuto();
-    }
-
-    prev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-    next.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
-
-    startAuto();
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
 }
 
 // Initialize all on DOM ready

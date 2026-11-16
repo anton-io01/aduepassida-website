@@ -116,7 +116,7 @@ const messageFields = {
                 <div class="form-group form-group-checkbox">
                     <label class="checkbox-label">
                         <input type="checkbox" id="gdpr_consent" name="gdpr_consent" aria-describedby="err-gdpr" required>
-                        <span>{t(lang, 'form.fields.gdpr.text')} <a href={privacyUrl} target="_blank">{t(lang, 'form.fields.gdpr.linkText')}</a>. <span aria-hidden="true">*</span></span>
+                        <span>{t(lang, 'form.fields.gdpr.text')}{lang === 'en' && ' '}<a href={privacyUrl} target="_blank">{t(lang, 'form.fields.gdpr.linkText')}</a>. <span aria-hidden="true">*</span></span>
                     </label>
                     <span class="form-error" id="err-gdpr" aria-live="polite"></span>
                 </div>
@@ -134,17 +134,18 @@ const messageFields = {
                 <noscript>
                     <p>{t(lang, 'form.requiresJavaScript')} <a href={waUrl}>WhatsApp</a>.</p>
                 </noscript>
-                <p id="form-error" class="form-error-general" role="alert" hidden>
+                <p id="form-progress" class="form-help" role="status" data-message={t(lang, 'form.submitting')}></p>
+                <p id="form-error" class="form-error-general" role="alert" tabindex="-1" hidden>
                     {t(lang, 'form.submitError')}
                     <a id="form-error-contact" href={waUrl} target="_blank" rel="noopener noreferrer">{t(lang, 'contacts.whatsapp.cta')}</a>
                 </p>
             </form>
 
             <div id="form-success" class="form-success" role="status" tabindex="-1" hidden>
-                <i class="fa-solid fa-circle-check"></i>
+                <i aria-hidden="true" class="fa-solid fa-circle-check"></i>
                 <h3>{t(lang, 'form.successTitle')}</h3>
                 <p>{t(lang, 'form.successMsg')}</p>
-                <p id="form-success-contact" class="form-success-wa">{t(lang, 'form.successWa')} <a href={waUrl} target="_blank" rel="noopener noreferrer">{t(lang, 'form.successWaLink')} <i class="fa-brands fa-whatsapp"></i></a></p>
+                <p id="form-success-contact" class="form-success-wa">{t(lang, 'form.successWa')} <a href={waUrl} target="_blank" rel="noopener noreferrer">{t(lang, 'form.successWaLink')} <i aria-hidden="true" class="fa-brands fa-whatsapp"></i></a></p>
             </div>
             <p id="form-whatsapp-fallback" class="form-help" hidden>
                 <a target="_blank" rel="noopener noreferrer">{t(lang, 'form.whatsappFallback')}</a>

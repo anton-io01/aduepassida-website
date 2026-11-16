@@ -11,7 +11,7 @@
     "attrazioni": "Nearby Attractions",
     "recensioni": "Reviews",
     "preventivo": "Request a Quote",
-    "hamburgerLabel": "Toggle menu",
+    "hamburgerLabel": "Navigation menu",
     "langItLabel": "Italian version",
     "langEnLabel": "English version"
   },
@@ -193,9 +193,10 @@
       "departure": { "label": "Check-out date", "required": true },
       "guests": { "label": "Number of guests", "adults": "Adults", "children": "Children (ages 0–17)", "choose": "Select" },
       "notes": { "label": "Special requests", "optional": "(optional)", "placeholder": "Late arrival, food allergies, accessibility needs…", "maxlength": 500 },
-      "gdpr": { "text": "I consent to the processing of my personal data to receive a reply to my request under the", "linkText": "General Data Protection Regulation", "required": true }
+      "gdpr": { "text": "I consent to the processing of my personal data to receive a reply to my request as described in the", "linkText": "Privacy Policy", "required": true }
     },
     "noteCounter": "{count}/500",
+    "submitting": "Sending…",
     "submitBtn": "Send Request",
     "errors": {
       "arrivalInvalid": "Enter a valid check-in date.",

@@ -46,6 +46,7 @@ const siteUrl = import.meta.env.SITE || 'https://aduepassidabnb.it';
     />
 </head>
 <body>
+    <a class="skip-link btn btn-primary" href="#main-content">{lang === 'it' ? 'Salta al contenuto' : 'Skip to content'}</a>
     {privacy ? (
         <header id="site-header">
             <div class="container header-inner">
@@ -54,9 +55,17 @@ const siteUrl = import.meta.env.SITE || 'https://aduepassidabnb.it';
             </div>
         </header>
     ) : <Header lang={lang} />}
-    <main class:list={{ 'privacy-page': privacy }}>
+    <main id="main-content" tabindex="-1" class:list={{ 'privacy-page': privacy }}>
         <slot />
     </main>
+    <script>
+        const header = document.getElementById('site-header');
+        if (header) {
+            const updateHeight = () => document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+            updateHeight();
+            new ResizeObserver(updateHeight).observe(header);
+        }
+    </script>
     <Footer lang={lang} privacy={privacy} />
     {!privacy && (
         <>

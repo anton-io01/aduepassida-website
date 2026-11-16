@@ -1,36 +1,51 @@
-/**
- * cookie-banner.js — Adapted for Astro
- * Removed: ES module export
- * Changed: IIFE pattern, same localStorage logic
- */
-
-(function() {
+(function () {
     const STORAGE_KEY = 'aduepassida_cookie_consent';
     const banner = document.getElementById('cookie-banner');
     if (!banner) return;
 
-    // Check if user already consented
-    const hasConsented = localStorage.getItem(STORAGE_KEY);
-    if (hasConsented) {
-        banner.remove();
-        return;
+    try {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            banner.remove();
+            return;
+        }
+    } catch {
+        // The banner remains dismissible when browser storage is unavailable.
     }
 
-    // Show banner
+    const root = document.documentElement;
+    const updateHeight = () => root.style.setProperty('--cookie-banner-height', `${banner.offsetHeight}px`);
+    const observer = new ResizeObserver(updateHeight);
     banner.hidden = false;
+    updateHeight();
+    observer.observe(banner);
 
-    // Accept button
-    const acceptBtn = document.getElementById('cookie-accept');
-    if (acceptBtn) {
-        acceptBtn.addEventListener('click', () => {
+    function revealFocus(event) {
+        const target = event.target;
+        if (!(target instanceof HTMLElement) || banner.contains(target)) return;
+        requestAnimationFrame(() => {
+            if (document.activeElement !== target || !banner.isConnected) return;
+            if (target.getBoundingClientRect().bottom > banner.getBoundingClientRect().top) {
+                target.scrollIntoView({ block: 'center', behavior: 'instant' });
+            }
+        });
+    }
+
+    document.addEventListener('focusin', revealFocus);
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+        try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify({
                 necessary: true,
                 functional: true,
                 analytics: false,
                 timestamp: new Date().toISOString()
             }));
-            banner.style.animation = 'slideDown 0.3s ease-out';
-            setTimeout(() => banner.remove(), 300);
-        });
-    }
+        } catch {
+            // Dismiss for the current page even if the choice cannot be saved.
+        } finally {
+            observer.disconnect();
+            document.removeEventListener('focusin', revealFocus);
+            root.style.removeProperty('--cookie-banner-height');
+            banner.remove();
+        }
+    });
 })();

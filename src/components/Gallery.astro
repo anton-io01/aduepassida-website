@@ -35,6 +35,8 @@ const imageEntries = galleryImages.map((img) => {
                     ) : (
                         <img
                             src={entry.mod!.src}
+                            width={entry.mod!.width}
+                            height={entry.mod!.height}
                             alt={entry.alt}
                             loading="lazy"
                             decoding="async"

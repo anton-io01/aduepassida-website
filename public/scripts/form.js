@@ -5,6 +5,7 @@
     const form = document.getElementById('quote-form');
     if (!form) return;
 
+    const progress = document.getElementById('form-progress');
     const send = document.getElementById('form-submit-btn');
     const sendAndOpen = document.getElementById('form-submit-wa');
     const success = document.getElementById('form-success');
@@ -178,6 +179,7 @@
         }
 
         busy = true;
+        progress.textContent = progress.dataset.message;
         send.disabled = true;
         sendAndOpen.disabled = true;
 
@@ -213,12 +215,14 @@
             successContact.hidden = withWhatsApp;
             success.hidden = false;
             success.focus({ preventScroll: true });
-            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            success.scrollIntoView({ block: 'center' });
         } catch {
             errorContact.hidden = withWhatsApp;
             serviceError.hidden = false;
+            serviceError.focus();
         } finally {
             busy = false;
+            progress.textContent = '';
             send.disabled = false;
             sendAndOpen.disabled = false;
         }

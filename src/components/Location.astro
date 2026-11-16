@@ -19,7 +19,7 @@ const mapEmbed = `https://maps.google.com/maps?q=${property.latitude},${property
         <div class="location-grid">
             <div class="location-info">
                 <div class="location-address">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i aria-hidden="true" class="fa-solid fa-location-dot"></i>
                     <div>
                         <strong>{t(lang, 'location.addressName')}</strong>
                         <p>{streetAddress}<br>{postalCode} {addressLocality} {addressRegion}</p>
@@ -27,10 +27,10 @@ const mapEmbed = `https://maps.google.com/maps?q=${property.latitude},${property
                 </div>
 
                 <div class="location-directions">
-                    <h3><i class="fa-solid fa-train"></i> {t(lang, 'location.directions.trainTitle')}</h3>
+                    <h3><i aria-hidden="true" class="fa-solid fa-train"></i> {t(lang, 'location.directions.trainTitle')}</h3>
                     <p>{t(lang, 'location.directions.trainDesc')}</p>
 
-                    <h3><i class="fa-solid fa-plane"></i> {t(lang, 'location.directions.airportTitle')}</h3>
+                    <h3><i aria-hidden="true" class="fa-solid fa-plane"></i> {t(lang, 'location.directions.airportTitle')}</h3>
                     <p>{t(lang, 'location.directions.airportDesc')}</p>
                 </div>
             </div>
@@ -48,7 +48,7 @@ const mapEmbed = `https://maps.google.com/maps?q=${property.latitude},${property
                 </iframe>
                 <p class="map-fallback">
                     <a href={property.mapsUrl} target="_blank" rel="noopener">
-                        <i class="fa-solid fa-external-link"></i> {t(lang, 'location.mapFallback')}
+                        <i aria-hidden="true" class="fa-solid fa-external-link"></i> {t(lang, 'location.mapFallback')}
                     </a>
                 </p>
             </div>
