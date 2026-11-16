@@ -18,8 +18,9 @@
   "hero": {
     "preTitle": "Benvenuti a Corato, Puglia",
     "title": "A Due Passi Da",
+    "location": "B&B a Corato",
     "tagline": "Il tuo appartamento privato nel cuore della Puglia",
-    "cta": "Richiedi Preventivo"
+    "cta": "Verifica disponibilità e prezzo"
   },
   "struttura": {
     "title": "La Struttura",
@@ -84,8 +85,6 @@
     "title": "Dove Siamo",
     "subtitle": "Nel cuore del centro storico di Corato",
     "addressName": "A Due Passi Da",
-    "addressStreet": "Via Duomo, 81",
-    "addressCity": "70033 Corato (BA) - Italia",
     "directions": {
       "trainTitle": "Dalla Stazione FS",
       "trainDesc": "Stazione di Corato a 700 metri (10 minuti a piedi)",
@@ -132,6 +131,11 @@
     ]
   },
   "reviews": {
+    "platform": {
+      "count": "recensioni",
+      "verified": "Verificato il",
+      "link": "Leggi le recensioni su"
+    },
     "title": "Recensioni",
     "subtitle": "Cosa dicono i nostri ospiti",
     "items": [
@@ -162,6 +166,14 @@
     "title": "Richiedi un Preventivo",
     "subtitle": "Prenota direttamente, senza commissioni",
     "hiddenSubject": "Nuova richiesta preventivo – A Due Passi Da",
+    "optionalHelp": "Per informazioni generali, date e ospiti sono facoltativi. La richiesta non conferma una prenotazione.",
+    "submitWhatsApp": "Invia richiesta e apri WhatsApp",
+    "whatsappHelp": "WhatsApp apre una bozza con i dati inseriti. Per mandarla, premi «Invia» dentro WhatsApp.",
+    "whatsappFallback": "Apri la bozza in WhatsApp",
+    "totalGuests": "Totale ospiti",
+    "whatsappHeading": "Richiesta per A Due Passi Da a Corato",
+    "unspecified": "Non indicato",
+    "optional": "(opzionale)",
     "fields": {
       "name": { "label": "Nome e Cognome", "placeholder": "Mario Rossi", "required": true },
       "email": { "label": "Email", "placeholder": "mario@esempio.it", "required": true },
@@ -185,6 +197,10 @@
     "noteCounter": "{count}/500",
     "submitBtn": "Invia Richiesta",
     "errors": {
+      "arrivalInvalid": "Inserisci una data di arrivo valida.",
+      "departureInvalid": "Inserisci una data di partenza valida.",
+      "datePast": "Indica una data di oggi o futura.",
+      "dateOrder": "La partenza deve essere successiva all’arrivo.",
       "name": "Inserisci nome e cognome",
       "email": "Inserisci un indirizzo email valido",
       "phone": "Formato telefono non valido",
@@ -201,7 +217,7 @@
     "successWa": "Preferisci WhatsApp?",
     "successWaLink": "Contattaci direttamente",
     "requiresJavaScript": "Per inviare il modulo, attiva JavaScript oppure contattaci su",
-    "submitError": "Errore nell’invio. Riprova o contattaci via WhatsApp."
+    "submitError": "Il modulo non ha confermato l’invio della richiesta. Riprova o contattaci via WhatsApp."
   },
   "contacts": {
     "title": "Contatti",
@@ -217,6 +233,7 @@
       "note": "Lun–Dom · 9:00–20:00"
     },
     "whatsapp": {
+      "floatingMessage": "Ciao! Vorrei informazioni per un soggiorno presso A Due Passi Da a Corato.",
       "title": "WhatsApp",
       "cta": "Scrivici su WhatsApp",
       "message": "Ciao! Vorrei richiedere un preventivo per il B&B A Due Passi Da."

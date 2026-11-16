@@ -1,0 +1,92 @@
+---
+import { t, whatsappBaseUrl } from '../i18n/utils';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+const message = t(lang, 'contacts.whatsapp.floatingMessage');
+const href = `${whatsappBaseUrl}?text=${encodeURIComponent(message)}`;
+---
+
+<a id="floating-whatsapp" class="btn" href={href} target="_blank" rel="noopener noreferrer"
+   aria-label={t(lang, 'contacts.whatsapp.cta')} hidden>
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    WhatsApp
+</a>
+
+<script>
+    const link = document.getElementById('floating-whatsapp');
+    const banner = document.getElementById('cookie-banner');
+
+    if (link && banner) {
+        const protectedElements = document.querySelectorAll(
+            '#site-header, #site-footer, .form-wrapper, main a, main button, main iframe, main h1, main h2, main h3',
+        );
+
+        let lift = 0;
+        const updatePosition = () => {
+            link.style.setProperty('--banner-height', `${banner.offsetHeight}px`);
+            const button = link.getBoundingClientRect();
+            const baseTop = button.top + lift;
+            const baseBottom = button.bottom + lift;
+            const boxes = Array.from(protectedElements, element => element.getBoundingClientRect());
+            const overlaps = (offset: number) => boxes.some(box =>
+                box.width > 0 && box.height > 0 && box.left < button.right &&
+                box.right > button.left && box.top < baseBottom - offset && box.bottom > baseTop - offset,
+            );
+            // Try one position above the usual dock before hiding on a crowded screen.
+            lift = overlaps(0) ? button.height + 12 : 0;
+            link.style.setProperty('--button-lift', `${lift}px`);
+            link.classList.toggle('overlap', baseTop - lift < 0 || overlaps(lift));
+        };
+
+        let frame = 0;
+        const scheduleUpdate = () => {
+            if (frame) return;
+            frame = requestAnimationFrame(() => {
+                frame = 0;
+                updatePosition();
+            });
+        };
+
+        const observer = new ResizeObserver(scheduleUpdate);
+        observer.observe(banner);
+        observer.observe(document.body);
+        window.addEventListener('scroll', scheduleUpdate, { passive: true });
+        window.addEventListener('resize', scheduleUpdate);
+        link.hidden = false;
+        updatePosition();
+    }
+</script>
+
+<style>
+    #floating-whatsapp {
+        position: fixed;
+        z-index: 50;
+        right: max(1rem, env(safe-area-inset-right));
+        bottom: calc(1rem + var(--button-lift, 0px) + max(var(--banner-height, 0px), env(safe-area-inset-bottom)));
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-height: 44px;
+        border-radius: 999px;
+        background: #146c43;
+        color: #fff;
+        box-shadow: 0 3px 12px #0003;
+        transition-property: background-color;
+    }
+
+    #floating-whatsapp[hidden] {
+        display: none;
+    }
+
+    #floating-whatsapp:hover {
+        background: #0f5434;
+    }
+
+    #floating-whatsapp.overlap {
+        visibility: hidden;
+    }
+</style>

@@ -424,8 +424,8 @@ p {
 }
 
 .hero-overlay {
-    position: absolute;
-    inset: 0;
+    align-self: stretch;
+    width: 100%;
     background: rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
@@ -452,8 +452,14 @@ p {
 
 .hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     color: #FFFFFF;
+}
+
+.hero-location {
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
 }
 
 .hero-tagline {
@@ -467,15 +473,6 @@ p {
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.hero-whatsapp {
-    background-color: #146c43;
-    color: #fff;
-}
-
-.hero-whatsapp:hover {
-    background-color: #0f5434;
 }
 
 .hero-cta {
@@ -1034,11 +1031,30 @@ p {
     text-decoration: underline;
 }
 
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
 .form-submit {
-    width: 100%;
+    flex: 1 1 240px;
     font-size: 1.1rem;
     padding: 14px;
-    margin-top: var(--spacing-md);
+}
+
+.form-help {
+    margin-block: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+.form-help a {
+    text-decoration: underline;
+}
+
+#quote-form :is(input, select, textarea) {
+    scroll-margin-top: 6rem;
 }
 
 .btn-spinner {
@@ -1072,7 +1088,7 @@ p {
 }
 
 .form-success-wa a {
-    color: #25D366;
+    color: #146c43;
     font-weight: 700;
     text-decoration: underline;
 }
@@ -1084,6 +1100,11 @@ p {
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-md);
+}
+
+.form-error-general a {
+    color: inherit;
+    text-decoration: underline;
 }
 
 /* ================================

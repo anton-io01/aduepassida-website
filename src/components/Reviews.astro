@@ -1,4 +1,5 @@
 ---
+import { platformRatings, property } from '../data/property';
 import { t } from '../i18n/utils';
 
 interface Props {
@@ -16,7 +17,26 @@ interface ReviewItem {
 }
 
 const items = t(lang, 'reviews.items') as ReviewItem[];
+const platforms = [
+  { name: 'Google', ...platformRatings.google, url: property.mapsUrl },
+  { name: 'Booking.com', ...platformRatings.booking, url: `${property.bookingUrl[lang]}#tab-reviews` },
+];
+const scoreFormat = new Intl.NumberFormat(lang, { minimumFractionDigits: 1 });
+const verifiedDate = new Intl.DateTimeFormat(lang === 'it' ? 'it-IT' : 'en-GB', {
+  dateStyle: 'medium', timeZone: 'UTC',
+}).format(new Date(platformRatings.verifiedOn));
 ---
+
+<div class="container platform-ratings">
+    {platforms.map(({ name, score, scale, count, url }) => (
+        <article class="review-card">
+            <h2>{name}</h2>
+            <p><strong>{scoreFormat.format(score)}/{scale}</strong> · {count} {t(lang, 'reviews.platform.count')}</p>
+            <p>{t(lang, 'reviews.platform.verified')} <time datetime={platformRatings.verifiedOn}>{verifiedDate}</time></p>
+            <a href={url} target="_blank" rel="noopener">{t(lang, 'reviews.platform.link')} {name}</a>
+        </article>
+    ))}
+</div>
 
 <section id="recensioni" class="section">
     <div class="container">
@@ -51,3 +71,34 @@ const items = t(lang, 'reviews.items') as ReviewItem[];
         </div>
     </div>
 </section>
+
+<style>
+    .platform-ratings {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        padding-top: var(--spacing-xl);
+    }
+
+    .platform-ratings article {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .platform-ratings h2 {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .platform-ratings p {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .platform-ratings strong {
+        font-size: 1.2em;
+    }
+
+    .platform-ratings a {
+        text-decoration: underline;
+    }
+</style>

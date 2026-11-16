@@ -1,5 +1,5 @@
 ---
-import { t, whatsappUrl } from '../i18n/utils';
+import { t } from '../i18n/utils';
 
 interface Props {
   lang: 'it' | 'en';
@@ -13,15 +13,12 @@ const { lang } = Astro.props;
         <div class="hero-content">
             <p class="hero-pre-title">{t(lang, 'hero.preTitle')}</p>
             <h1 class="hero-title">{t(lang, 'hero.title')}</h1>
+            <p class="hero-location">{t(lang, 'hero.location')}</p>
             <p class="hero-tagline">{t(lang, 'hero.tagline')}</p>
             <div class="hero-actions">
                 <a href="#preventivo" class="btn btn-primary hero-cta">
                     {t(lang, 'hero.cta')}
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-                <a href={whatsappUrl(lang)} class="btn hero-cta hero-whatsapp" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                    {t(lang, 'contacts.whatsapp.cta')}
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

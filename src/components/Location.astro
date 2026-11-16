@@ -1,4 +1,5 @@
 ---
+import { property } from '../data/property';
 import { t } from '../i18n/utils';
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+const { streetAddress, postalCode, addressLocality, addressRegion } = property.address;
+const mapEmbed = `https://maps.google.com/maps?q=${property.latitude},${property.longitude}&hl=${lang}&z=17&output=embed`;
 ---
 
 <section id="posizione" class="section">
@@ -19,7 +22,7 @@ const { lang } = Astro.props;
                     <i class="fa-solid fa-location-dot"></i>
                     <div>
                         <strong>{t(lang, 'location.addressName')}</strong>
-                        <p>{t(lang, 'location.addressStreet')}<br>{t(lang, 'location.addressCity')}</p>
+                        <p>{streetAddress}<br>{postalCode} {addressLocality} {addressRegion}</p>
                     </div>
                 </div>
 
@@ -34,7 +37,7 @@ const { lang } = Astro.props;
 
             <div class="location-map">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.393111971697!2d16.4060013154145!3d41.1536119792871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA5JzEzLjAiTiAxNsKwMjQnMjkuNSJF!5e0!3m2!1sit!2sit!4v1234567890"
+                    src={mapEmbed}
                     width="100%"
                     height="400"
                     style="border:0; border-radius: 16px;"
@@ -44,7 +47,7 @@ const { lang } = Astro.props;
                     title={t(lang, 'location.mapTitle')}>
                 </iframe>
                 <p class="map-fallback">
-                    <a href="https://maps.app.goo.gl/XJyi6LoNaDg6M8298" target="_blank" rel="noopener">
+                    <a href={property.mapsUrl} target="_blank" rel="noopener">
                         <i class="fa-solid fa-external-link"></i> {t(lang, 'location.mapFallback')}
                     </a>
                 </p>

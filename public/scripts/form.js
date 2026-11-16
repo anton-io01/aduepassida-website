@@ -1,138 +1,232 @@
 /**
- * form.js
  * Quote request validation and Web3Forms submission
  */
-
 (function () {
     const form = document.getElementById('quote-form');
-    const submitBtn = document.getElementById('form-submit-btn');
-    const success = document.getElementById('form-success');
-    const noteEl = document.getElementById('note');
-    const counter = document.getElementById('note-counter');
-    const errorMessage = document.getElementById('form-error');
     if (!form) return;
 
-    const isEnglish = document.documentElement.lang === 'en';
-    const message = (italian, english) => isEnglish ? english : italian;
+    const send = document.getElementById('form-submit-btn');
+    const sendAndOpen = document.getElementById('form-submit-wa');
+    const success = document.getElementById('form-success');
+    const successContact = document.getElementById('form-success-contact');
+    const serviceError = document.getElementById('form-error');
+    const errorContact = document.getElementById('form-error-contact');
+    const fallback = document.getElementById('form-whatsapp-fallback');
+    const fallbackLink = fallback.querySelector('a');
+    const counter = document.getElementById('note-counter');
 
-    // Character counter for textarea
-    noteEl?.addEventListener('input', () => {
-        counter.textContent = `${noteEl.value.length}/500`;
+    const {
+        nome_cognome: name, email, telefono: phone, richiesta_tipo: type,
+        data_arrivo: arrival, data_partenza: departure, num_adulti: adults,
+        num_bambini: children, note, gdpr_consent: consent,
+    } = form.elements;
+    const stayFields = [arrival, departure, adults, children];
+    const requiredMarkers = form.querySelectorAll('[data-stay-required]');
+    const optionalMarkers = form.querySelectorAll('[data-stay-optional]');
+    const errors = JSON.parse(form.dataset.errors);
+    const whatsappFields = JSON.parse(form.dataset.whatsappFields);
+    const formatter = new Intl.DateTimeFormat(document.documentElement.lang === 'it' ? 'it-IT' : 'en-GB', {
+        dateStyle: 'medium',
     });
+    let busy = false;
+    let submitted = false;
+    let childrenChosen = false;
 
-    const adults = form.elements.num_adulti;
-    const children = form.elements.num_bambini;
-    const guestError = document.getElementById('err-ospiti');
-    const guestMessages = {
-        adults: message('Seleziona il numero di adulti (da 1 a 5).', 'Select the number of adults (1 to 5).'),
-        children: message('Seleziona il numero di bambini (da 0 a 4).', 'Select the number of children (0 to 4).'),
-        total: message('Puoi indicare al massimo 5 ospiti in totale.', 'You can select up to 5 guests in total.')
-    };
+    function dateValue(date) {
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${date.getFullYear()}-${month}-${day}`;
+    }
+
+    function updateDateLimits() {
+        const today = dateValue(new Date());
+        arrival.min = today;
+        departure.min = today;
+        if (arrival.value >= today) {
+            const nextDay = new Date(`${arrival.value}T12:00:00`);
+            nextDay.setDate(nextDay.getDate() + 1);
+            departure.min = dateValue(nextDay);
+        }
+    }
+
+    function updateRequiredFields() {
+        const optional = type.value === 'informazioni';
+        for (const field of stayFields) field.required = !optional;
+        for (const marker of requiredMarkers) marker.hidden = optional;
+        for (const marker of optionalMarkers) marker.hidden = !optional;
+
+        // Preserve a deliberate zero without treating the initial default as a choice.
+        children.options[0].hidden = !optional;
+        if (optional && !childrenChosen && children.value === '0') children.value = '';
+        if (!optional && children.value === '') children.value = '0';
+    }
+
+    function showError(field, text) {
+        field.classList.toggle('input-error', Boolean(text));
+        field.setAttribute('aria-invalid', String(Boolean(text)));
+    }
+
+    function validateDate(field, invalidMessage, requiredMessage) {
+        if (field.validity.badInput) return invalidMessage;
+        if (!field.value) return field.required ? requiredMessage : '';
+        if (field.value < arrival.min) return errors.datePast;
+        if (field === departure && arrival.value && field.value <= arrival.value) return errors.dateOrder;
+        return '';
+    }
+
+    function guestCount(field) {
+        return field.value === '' ? null : Number(field.value);
+    }
 
     function validateGuests() {
-        const adultCount = Number(adults.value);
-        const childCount = Number(children.value);
-        const invalidAdults = !Number.isInteger(adultCount) || adultCount < 1 || adultCount > 5;
-        const invalidChildren = children.value === '' || !Number.isInteger(childCount) || childCount < 0 || childCount > 4;
-        const overCapacity = !invalidAdults && !invalidChildren && adultCount + childCount > 5;
+        const adultCount = guestCount(adults);
+        const childCount = guestCount(children);
+        const badAdults = adultCount === null ? adults.required :
+            !Number.isInteger(adultCount) || adultCount < 1 || adultCount > 5;
+        const badChildren = childCount === null ? children.required :
+            !Number.isInteger(childCount) || childCount < 0 || childCount > 4;
+        const overCapacity = !badAdults && !badChildren &&
+            adultCount !== null && childCount !== null && adultCount + childCount > 5;
+        const messages = [
+            badAdults && errors.guestsAdults,
+            badChildren && errors.guestsChildren,
+            overCapacity && errors.guestsTotal,
+        ].filter(Boolean);
 
-        let error = '';
-        if (invalidAdults) {
-            error = guestMessages.adults;
-        } else if (invalidChildren) {
-            error = guestMessages.children;
-        } else if (overCapacity) {
-            error = guestMessages.total;
+        document.getElementById('err-ospiti').textContent = messages.join(' ');
+        showError(adults, badAdults || overCapacity);
+        showError(children, badChildren || overCapacity);
+    }
+
+    function validate() {
+        updateDateLimits();
+        const checks = [
+            [name, 'err-nome', name.value.trim().length < 2 && errors.name],
+            [email, 'err-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) && errors.email],
+            [phone, 'err-telefono', phone.value.trim() && !/^[\d\s+\-()]{9,}$/.test(phone.value.trim()) && errors.phone],
+            [type, 'err-tipo', !type.value && errors.type],
+            [arrival, 'err-arrivo', validateDate(arrival, errors.arrivalInvalid, errors.arrival)],
+            [departure, 'err-partenza', validateDate(departure, errors.departureInvalid, errors.departure)],
+            [consent, 'err-gdpr', !consent.checked && errors.gdpr],
+        ];
+        for (const [field, errorId, message] of checks) {
+            const error = document.getElementById(errorId);
+            if (error.textContent !== (message || '')) error.textContent = message || '';
+            showError(field, message);
+        }
+        validateGuests();
+        return form.querySelector('[aria-invalid="true"]');
+    }
+
+    function createPayload() {
+        const data = new FormData(form);
+        for (const field of [name, phone, note]) data.set(field.name, field.value.trim());
+        for (const field of stayFields) {
+            if (!field.value) data.delete(field.name);
+        }
+        const adultCount = guestCount(adults);
+        const childCount = guestCount(children);
+        if (adultCount !== null && childCount !== null) {
+            data.set('num_ospiti', String(adultCount + childCount));
+        }
+        return Object.fromEntries(data);
+    }
+
+    function createWhatsAppUrl(payload) {
+        const message = [form.dataset.whatsappHeading, ''];
+        for (const [field, label] of Object.entries(whatsappFields)) {
+            const value = payload[field]?.trim();
+            if (!value) continue;
+
+            let displayValue = value;
+            if (field === type.name) displayValue = type.selectedOptions[0].text;
+            if (field === arrival.name || field === departure.name) {
+                displayValue = formatter.format(new Date(`${value}T12:00:00`));
+            }
+            message.push(`${label}: ${displayValue}`);
+        }
+        return `${form.dataset.whatsappUrl}?text=${encodeURIComponent(message.join('\n'))}`;
+    }
+
+    note.addEventListener('input', () => {
+        counter.textContent = `${note.value.length}/500`;
+    });
+    form.addEventListener('focusin', updateDateLimits);
+    form.addEventListener('change', event => {
+        if (event.target === children) childrenChosen = children.value !== '';
+        if (event.target === type) updateRequiredFields();
+        if (submitted) validate();
+        else updateDateLimits();
+    });
+
+    for (const button of [send, sendAndOpen]) {
+        button.addEventListener('click', event => {
+            if (event.detail > 1) event.preventDefault();
+        });
+    }
+
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (busy || form.hidden) return;
+
+        submitted = true;
+        serviceError.hidden = true;
+        const firstInvalid = validate();
+        if (firstInvalid) {
+            firstInvalid.focus();
+            return;
         }
 
-        guestError.textContent = error;
-        adults.classList.toggle('input-error', invalidAdults || overCapacity);
-        children.classList.toggle('input-error', invalidChildren || overCapacity);
-        adults.setAttribute('aria-invalid', String(invalidAdults || overCapacity));
-        children.setAttribute('aria-invalid', String(invalidChildren || overCapacity));
-        return !invalidAdults && !invalidChildren && !overCapacity;
-    }
+        busy = true;
+        send.disabled = true;
+        sendAndOpen.disabled = true;
 
-    // Validators
-    const validators = {
-        nome_cognome: v => v.trim().length >= 2 ? null : message('Inserisci il tuo nome e cognome (min. 2 caratteri)', 'Enter your full name (at least 2 characters)'),
-        email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : message('Inserisci un indirizzo email valido', 'Enter a valid email address'),
-        telefono: v => !v || /^[\d\s+\-()]{9,}$/.test(v) ? null : message('Numero di telefono non valido', 'Enter a valid phone number'),
-        data_arrivo: (v, form) => {
-            if (!v) return message('Seleziona la data di arrivo', 'Select your check-in date');
-            const today = new Date().toISOString().split('T')[0];
-            return v >= today ? null : message('La data di arrivo deve essere oggi o futura', 'Check-in must be today or later');
-        },
-        data_partenza: (v, form) => {
-            const arrivo = form.querySelector('#data_arrivo').value;
-            if (!v) return message('Seleziona la data di partenza', 'Select your check-out date');
-            return v > arrivo ? null : message('La partenza deve essere dopo l\'arrivo', 'Check-out must be after check-in');
-        },
-        richiesta_tipo: v => v ? null : message('Seleziona il tipo di richiesta', 'Select a request type'),
-        gdpr_consent: (v, form) => form.querySelector('#gdpr_consent').checked ? null : message('Il consenso è obbligatorio', 'Consent is required')
-    };
-
-    function validateField(name) {
-        const el = form.querySelector(`[name="${name}"]`);
-        const errIdMap = {
-            'nome_cognome': 'err-nome',
-            'data_arrivo': 'err-arrivo',
-            'data_partenza': 'err-partenza',
-            'richiesta_tipo': 'err-tipo',
-            'gdpr_consent': 'err-gdpr'
-        };
-        const errId = errIdMap[name] || `err-${name}`;
-        const err = document.getElementById(errId);
-
-        if (!el || !err || !validators[name]) return true;
-
-        const msg = validators[name](el.value, form);
-        err.textContent = msg || '';
-        el.classList.toggle('input-error', !!msg);
-        return !msg;
-    }
-
-    form.noValidate = true;
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (submitBtn.disabled) return;
-        errorMessage.hidden = true;
-
-        const fields = Object.keys(validators);
-        const valid = fields.map(f => validateField(f)).every(Boolean);
-        const guestsValid = validateGuests();
-        if (!valid || !guestsValid) return;
-
-        submitBtn.disabled = true;
+        const withWhatsApp = event.submitter === sendAndOpen;
+        const payload = createPayload();
+        fallback.hidden = !withWhatsApp;
+        if (withWhatsApp) fallbackLink.href = createWhatsAppUrl(payload);
+        else fallbackLink.removeAttribute('href');
 
         try {
-            const formData = new FormData(form);
-            formData.set('num_ospiti', String(Number(adults.value) + Number(children.value)));
-            const payload = Object.fromEntries(formData);
-            const response = await fetch(form.action, {
+            const request = fetch(form.action, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
+                headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
             });
-            const result = await response.json();
-            if (!response.ok || result.success !== true) {
-                throw new Error('Web3Forms rejected the submission');
+
+            if (withWhatsApp) {
+                // Keep the opening inside the original user gesture, including on mobile.
+                try {
+                    window.open(fallbackLink.href, '_blank', 'noopener,noreferrer');
+                } catch {
+                    // The manual link is available regardless of the browser's response.
+                }
             }
 
+            const response = await request;
+            const result = await response.json();
+            if (!response.ok || result.success !== true) throw new Error('Web3Forms rejected the submission');
+
             form.reset();
-            if (counter) counter.textContent = '0/500';
+            counter.textContent = '0/500';
             form.hidden = true;
+            successContact.hidden = withWhatsApp;
             success.hidden = false;
+            success.focus({ preventScroll: true });
             success.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } catch {
-            errorMessage.hidden = false;
+            errorContact.hidden = withWhatsApp;
+            serviceError.hidden = false;
         } finally {
-            submitBtn.disabled = false;
+            busy = false;
+            send.disabled = false;
+            sendAndOpen.disabled = false;
         }
     });
-    submitBtn.disabled = false;
+
+    form.noValidate = true;
+    updateRequiredFields();
+    updateDateLimits();
+    send.disabled = false;
+    sendAndOpen.disabled = false;
 })();
