@@ -4,7 +4,7 @@
 
 15 novembre 2026 · `feature/integrazione-selettiva` · `/Users/antonio.modugno/Downloads/aduepassida-website`
 
-Origin fetch e push https://github.com/anton-io01/aduepassida-website.git, base `origin/main` a `8bcc602fc722b21dcf1cd83062c1b561a691290e`. Checkout pulito all’avvio. Implementazione verificata e pronta per il commit locale. Revisione visiva del proprietario in attesa.
+Origin fetch e push https://github.com/anton-io01/aduepassida-website.git, base `origin/main` a `8bcc602fc722b21dcf1cd83062c1b561a691290e`. Checkout pulito all’avvio. Implementazione verificata e consegnata nel commit 6cf7a64.
 
 ## Verifiche e decisioni
 
@@ -30,4 +30,9 @@ Origin fetch e push https://github.com/anton-io01/aduepassida-website.git, base 
 
 ## Consegna
 
-Codice e cinque documenti inclusi nel commit locale. Il prossimo passo è la revisione visiva del proprietario. Nessun push autorizzato.
+Commit 6cf7a64 pubblicato dopo approvazione. PR #13 verso main aperta.
+
+## Ritocco del 16 novembre 2026
+
+- Pulsante WhatsApp flottante con estremità arrotondate. Punteggi Google e Booking.com aumentati da 16 px a 19,2 px alla dimensione base del testo.
+- Build Astro riuscita. Stili calcolati verificati nelle due home sull’anteprima locale. Il ritocco attende l’autorizzazione al push del nuovo commit.
