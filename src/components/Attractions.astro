@@ -34,6 +34,8 @@ const items = t(lang, 'attractions.items') as AttractionItem[];
                             {imgMod ? (
                                 <img
                                     src={imgMod.src}
+                                    width={imgMod.width}
+                                    height={imgMod.height}
                                     alt={item.name}
                                     loading="lazy"
                                     decoding="async"
@@ -45,7 +47,7 @@ const items = t(lang, 'attractions.items') as AttractionItem[];
                             )}
                         </div>
                         <div class="attraction-content">
-                            <span class="attraction-distance"><i class="fa-solid fa-route"></i> {item.distance}</span>
+                            <span class="attraction-distance"><i aria-hidden="true" class="fa-solid fa-route"></i> {item.distance}</span>
                             <h3>{item.name}</h3>
                             <p>{item.description}</p>
                         </div>

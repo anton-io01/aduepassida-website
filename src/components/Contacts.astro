@@ -15,19 +15,19 @@ const { lang } = Astro.props;
         <p class="section-subtitle">{t(lang, 'contacts.subtitle')}</p>
         <div class="contatti-grid">
             <div class="contact-card">
-                <i class="fa-solid fa-envelope contact-icon"></i>
+                <i aria-hidden="true" class="fa-solid fa-envelope contact-icon"></i>
                 <h3>{t(lang, 'contacts.email.title')}</h3>
                 <a href="mailto:aduepassida.beb@gmail.com" class="contact-link">{t(lang, 'contacts.email.value')}</a>
                 <p class="contact-note">{t(lang, 'contacts.email.note')}</p>
             </div>
             <div class="contact-card">
-                <i class="fa-solid fa-phone contact-icon"></i>
+                <i aria-hidden="true" class="fa-solid fa-phone contact-icon"></i>
                 <h3>{t(lang, 'contacts.phone.title')}</h3>
                 <a href={`tel:${property.phone}`} class="contact-link">{t(lang, 'contacts.phone.value')}</a>
                 <p class="contact-note">{t(lang, 'contacts.phone.note')}</p>
             </div>
             <div class="contact-card contact-card-wa">
-                <i class="fa-brands fa-whatsapp contact-icon"></i>
+                <i aria-hidden="true" class="fa-brands fa-whatsapp contact-icon"></i>
                 <h3>{t(lang, 'contacts.whatsapp.title')}</h3>
                 <a href={whatsappUrl(lang)} class="contact-link btn btn-outline" target="_blank" rel="noopener noreferrer">
                     {t(lang, 'contacts.whatsapp.cta')}
@@ -36,7 +36,7 @@ const { lang } = Astro.props;
             <div class="booking-link-box" hidden>
                 <p>{t(lang, 'contacts.booking.text')}</p>
                 <a href={property.bookingUrl[lang]} target="_blank" rel="noopener" class="btn btn-outline">
-                    <i class="fa-solid fa-external-link"></i> {t(lang, 'contacts.booking.cta')}
+                    <i aria-hidden="true" class="fa-solid fa-external-link"></i> {t(lang, 'contacts.booking.cta')}
                 </a>
             </div>
         </div>

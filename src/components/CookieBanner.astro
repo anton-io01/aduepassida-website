@@ -11,7 +11,7 @@ const privacyUrl = privacyPaths[lang];
 
 <div id="cookie-banner" class="cookie-banner" hidden>
     <div class="cookie-content">
-        <p><i class="fa-solid fa-cookie-bite"></i> <strong>{t(lang, 'cookie.title')}</strong> {t(lang, 'cookie.description')} <a href={privacyUrl}>{t(lang, 'cookie.privacyLink')}</a></p>
+        <p><i aria-hidden="true" class="fa-solid fa-cookie-bite"></i> <strong>{t(lang, 'cookie.title')}</strong> {t(lang, 'cookie.description')} <a href={privacyUrl}>{t(lang, 'cookie.privacyLink')}</a></p>
         <button id="cookie-accept" class="btn btn-primary">{t(lang, 'cookie.acceptSelected')}</button>
     </div>
 </div>

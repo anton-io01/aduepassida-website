@@ -27,11 +27,11 @@ const highlights = t(lang, 'struttura.highlights') as string[];
                 <p>{t(lang, 'struttura.description')}</p>
                 <ul class="struttura-highlights">
                     {highlights.map((item) => (
-                        <li><i class="fa-solid fa-check"></i> {item}</li>
+                        <li><i aria-hidden="true" class="fa-solid fa-check"></i> {item}</li>
                     ))}
                 </ul>
                 <div class="accessibility-notice">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i>
                     <span>{t(lang, 'struttura.accessibilityNotice')}</span>
                 </div>
             </div>
@@ -41,7 +41,10 @@ const highlights = t(lang, 'struttura.highlights') as string[];
                         {images.map(({ image, alt }, i) => (
                             <img
                                 src={image.src}
+                                width={image.width}
+                                height={image.height}
                                 alt={alt}
+                                aria-hidden={i > 0 ? 'true' : undefined}
                                 class={`carousel-slide${i === 0 ? ' active' : ''}`}
                                 loading="lazy"
                                 decoding="async"
@@ -49,10 +52,10 @@ const highlights = t(lang, 'struttura.highlights') as string[];
                         ))}
                     </div>
                     <button class="carousel-btn carousel-prev" aria-label={t(lang, 'struttura.prevLabel')}>
-                        <i class="fa-solid fa-chevron-left"></i>
+                        <i aria-hidden="true" class="fa-solid fa-chevron-left"></i>
                     </button>
                     <button class="carousel-btn carousel-next" aria-label={t(lang, 'struttura.nextLabel')}>
-                        <i class="fa-solid fa-chevron-right"></i>
+                        <i aria-hidden="true" class="fa-solid fa-chevron-right"></i>
                     </button>
                     <div class="carousel-dots" aria-hidden="true">
                         {images.map((_, i) => (

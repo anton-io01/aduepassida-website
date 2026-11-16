@@ -27,21 +27,21 @@ const verifiedDate = new Intl.DateTimeFormat(lang === 'it' ? 'it-IT' : 'en-GB', 
 }).format(new Date(platformRatings.verifiedOn));
 ---
 
-<div class="container platform-ratings">
-    {platforms.map(({ name, score, scale, count, url }) => (
-        <article class="review-card">
-            <h2>{name}</h2>
-            <p><strong>{scoreFormat.format(score)}/{scale}</strong> · {count} {t(lang, 'reviews.platform.count')}</p>
-            <p>{t(lang, 'reviews.platform.verified')} <time datetime={platformRatings.verifiedOn}>{verifiedDate}</time></p>
-            <a href={url} target="_blank" rel="noopener">{t(lang, 'reviews.platform.link')} {name}</a>
-        </article>
-    ))}
-</div>
-
 <section id="recensioni" class="section">
     <div class="container">
         <h2 class="section-title">{t(lang, 'reviews.title')}</h2>
         <p class="section-subtitle">{t(lang, 'reviews.subtitle')}</p>
+
+        <div class="platform-ratings">
+            {platforms.map(({ name, score, scale, count, url }) => (
+                <article class="review-card">
+                    <h3>{name}</h3>
+                    <p><strong>{scoreFormat.format(score)}/{scale}</strong> · {count} {t(lang, 'reviews.platform.count')}</p>
+                    <p>{t(lang, 'reviews.platform.verified')} <time datetime={platformRatings.verifiedOn}>{verifiedDate}</time></p>
+                    <a href={url} target="_blank" rel="noopener">{t(lang, 'reviews.platform.link')} {name}</a>
+                </article>
+            ))}
+        </div>
 
         <div class="reviews-grid">
             {items.map((review) => {
@@ -50,11 +50,11 @@ const verifiedDate = new Intl.DateTimeFormat(lang === 'it' ? 'it-IT' : 'en-GB', 
                 return (
                     <article class="review-card">
                         <div class="review-header">
-                            <div class="review-stars">
+                            <div class="review-stars" role="img" aria-label={`${new Intl.NumberFormat(lang).format(review.rating)} ${lang === 'it' ? 'su' : 'out of'} 5`}>
                                 {Array.from({ length: fullStars }).map(() => (
-                                    <i class="fa-solid fa-star"></i>
+                                    <i aria-hidden="true" class="fa-solid fa-star"></i>
                                 ))}
-                                {hasHalf && <i class="fa-solid fa-star-half-stroke"></i>}
+                                {hasHalf && <i aria-hidden="true" class="fa-solid fa-star-half-stroke"></i>}
                             </div>
                             <span class="review-date">{review.date}</span>
                         </div>
@@ -78,14 +78,14 @@ const verifiedDate = new Intl.DateTimeFormat(lang === 'it' ? 'it-IT' : 'en-GB', 
         justify-content: center;
         flex-wrap: wrap;
         gap: var(--spacing-md);
-        padding-top: var(--spacing-xl);
+        margin-bottom: var(--spacing-lg);
     }
 
     .platform-ratings article {
         padding: var(--spacing-md) var(--spacing-lg);
     }
 
-    .platform-ratings h2 {
+    .platform-ratings h3 {
         font-size: 1.1rem;
         margin-bottom: var(--spacing-xs);
     }
